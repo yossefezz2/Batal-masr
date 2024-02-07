@@ -1,0 +1,512 @@
+{
+	"info": {
+		"_postman_id": "3b0179b7-010b-4ba8-a8df-8ee89a63243c",
+		"name": "batal-masr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27127709"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "mangeAgentsOfMinistry",
+					"item": [
+						{
+							"name": "add agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ffffggf@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/agent/",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"agent",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all agent",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/agent",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"agent"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single agent",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/agent/{{test-agent-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"agent",
+										"{{test-agent-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "ahmed ezz",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ezz@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/agent/{{test-agent-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"agent",
+										"{{test-agent-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/agent/{{test-agent-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"agent",
+										"{{test-agent-ID}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mangeRepresentorOfAssociationServices",
+					"item": [
+						{
+							"name": "add agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "representor@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "association",
+											"value": "kora",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/representor/",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"representor",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all agent",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/representor",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"representor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single agent",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/representor/{{test-representor-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"representor",
+										"{{test-representor-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "admin@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/representor/{{test-representor-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"representor",
+										"{{test-representor-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/representor/{{test-representor-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"representor",
+										"{{test-representor-ID}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{localhost}}/login",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token-admin",
+			"value": "eyJhbGciOiJIUzI1NiJ9.N0tmcnFETjJfUw.z8rTIXVgwYz9A-pDWKH5xzhxowxx7rXjO7a-z91XH-g",
+			"type": "string"
+		},
+		{
+			"key": "test-agent-ID",
+			"value": "esVUQOxZ3k",
+			"type": "string"
+		},
+		{
+			"key": "test-representor-ID",
+			"value": "pnJ5sFWy7y",
+			"type": "string"
+		}
+	]
+}
