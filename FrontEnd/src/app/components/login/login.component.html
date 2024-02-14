@@ -42,6 +42,7 @@
                         <div class="button  d-flex justify-content-center mt-4">
                         <button type="submit" >Sign In</button>
                         </div>
+                        <p class="text-danger" *ngIf="errMessage">{{errMessage}}</p>
                         <p class="mt-4">Don't have an account? <a href="#" class="signup">Sign Up!</a></p>
                     </form>
                 </div>
