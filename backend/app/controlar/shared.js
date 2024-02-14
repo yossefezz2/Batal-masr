@@ -7,7 +7,8 @@ class shared{
             const findEmail =await sharedService.getEmail(req.body.email)
             if (findEmail[0]) {
                 if (await bcrypt.compare(req.body.password, findEmail[0].password)) {
-                    await sharedService.genToken(findEmail[0].id)
+                    await sharedService.genToken(req,findEmail[0].id)
+                    findEmail[0].token = req.token
                     helpers.resGenerator(res, 200, true, findEmail[0], "success")
                 } else {
                     throw new Error("Invalid password")
