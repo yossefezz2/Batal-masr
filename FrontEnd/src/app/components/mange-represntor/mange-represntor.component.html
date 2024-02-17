@@ -1,0 +1,29 @@
+<div class="container-fluid user-list-page mt-2">
+    <h1 class="text-center  p-4">Represntors List</h1>
+    <div class="row g-5">
+        <div class="col-md-3">
+            <div class="add-user-card bg-transparent ">
+                <div class="icon mb-5 mt-5"><i class="fa-solid fa-user-plus"></i></div>
+                <button class="btn btn-dark" routerLink="/AddRepresntor">ADD REPRESNTOR</button>
+            </div>
+        </div>
+        <div class="col-md-4 " *ngFor="let agent of allAgents">
+            <div class="user-card">
+                <div class="icon w-50 m-auto">
+                <img src="../../../assets/admin2.png" alt="User Profile Picture">
+                </div>
+                <div class="data">
+                    <h2>{{agent.name}}</h2>
+                    <p><span class="fw-bold">Email: </span>{{agent.email}} </p>
+                    <p><span class="fw-bold">Type: </span> {{agent.type}}</p>
+                    <div class="buttons">
+                        <button class="btn btn-danger me-4" (click)="deleteAgent(agent.id)">DELETE REPRESNTOR</button>
+                        <button class="btn btn-secondary"  [routerLink]="['/EditRepresntor',agent.id]">EDIT REPRESNTOR</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
