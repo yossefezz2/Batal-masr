@@ -22,7 +22,8 @@ constructor(private _AuthService:AuthService,private _Router:Router){}
     this._AuthService.login(userData).subscribe({
       next:(res)=>{
         if(res.apiStatus==true)
-       
+        localStorage.setItem('_token' ,res.data.token)
+
         this._Router.navigate(['/home'])
       },
       error:(err)=>{

@@ -1,0 +1,42 @@
+
+
+
+.user-list-page {
+    background-color: #121415ba; 
+    opacity: 10;
+    width: 95%;
+    color: #fff; 
+    border-radius: 10px;
+}
+    .add-user-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #0e0d0d;
+      border-radius: 10px;
+    }
+    .add-user-card button{
+    width: 50%;
+    margin-bottom: 20px;
+   
+    }
+    .icon i{
+        font-size: 70px;
+    }
+
+    .user-card {
+      background: rgba(0, 0, 0, 0.5); 
+      padding: 20px;
+      margin-bottom: 20px;
+      img {
+        width: 100%; 
+      }
+      
+    }
+.data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
