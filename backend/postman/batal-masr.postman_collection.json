@@ -347,6 +347,43 @@
 							"response": []
 						},
 						{
+							"name": "get all associationMember",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/representor/associationMember/kora",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"representor",
+										"associationMember",
+										"kora"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "edit agent",
 							"request": {
 								"auth": {
@@ -418,6 +455,199 @@
 										"admin",
 										"representor",
 										"{{test-representor-ID}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mangeAssociation",
+					"item": [
+						{
+							"name": "add Association",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "associationName",
+											"value": "handball",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/association",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"association"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all Association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/association",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"association"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single Association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/association/{{test-Association-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"association",
+										"{{test-Association-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit Association",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "associationName",
+											"value": "kongFu",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/association/{{test-Association-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"association",
+										"{{test-Association-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete Association",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/admin/association/{{test-Association-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"admin",
+										"association",
+										"{{test-Association-ID}}"
 									],
 									"query": [
 										{
@@ -506,6 +736,11 @@
 		{
 			"key": "test-representor-ID",
 			"value": "pnJ5sFWy7y",
+			"type": "string"
+		},
+		{
+			"key": "test-Association-ID",
+			"value": "3",
 			"type": "string"
 		}
 	]
