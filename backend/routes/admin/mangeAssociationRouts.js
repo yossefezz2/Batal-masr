@@ -5,8 +5,6 @@ const router =express.Router()
 
 router.get('/',userMiddleware,isAdmin, mangeAssociation.getallAssociation)
 
-// router.get("/associationMember/:associationName",userMiddleware,isAdmin, mangeRepresentorOfAssociation.getallUsersInSingleAssociation )
-
 router.get("/:id",userMiddleware,isAdmin, mangeAssociation.getSingleAssociation )
 
 router.post("/",userMiddleware,isAdmin, mangeAssociation.addAssociation)

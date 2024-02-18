@@ -1,11 +1,11 @@
 
-const mangeAssociationservices = require("../../../services/admin/mangeAgentsOfMinistryServices.js")
+const mangeAssociationservices = require("../../../services/admin/mangeAssociationServices.js")
 const helpers = require('../../helper.js');
 class mangeAssociation {
     static async addAssociation(req, res) {
         try {
             await mangeAssociationservices.addAssociation(req.body.associationName);
-            helpers.resGenerator(res,200, true, data, "add association")
+            helpers.resGenerator(res,200, true, {}, "add association")
         }
         catch (error) {
             helpers.resGenerator(res,400, false, error.message, "can't add association")
@@ -37,7 +37,7 @@ class mangeAssociation {
     }
     static async editAssociation(req, res) {
         try {
-            await mangeAssociationservices.editAgent(req.body.associationName,req.params.id);
+            await mangeAssociationservices.editAssociation(req.body.associationName,req.params.id);
             helpers.resGenerator(res,200, true, {}, "edit association")
         }
         catch (error) {

@@ -18,12 +18,13 @@ class mangeAssociation {
     return await query("UPDATE association SET associationName = ? WHERE association.associationID = ?",[associationName,id]);
   };
   static async deleteAssociation (id) {
-    const query = util.promisify(connection.query).bind(connection);
+    const query = util.promisify(connection.query).bind(connection)
     return await query("delete from association where associationID =?",[id]);
   };
   static async getSingleAssociation (id) {
+    console.log(typeof id);
     const query = util.promisify(connection.query).bind(connection);
-    return await query("SELECT * FROM association WHERE associationID = ?,"[id]);
+    return await query("SELECT * FROM association WHERE associationID = ?",[Number(id)]);
   };
 }
 module.exports =mangeAssociation;

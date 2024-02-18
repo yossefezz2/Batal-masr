@@ -56,6 +56,19 @@ class mangeRepresentorOfAssociation {
             helpers.resGenerator(res,400, false, error.message, "can't get single agent")
         }
     }
+    static async getallUsersInSingleAssociation(req, res){
+        try {
+            console.log(req.params.associationName);
+            const data = await mangeRepresentorOfAssociationServices.getallUsersInSingleAssociation(req.params.associationName);
+            if (data.length <= 0)  {
+                throw new Error("not users found");
+            }
+            helpers.resGenerator(res,200, true, data, "singer agent")
+        }
+        catch (error) {
+            helpers.resGenerator(res,400, false, error.message, "can't get single agent")
+        }
+    }
     static async editRepresentor(req, res) {
         try {
             const mail = await sharedService.getSingleEmail(req.body.email, req.params.id);
