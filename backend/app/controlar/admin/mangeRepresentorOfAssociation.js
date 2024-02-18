@@ -1,6 +1,6 @@
 
 const mangeRepresentorOfAssociationServices = require("../../../services/admin/mangeRepresentorOfAssociationServices.js")
-const mangeAssociation = require("../../../services/admin/mangeAssociation.js")
+const mangeAssociation = require("../../../services/admin/mangeAssociationServices.js")
 const sharedService = require("../../../services/shared.js");
 const helpers = require('../../helper.js');
 const bcrypt = require("bcrypt");
