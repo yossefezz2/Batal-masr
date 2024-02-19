@@ -3,13 +3,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/core/services/admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
-  selector: 'app-edit-represntor',
-  templateUrl: './edit-represntor.component.html',
-  styleUrls: ['./edit-represntor.component.scss']
+  selector: 'app-updateministry',
+  templateUrl: './updateministry.component.html',
+  styleUrls: ['./updateministry.component.scss']
 })
-export class EditRepresntorComponent {
+export class UpdateministryComponent {
   constructor(private _AdminService:AdminService,
     private _ToastrService: ToastrService,
     private _Router:Router,
@@ -20,7 +19,7 @@ export class EditRepresntorComponent {
     }
   errMessage:string='';
   agentId:any;
-  editRepresntor:FormGroup = new FormGroup({
+  editAgentOfMinistry:FormGroup = new FormGroup({
     name:new FormControl('',[Validators.required ,Validators.minLength(4)]),
     email:new FormControl('',[Validators.required ,Validators.email]),
   })
@@ -34,7 +33,7 @@ export class EditRepresntorComponent {
     })
   }
   handelForm(){
-    console.log(this.editRepresntor.value);
+    console.log(this.editAgentOfMinistry.value);
     
   }
 }

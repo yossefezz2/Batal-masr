@@ -6,19 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-myHeaders:any ={
-  token: localStorage.getItem('_token')
-}
 baseUrl:string='http://localhost:3000'
   constructor(private _HttpClient:HttpClient) { }
 
   addAgentRepresentor(userData:object):Observable<any>{
-    return this._HttpClient.post(this.baseUrl +'/admin/representor/',userData,
-    {
-      headers:this.myHeaders
-    }
-
-    )
+    return this._HttpClient.post(this.baseUrl +'/admin/representor/',userData)
   }
 
   getAllAgents():Observable<any>{
@@ -27,5 +19,23 @@ baseUrl:string='http://localhost:3000'
 
   deleteAgent(id:string):Observable<any>{
    return this._HttpClient.delete(this.baseUrl + `/admin/representor/${id}`)
+  }
+
+  updateAgent(id:string,item:any):Observable<any>{
+    return this._HttpClient.put(this.baseUrl+`/admin/representor/${id}`,{
+      item:item
+    })
+  }
+
+  gatAgentsOfMinistry():Observable<any>{
+    return this._HttpClient.get(this.baseUrl+'/admin/agent')
+  }
+
+  deleteAgentOfMinistry(id:string):Observable<any>{
+    return this._HttpClient.delete(this.baseUrl + `/admin/agent/${id}`)
+   }
+
+   addAgentofMinistry(userData:object):Observable<any>{
+    return this._HttpClient.post(this.baseUrl +'/admin/agent/',userData)
   }
 }
