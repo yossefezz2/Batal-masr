@@ -9,7 +9,7 @@ const userMiddleware= async (req,res,next)=>{
         let decoded = jwt.verify(token,process.env.jwtKey)
         // console.log(decoded);
         const user =await sharedService.checkToken(token,decoded)
-        if(!user)  throw new Error("invalid auth")
+        if(!user[0])  throw new Error("invalid auth")
 
         req.user = user[0]
         req.token = token

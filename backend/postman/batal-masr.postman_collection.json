@@ -695,6 +695,80 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "single logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token-admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{localhost}}/singleLogout",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"singleLogout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout For All",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{localhost}}/allLogout",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"allLogout"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -725,7 +799,7 @@
 		},
 		{
 			"key": "token-admin",
-			"value": "eyJhbGciOiJIUzI1NiJ9.N0tmcnFETjJfUw.z8rTIXVgwYz9A-pDWKH5xzhxowxx7rXjO7a-z91XH-g",
+			"value": "eyJhbGciOiJIUzI1NiJ9.emFzNDJOU0tTaQ.X2vWbnfc6w1WhEUIIcCyCoENhAZoWTqT4em7Sn6eBKM",
 			"type": "string"
 		},
 		{
@@ -735,7 +809,7 @@
 		},
 		{
 			"key": "test-representor-ID",
-			"value": "pnJ5sFWy7y",
+			"value": "6jOFFMXmdu",
 			"type": "string"
 		},
 		{

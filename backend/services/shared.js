@@ -22,6 +22,14 @@ class sharedService {
     const query = util.promisify(connection.query).bind(connection);
     return await query("SELECT * FROM allusers WHERE email = ? and id != ?", [email,id]);
   };
+  static async singleLogout (token) {
+    const query = util.promisify(connection.query).bind(connection)
+    return await query("delete from tokens where token =?",[token]);
+  };
+  static async logoutForAll (userId) {
+    const query = util.promisify(connection.query).bind(connection)
+    return await query("delete from tokens where userId =?",[userId]);
+  };
 }
 module.exports = sharedService;
 
