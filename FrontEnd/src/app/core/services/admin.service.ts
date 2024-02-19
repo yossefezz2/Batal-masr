@@ -16,15 +16,16 @@ baseUrl:string='http://localhost:3000'
   getAllAgents():Observable<any>{
     return this._HttpClient.get(this.baseUrl +'/admin/representor')
   }
+  getSingleAgents(id:string):Observable<any>{
+    return this._HttpClient.get(this.baseUrl +`/admin/representor/${id}`)
+  }
 
   deleteAgent(id:string):Observable<any>{
    return this._HttpClient.delete(this.baseUrl + `/admin/representor/${id}`)
   }
 
   updateAgent(id:string,item:any):Observable<any>{
-    return this._HttpClient.put(this.baseUrl+`/admin/representor/${id}`,{
-      item:item
-    })
+    return this._HttpClient.put(this.baseUrl+`/admin/representor/${id}`,item)
   }
 
   gatAgentsOfMinistry():Observable<any>{
@@ -38,4 +39,5 @@ baseUrl:string='http://localhost:3000'
    addAgentofMinistry(userData:object):Observable<any>{
     return this._HttpClient.post(this.baseUrl +'/admin/agent/',userData)
   }
+
 }

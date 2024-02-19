@@ -10,7 +10,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http"
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MangeRepresntorComponent } from './components/mange-represntor/mange-represntor.component';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { AddRepresntorComponent } from './components/add-represntor/add-represntor.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -36,6 +36,7 @@ import { UpdateministryComponent } from './components/updateministry/updateminis
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
