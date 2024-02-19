@@ -7,6 +7,9 @@ import { MangeRepresntorComponent } from './components/mange-represntor/mange-re
 import { LoginComponent } from './components/login/login.component';
 import { AddRepresntorComponent } from './components/add-represntor/add-represntor.component';
 import { EditRepresntorComponent } from './components/edit-represntor/edit-represntor.component';
+import { MangeministryComponent } from './components/mangeministry/mangeministry.component';
+import { AddministryComponent } from './components/addministry/addministry.component';
+import { UpdateministryComponent } from './components/updateministry/updateministry.component';
 
 const routes: Routes = [
   {path:'',component:AuthLayoutComponent,children:[
@@ -20,6 +23,9 @@ const routes: Routes = [
     {path:'MangeRepresntor',component:MangeRepresntorComponent,title:'MangeRepresntor'},
     {path:'AddRepresntor',component:AddRepresntorComponent,title:'AddRepresntor'},
     {path:'EditRepresntor/:id',component:EditRepresntorComponent,title:'EditRepresntor'},
+    {path:'mangeMinistry',component:MangeministryComponent,title:'mangeMinistry'},
+    {path:'addMinistry',component:AddministryComponent,title:'addMinistry'},
+    {path:'updataMinistry/:id',component:UpdateministryComponent,title:'EditMinistry'},
   ]},
 ];
 

@@ -15,6 +15,9 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { AddRepresntorComponent } from './components/add-represntor/add-represntor.component';
 import { ToastrModule } from 'ngx-toastr';
 import { EditRepresntorComponent } from './components/edit-represntor/edit-represntor.component';
+import { MangeministryComponent } from './components/mangeministry/mangeministry.component';
+import { AddministryComponent } from './components/addministry/addministry.component';
+import { UpdateministryComponent } from './components/updateministry/updateministry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +29,9 @@ import { EditRepresntorComponent } from './components/edit-represntor/edit-repre
     LoginComponent,
     AddRepresntorComponent,
     EditRepresntorComponent,
+    MangeministryComponent,
+    AddministryComponent,
+    UpdateministryComponent,
     
   ],
   imports: [
