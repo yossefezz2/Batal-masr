@@ -13,10 +13,9 @@ export class EditRepresntorComponent {
   constructor(private _AdminService:AdminService,
     private _ToastrService: ToastrService,
     private _Router:Router,
-    private _ActivatedRoute:ActivatedRoute,){}
-    model = {
+    private _ActivatedRoute:ActivatedRoute,){}    model = {
+      name: '',
       email: '',
-      password: '',
     }
   errMessage:string='';
   agentId:any;
@@ -29,12 +28,27 @@ export class EditRepresntorComponent {
       next:(params)=>{
         this.agentId = params.get('id');
         console.log(this.agentId);
-        
+        this._AdminService.getSingleAgents(this.agentId).subscribe({
+          next:(res)=>{
+            this.model.name=res.data[0].name;
+            this.model.email=res.data[0].email;
+
+            
+          }
+        })
       }
     })
+
   }
   handelForm(){
-    console.log(this.editRepresntor.value);
+    this._AdminService.updateAgent(this.agentId,this.editRepresntor.value).subscribe({
+      next:(res)=>{
+        this._Router.navigate(['/MangeRepresntor'])
+        this._ToastrService.success('The account has been Updated successfully');
+        
+      }
+
+    })
     
   }
 }
