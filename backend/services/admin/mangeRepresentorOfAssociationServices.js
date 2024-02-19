@@ -7,7 +7,7 @@ class mangeAgentsOfMinistryServices {
     };
     static async getallUsers() {
         const query = util.promisify(connection.query).bind(connection);
-        return await query("select * from allusers where type = ?", ["representorOfAssociation"]);
+        return await query("select * from allusers inner join association on associationID=allusers.association where type = ?", ["representorOfAssociation"]);
     };
     static async getallUsersInSingleAssociation(associationName) {
         const query = util.promisify(connection.query).bind(connection);
@@ -15,7 +15,7 @@ class mangeAgentsOfMinistryServices {
     };
     static async getSingleUserByAdmin(id) {
         const query = util.promisify(connection.query).bind(connection);
-        return await query("select * from allusers where type = ? && id = ?", ["representorOfAssociation", id]);
+        return await query("select * from allusers inner join association on associationID=allusers.association where type = ? && id = ?", ["representorOfAssociation", id]);
     };
     static async editRepresentor(data, id) {
         const query = util.promisify(connection.query).bind(connection);
