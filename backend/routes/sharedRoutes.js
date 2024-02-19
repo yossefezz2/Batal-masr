@@ -1,6 +1,8 @@
 var express = require('express');
-// const {userMiddleware,isAdmin} = require("../../app/middelware/auth.middelware")
+const {userMiddleware} = require("../app/middelware/auth.middelware.js")
 const shared = require('../app/controlar/shared.js')
 const router =express.Router()
 router.post("/login", shared.login)
+router.delete("/singleLogout",userMiddleware, shared.singleLogout)
+router.delete("/allLogout",userMiddleware, shared.logoutForAll)
 module.exports = router
