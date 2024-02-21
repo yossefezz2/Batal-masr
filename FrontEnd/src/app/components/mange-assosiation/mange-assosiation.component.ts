@@ -8,31 +8,31 @@ import { AdminService } from 'src/app/core/services/admin.service';
 })
 export class MangeAssosiationComponent {
 constructor(private _AdminService:AdminService){}
-// allAgents:any={}
+allAgents:any={}
 
 
-//   ngOnInit(): void {
-//   this._AdminService.getAllAgents().subscribe({
-//     next:(res)=>{
-//       console.log(res);
-//       this.allAgents =res.data
-//     }
-//   })
+  ngOnInit(): void {
+  this._AdminService.gatAssosiation().subscribe({
+    next:(res)=>{
+      console.log(res);
+      this.allAgents =res.data
+    }
+  })
     
-//   }
+  }
   
-//   deleteAgent(id:string){
-//   this._AdminService.deleteAgent(id).subscribe({
-//     next:(res)=>{
-//       console.log(res);
-//       this._AdminService.getAllAgents().subscribe({
-//         next:(res)=>{
-//           this.allAgents =res.data
-//         }
-//       })
+  deleteAgent(id:string){
+  this._AdminService.deleteAssosiation(id).subscribe({
+    next:(res)=>{
+      console.log(res);
+      this._AdminService.gatAssosiation().subscribe({
+        next:(res)=>{
+          this.allAgents =res.data
+        }
+      })
   
-//     }
+    }
   
-//   })
-//   }
+  })
+  }
 }

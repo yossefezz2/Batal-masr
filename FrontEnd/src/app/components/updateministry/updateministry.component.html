@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="button w-100  ">
-                    <button type="submit" class="btn btn-dark ">Edit Account</button>
+                    <button type="submit" class="btn btn-dark main-btn" [disabled]="editAgentOfMinistry.invalid">Edit Account <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
                     <p class="alert alert-danger p-1 ms-0 mt-2 w-50" *ngIf="errMessage">{{errMessage}}</p>
                 </div>
                 

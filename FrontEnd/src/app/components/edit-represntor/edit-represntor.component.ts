@@ -14,6 +14,7 @@ export class EditRepresntorComponent {
     private _ToastrService: ToastrService,
     private _Router:Router,
     private _ActivatedRoute:ActivatedRoute,){}  
+    isLoading:boolean=false;
       model = {
       name: '',
       email: '',
@@ -42,12 +43,15 @@ export class EditRepresntorComponent {
 
   }
   handelForm(){
+    this.isLoading=true
     this._AdminService.updateAgent(this.agentId,this.editRepresntor.value).subscribe({
-      next:(res)=>{
+      next:()=>{
+        this.isLoading=false; 
         this._Router.navigate(['/MangeRepresntor'])
         this._ToastrService.success('The account has been Updated successfully');
         
       },error:(err)=>{
+        this.isLoading=false; 
         this.errMessage = err.error.data
       }
 

@@ -66,14 +66,14 @@
 .data::before {
   content: "";
   position: absolute;
-  top: 26%;
-  left: 14%;
-  width: 304px;
+  top: 20%;
+  left: 11%;
+  width: 233px;
   height: 1px;
   background-color: #0e0d0d19;
 }
 
 .add-user-card {
   cursor: pointer;
-  height: 95% !important;
+  height: 95%;
 }
