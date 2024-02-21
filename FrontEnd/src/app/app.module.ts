@@ -18,6 +18,9 @@ import { EditRepresntorComponent } from './components/edit-represntor/edit-repre
 import { MangeministryComponent } from './components/mangeministry/mangeministry.component';
 import { AddministryComponent } from './components/addministry/addministry.component';
 import { UpdateministryComponent } from './components/updateministry/updateministry.component';
+import { MangeAssosiationComponent } from './components/mange-assosiation/mange-assosiation.component';
+import { AddAssosiationComponent } from './components/add-assosiation/add-assosiation.component';
+import { EditAssosiationComponent } from './components/edit-assosiation/edit-assosiation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,9 @@ import { UpdateministryComponent } from './components/updateministry/updateminis
     MangeministryComponent,
     AddministryComponent,
     UpdateministryComponent,
+    MangeAssosiationComponent,
+    AddAssosiationComponent,
+    EditAssosiationComponent,
     
   ],
   imports: [

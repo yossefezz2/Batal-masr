@@ -13,7 +13,8 @@ export class EditRepresntorComponent {
   constructor(private _AdminService:AdminService,
     private _ToastrService: ToastrService,
     private _Router:Router,
-    private _ActivatedRoute:ActivatedRoute,){}    model = {
+    private _ActivatedRoute:ActivatedRoute,){}  
+      model = {
       name: '',
       email: '',
     }
@@ -46,6 +47,8 @@ export class EditRepresntorComponent {
         this._Router.navigate(['/MangeRepresntor'])
         this._ToastrService.success('The account has been Updated successfully');
         
+      },error:(err)=>{
+        this.errMessage = err.error.data
       }
 
     })

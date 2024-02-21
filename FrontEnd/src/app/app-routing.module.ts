@@ -10,6 +10,9 @@ import { EditRepresntorComponent } from './components/edit-represntor/edit-repre
 import { MangeministryComponent } from './components/mangeministry/mangeministry.component';
 import { AddministryComponent } from './components/addministry/addministry.component';
 import { UpdateministryComponent } from './components/updateministry/updateministry.component';
+import { MangeAssosiationComponent } from './components/mange-assosiation/mange-assosiation.component';
+import { AddAssosiationComponent } from './components/add-assosiation/add-assosiation.component';
+import { EditAssosiationComponent } from './components/edit-assosiation/edit-assosiation.component';
 
 const routes: Routes = [
   {path:'',component:AuthLayoutComponent,children:[
@@ -26,6 +29,9 @@ const routes: Routes = [
     {path:'mangeMinistry',component:MangeministryComponent,title:'mangeMinistry'},
     {path:'addMinistry',component:AddministryComponent,title:'addMinistry'},
     {path:'updataMinistry/:id',component:UpdateministryComponent,title:'EditMinistry'},
+    {path:'mangeAssosiation',component:MangeAssosiationComponent,title:'mangeAssosiation'},
+    {path:'addAssosiation',component:AddAssosiationComponent,title:'addAssosiation'},
+    {path:'updataAssosiation/:id',component:EditAssosiationComponent,title:'updataAssosiation'},
   ]},
 ];
 
