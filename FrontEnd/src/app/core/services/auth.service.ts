@@ -10,4 +10,7 @@ export class AuthService {
   login(userData:object):Observable<any>{
     return this._HttpClient.post(`http://localhost:3000/login`,userData)
   }
+  logout():Observable<any>{
+    return this._HttpClient.delete(`http://localhost:3000/singleLogout`)
+  }
 }

@@ -17,6 +17,8 @@ export class UpdateministryComponent {
       name: '',
       email: '',
     }
+    isLoading:boolean=false;
+
   errMessage:string='';
   agentId:any;
   editAgentOfMinistry:FormGroup = new FormGroup({
@@ -40,12 +42,15 @@ export class UpdateministryComponent {
     })
   }
   handelForm(){
+    this.isLoading=true
     this._AdminService.updateAgentOfMinistry(this.agentId,this.editAgentOfMinistry.value).subscribe({
-      next:(res)=>{
+      next:()=>{
+        this.isLoading=false; 
         this._Router.navigate(['/mangeMinistry'])
         this._ToastrService.success('The account has been Updated successfully');
         
       },error:(err)=>{
+        this.isLoading=false; 
         this.errMessage = err.error.data
       }
 

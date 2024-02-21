@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddministryComponent {
   constructor(private _AdminService:AdminService,private _ToastrService: ToastrService,private _Router:Router){}
+  isLoading:boolean=false;
   errMessage:string=''
   addAgentOfMinisetry:FormGroup = new FormGroup({
     name:new FormControl('',[Validators.required ,Validators.minLength(4)]),
@@ -21,15 +22,17 @@ export class AddministryComponent {
 
   handelForm(){
     const userData= this.addAgentOfMinisetry.value;
+    this.isLoading=true
     if(this.addAgentOfMinisetry.valid){
       this._AdminService.addAgentofMinistry(userData).subscribe({
-        next:(res)=>{
+        next:()=>{
+          this.isLoading=false; 
       this._Router.navigate(['/mangeMinistry'])
           this._ToastrService.success('The account has been added successfully');
           this.errMessage=''
           
         },error:(err)=>{
-          console.log(err);
+          this.isLoading=false; 
           this.errMessage=err.error.data
           
         }

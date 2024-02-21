@@ -51,4 +51,27 @@ baseUrl:string='http://localhost:3000'
   updateAgentOfMinistry(id:string,item:any):Observable<any>{
     return this._HttpClient.put(this.baseUrl+`/admin/agent/${id}`,item)
   }
+
+  //////////////////////////////////////////////////////////////////////////////////
+
+  /* ​‌‍‌‍‍𝗔𝘀𝘀𝗼𝘀𝗶𝗮𝘁𝗶𝗼𝗻​ 𝗙𝗨𝗡𝗖𝗧𝗜𝗢𝗡𝗦 */
+
+  gatAssosiation():Observable<any>{
+    return this._HttpClient.get(this.baseUrl+'/admin/association')
+  }
+
+  deleteAssosiation(id:string):Observable<any>{
+    return this._HttpClient.delete(this.baseUrl + `/admin/association/${id}`)
+   }
+
+   addAssosiation(userData:object):Observable<any>{
+    return this._HttpClient.post(this.baseUrl +'/admin/association',userData)
+  }
+
+  getSingleAssosiation(id:string):Observable<any>{
+    return this._HttpClient.get(this.baseUrl +`/admin/association/${id}`)
+  }
+  updateAgentOfAssosation(id:string,item:any):Observable<any>{
+    return this._HttpClient.put(this.baseUrl+`/admin/association/${id}`,item)
+  }
 }

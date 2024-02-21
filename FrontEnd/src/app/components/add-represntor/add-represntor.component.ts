@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AddRepresntorComponent {
   constructor(private _AdminService:AdminService,private _ToastrService: ToastrService,private _Router:Router){}
-  errMessage:string=''
+  errMessage:string='';
+  isLoading:boolean=false;
+   nameArray:any=[];
   addRepresntor:FormGroup = new FormGroup({
     name:new FormControl('',[Validators.required ,Validators.minLength(4)]),
     email:new FormControl('',[Validators.required ,Validators.email]),
@@ -18,18 +20,35 @@ export class AddRepresntorComponent {
     association:new FormControl('',[Validators.required])
   
   })
+  ngOnInit(): void {
+    this._AdminService.gatAssosiation().subscribe({
+      next:(res)=>{
+        let data =res.data
+        
+        for (let i = 0; i < data.length; i++) {
+          this.nameArray.push(data[i].associationName)
+          
+        }
+        console.log( this.nameArray);
+        
+      }
+    })
+    
+  }
   
   handelForm(){
     const userData= this.addRepresntor.value;
+    this.isLoading=true
     if(this.addRepresntor.valid){
       this._AdminService.addAgentRepresentor(userData).subscribe({
-        next:(res)=>{
+        next:()=>{
+          this.isLoading=false; 
       this._Router.navigate(['/MangeRepresntor'])
           this._ToastrService.success('The account has been added successfully');
           this.errMessage=''
           
         },error:(err)=>{
-          console.log(err);
+          this.isLoading=false; 
           this.errMessage=err.error.data
           
         }
