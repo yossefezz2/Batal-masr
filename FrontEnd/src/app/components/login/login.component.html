@@ -32,15 +32,21 @@
                         <div class="input-field">
                             
                             <input type="email" id="email" formControlName="email" placeholder="Email" class="email form-control">
+                            <div class="alert alert-danger mt-1" *ngIf="login.get('name')?.errors && (login.get('name')?.touched ||login.get('name')?.value.length>0) ">
+                                <p class="m-0 " *ngIf="login.get('name')?.getError('required')">name is required</p>
+                            </div>
                         </div>
                         <div class="input-field">
                             <input type="password" id="password" formControlName="password" placeholder="Password" class="password form-control">
+                            <div class="alert alert-danger mt-1" *ngIf="login.get('name')?.errors && (login.get('name')?.touched ||login.get('name')?.value.length>0) ">
+                                <p class="m-0 " *ngIf="login.get('name')?.getError('required')">name is required</p>
+                            </div>
                         </div>
                         <div class="checkbox">
                             <a href="#">Forgot your password?</a>
                         </div>
                         <div class="button  d-flex justify-content-center mt-4">
-                        <button type="submit" >Sign In</button>
+                        <button class="signin" type="submit" [disabled]="login.invalid">Sign In</button>
                         </div>
                         <p class="errMessage" *ngIf="errMessage">{{errMessage}}</p>
                         <p class="mt-4">Don't have an account? <a href="#" class="signup">Sign Up!</a></p>
