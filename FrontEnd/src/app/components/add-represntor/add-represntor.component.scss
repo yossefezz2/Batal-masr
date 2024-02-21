@@ -16,8 +16,10 @@ section .container{
     height: 85vh;
 }
 
- form input:focus {
+ form input:focus,form select:focus {
     border: 1px solid #0a0b0c57;
     box-shadow: 0px 0px 0px 4px #444a5364;
     border-radius: 5px;
   }
+
+  

@@ -14,8 +14,8 @@ export class UpdateministryComponent {
     private _Router:Router,
     private _ActivatedRoute:ActivatedRoute,){}
     model = {
+      name: '',
       email: '',
-      password: '',
     }
   errMessage:string='';
   agentId:any;
@@ -28,12 +28,28 @@ export class UpdateministryComponent {
       next:(params)=>{
         this.agentId = params.get('id');
         console.log(this.agentId);
-        
+        this._AdminService.getSingleAgenOfMinistry(this.agentId).subscribe({
+          next:(res)=>{
+            this.model.name=res.data[0].name;
+            this.model.email=res.data[0].email;
+
+            
+          }
+        })
       }
     })
   }
   handelForm(){
-    console.log(this.editAgentOfMinistry.value);
+    this._AdminService.updateAgentOfMinistry(this.agentId,this.editAgentOfMinistry.value).subscribe({
+      next:(res)=>{
+        this._Router.navigate(['/mangeMinistry'])
+        this._ToastrService.success('The account has been Updated successfully');
+        
+      },error:(err)=>{
+        this.errMessage = err.error.data
+      }
+
+    })
     
   }
 }

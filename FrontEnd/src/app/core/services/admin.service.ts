@@ -9,6 +9,8 @@ export class AdminService {
 baseUrl:string='http://localhost:3000'
   constructor(private _HttpClient:HttpClient) { }
 
+
+  /* 𝗥𝗘𝗣𝗥𝗘𝗦𝗡𝗧𝗢𝗥 𝗙𝗨𝗡𝗖𝗧𝗜𝗢𝗡𝗦 */
   addAgentRepresentor(userData:object):Observable<any>{
     return this._HttpClient.post(this.baseUrl +'/admin/representor/',userData)
   }
@@ -28,6 +30,9 @@ baseUrl:string='http://localhost:3000'
     return this._HttpClient.put(this.baseUrl+`/admin/representor/${id}`,item)
   }
 
+//////////////////////////////////////////////////////////////////////////////////
+
+  /* 𝗠𝗜𝗡𝗜𝗦𝗘𝗧𝗬 𝗙𝗨𝗡𝗖𝗧𝗜𝗢𝗡𝗦 */
   gatAgentsOfMinistry():Observable<any>{
     return this._HttpClient.get(this.baseUrl+'/admin/agent')
   }
@@ -40,4 +45,10 @@ baseUrl:string='http://localhost:3000'
     return this._HttpClient.post(this.baseUrl +'/admin/agent/',userData)
   }
 
+  getSingleAgenOfMinistry(id:string):Observable<any>{
+    return this._HttpClient.get(this.baseUrl +`/admin/agent/${id}`)
+  }
+  updateAgentOfMinistry(id:string,item:any):Observable<any>{
+    return this._HttpClient.put(this.baseUrl+`/admin/agent/${id}`,item)
+  }
 }
