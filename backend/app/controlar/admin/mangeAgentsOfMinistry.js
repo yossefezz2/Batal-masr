@@ -24,7 +24,11 @@ class mangeAgentsOfMinistry {
             helpers.resGenerator(res,200, true, data, "add user")
         }
         catch (error) {
-            helpers.resGenerator(res,400, false, error.message, "can't add user")
+            if (error.message =="Email already registered") {
+                helpers.resGenerator(res,400, false, error.message, "can't add user")
+            } else {
+                helpers.resGenerator(res,500, false, error.message, "can't add user")
+            }
         }
     }
     static async getallusers(req, res){
@@ -36,7 +40,12 @@ class mangeAgentsOfMinistry {
             helpers.resGenerator(res,200, true, data, "all users")
         }
         catch (error) {
-            helpers.resGenerator(res,400, false, error.message, "can't get all users")
+            if (error.message =="not users found") {
+                helpers.resGenerator(res,404, false, error.message, "can't add user")
+            } else {
+                helpers.resGenerator(res,500, false, error.message, "can't get all users")
+            }
+            
         }
     }
     static async getSingleUserByAdmin(req, res){
@@ -48,7 +57,11 @@ class mangeAgentsOfMinistry {
             helpers.resGenerator(res,200, true, data, "singer agent")
         }
         catch (error) {
-            helpers.resGenerator(res,400, false, error.message, "can't get single agent")
+            if (error.message =="not users found") {
+                helpers.resGenerator(res,404, false, error.message, "can't get single agent")
+            } else {
+                helpers.resGenerator(res,500, false, error.message, "can't get single agent")
+            }
         }
     }
     static async editAgent(req, res) {
@@ -66,7 +79,11 @@ class mangeAgentsOfMinistry {
             helpers.resGenerator(res,200, true, data, "edit user")
         }
         catch (error) {
-            helpers.resGenerator(res,400, false, error.message, "Agent can't be edited")
+            if (error.message === "Email already registered") {
+                helpers.resGenerator(res, 400, false, error.message, "Agent can't be edited");
+            } else {
+                helpers.resGenerator(res, 500, false, error.message, "Agent can't be edited");
+            }
         }
     }
     static async deleteAgent(req, res){
