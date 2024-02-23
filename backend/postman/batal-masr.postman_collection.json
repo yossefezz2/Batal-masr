@@ -157,7 +157,7 @@
 										},
 										{
 											"key": "email",
-											"value": "ezz@gmail.com",
+											"value": "fffgg@gmail.com",
 											"type": "text"
 										}
 									]
@@ -665,6 +665,274 @@
 			]
 		},
 		{
+			"name": "representor",
+			"item": [
+				{
+					"name": "mangePlayer",
+					"item": [
+						{
+							"name": "add player",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "ahmed",
+											"type": "text"
+										},
+										{
+											"key": "birthOfDate",
+											"value": "1995-02-16",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "height",
+											"value": "167",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "50",
+											"type": "text"
+										},
+										{
+											"key": "associationId",
+											"value": "8",
+											"type": "text"
+										},
+										{
+											"key": "club",
+											"value": "sdasdas",
+											"type": "text"
+										},
+										{
+											"key": "img",
+											"type": "file",
+											"src": "/C:/Users/20120/OneDrive - Faculty of Computers and Information/Desktop/WhatsApp Image 2024-02-23 at 04.22.23_c561b990.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/player",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all player in association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/player",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single player in association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/player/{{test-Player-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"player",
+										"{{test-Player-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit Player",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "ahmed",
+											"type": "text"
+										},
+										{
+											"key": "birthOfDate",
+											"value": "1995-02-16",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "height",
+											"value": "167",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "50",
+											"type": "text"
+										},
+										{
+											"key": "associationId",
+											"value": "8",
+											"type": "text"
+										},
+										{
+											"key": "club",
+											"value": "sdasdas",
+											"type": "text"
+										},
+										{
+											"key": "img",
+											"type": "file",
+											"src": "/C:/Users/20120/OneDrive - Faculty of Computers and Information/Desktop/WhatsApp Image 2024-02-23 at 04.22.23_c561b990.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/player/{{test-Player-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"player",
+										"{{test-Player-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete agent Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/player/{{test-Player-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"player",
+										"{{test-Player-ID}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "login",
 			"request": {
 				"method": "POST",
@@ -674,7 +942,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "admin@gmail.com",
+							"value": "swiming@gmail.com",
 							"type": "text"
 						},
 						{
@@ -713,18 +981,7 @@
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "admin@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "12345678",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "{{localhost}}/singleLogout",
@@ -741,22 +998,21 @@
 		{
 			"name": "logout For All",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token-admin}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "admin@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "12345678",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "{{localhost}}/allLogout",
@@ -799,7 +1055,12 @@
 		},
 		{
 			"key": "token-admin",
-			"value": "eyJhbGciOiJIUzI1NiJ9.emFzNDJOU0tTaQ.X2vWbnfc6w1WhEUIIcCyCoENhAZoWTqT4em7Sn6eBKM",
+			"value": "eyJhbGciOiJIUzI1NiJ9.UW9fWUxJV3NiMA.DCbnvWnzf8tDnVn4BXiG-7PZlKutKXFs7L4ge6rXrvA",
+			"type": "string"
+		},
+		{
+			"key": "token-representor",
+			"value": "eyJhbGciOiJIUzI1NiJ9.ZG5Ea21jRTIzSQ.uBsohEdyqW6Ak3iwXtcbPnVeMKrfqsy-6Xx0IiYi4l0",
 			"type": "string"
 		},
 		{
@@ -815,6 +1076,11 @@
 		{
 			"key": "test-Association-ID",
 			"value": "3",
+			"type": "string"
+		},
+		{
+			"key": "test-Player-ID",
+			"value": "x6NDsis4Gj",
 			"type": "string"
 		}
 	]

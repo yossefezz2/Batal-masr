@@ -17,7 +17,7 @@ class mangeAgentsOfMinistry {
                 gender: req.body.gender,
                 height: req.body.height,
                 weight: req.body.weight,
-                associationId: req.body.associationId,
+                associationId: req.user.association,
                 club: req.body.club,
                 img: "http://localhost:3000/" + f.replace(`public\\`, "")
             };
@@ -81,7 +81,7 @@ class mangeAgentsOfMinistry {
                 gender: req.body.gender,
                 height: req.body.height,
                 weight: req.body.weight,
-                associationId: req.body.associationId,
+                associationId: req.user.association,
                 club: req.body.club,
                 img: imgEdit
             };
