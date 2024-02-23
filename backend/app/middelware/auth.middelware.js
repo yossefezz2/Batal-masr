@@ -31,4 +31,15 @@ const isAdmin= async (req,res,next)=>{
         resGenerator(res, 500, false, error.message , "invalid auth")
     }
 }
-module.exports = {userMiddleware,isAdmin}
+const isRepresntor= async (req,res,next)=>{
+    try {
+
+        if (req.user.type != "representorOfAssociation") throw new Error("not authorized Represntor")
+
+        next()
+        
+    } catch (error) {
+        resGenerator(res, 500, false, error.message , "invalid auth")
+    }
+}
+module.exports = {userMiddleware,isAdmin,isRepresntor}
