@@ -3,31 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/Admin/home/home.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http"
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { MangeRepresntorComponent } from './components/mange-represntor/mange-represntor.component';
-import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/Admin/navbar/navbar.component';
+import { MangeRepresntorComponent } from './components/Admin/mange-represntor/mange-represntor.component';
+import { LoginComponent } from './components/Admin/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
-import { AddRepresntorComponent } from './components/add-represntor/add-represntor.component';
+import { AddRepresntorComponent } from './components/Admin/add-represntor/add-represntor.component';
 import { ToastrModule } from 'ngx-toastr';
-import { EditRepresntorComponent } from './components/edit-represntor/edit-represntor.component';
-import { MangeministryComponent } from './components/mangeministry/mangeministry.component';
-import { AddministryComponent } from './components/addministry/addministry.component';
-import { UpdateministryComponent } from './components/updateministry/updateministry.component';
-import { MangeAssosiationComponent } from './components/mange-assosiation/mange-assosiation.component';
-import { AddAssosiationComponent } from './components/add-assosiation/add-assosiation.component';
-import { EditAssosiationComponent } from './components/edit-assosiation/edit-assosiation.component';
+import { EditRepresntorComponent } from './components/Admin/edit-represntor/edit-represntor.component';
+import { MangeministryComponent } from './components/Admin/mangeministry/mangeministry.component';
+import { AddministryComponent } from './components/Admin/addministry/addministry.component';
+import { UpdateministryComponent } from './components/Admin/updateministry/updateministry.component';
+import { MangeAssosiationComponent } from './components/Admin/mange-assosiation/mange-assosiation.component';
+import { AddAssosiationComponent } from './components/Admin/add-assosiation/add-assosiation.component';
+import { EditAssosiationComponent } from './components/Admin/edit-assosiation/edit-assosiation.component';
+import { RepLayoutComponent } from './layouts/rep-layout/rep-layout.component';
+import { RepNavbarComponent } from './components/RepresntorDashBord/rep-navbar/rep-navbar.component';
+import { RepHomeComponent } from './components/RepresntorDashBord/rep-home/rep-home.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthLayoutComponent,
     BlankLayoutComponent,
-    NavbarComponent,
+     NavbarComponent,
     MangeRepresntorComponent,
     LoginComponent,
     AddRepresntorComponent,
@@ -36,8 +39,11 @@ import { EditAssosiationComponent } from './components/edit-assosiation/edit-ass
     AddministryComponent,
     UpdateministryComponent,
     MangeAssosiationComponent,
-    AddAssosiationComponent,
     EditAssosiationComponent,
+    RepLayoutComponent,
+    AddAssosiationComponent,
+    RepNavbarComponent,
+    RepHomeComponent,
     
   ],
   imports: [
