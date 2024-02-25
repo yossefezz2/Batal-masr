@@ -8,7 +8,7 @@
                     <input type="text" class="form-control" formControlName="associationName" id="AssociationName" name="AssociationName">
                     <div class="alert alert-danger mt-1" *ngIf="addAssociation.get('name')?.errors && (addAssociation.get('name')?.touched ||addAssociation.get('name')?.value.length>0) ">
                         <p class="m-0 " *ngIf="addAssociation.get('name')?.getError('required')">name is required</p>
-                        <p class="m-0 " *ngIf="addAssociation.get('name')?.getError('minlength')">name minLength 4 </p>
+                        <p class="m-0 " *ngIf="addAssociation.get('name')?.getError('minlength')">name minLength 4  </p>
                     </div>
                 </div>
                 <div class="button w-100  ">
