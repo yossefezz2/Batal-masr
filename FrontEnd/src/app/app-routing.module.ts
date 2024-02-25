@@ -2,38 +2,50 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
-import { HomeComponent } from './components/home/home.component';
-import { MangeRepresntorComponent } from './components/mange-represntor/mange-represntor.component';
-import { LoginComponent } from './components/login/login.component';
-import { AddRepresntorComponent } from './components/add-represntor/add-represntor.component';
-import { EditRepresntorComponent } from './components/edit-represntor/edit-represntor.component';
-import { MangeministryComponent } from './components/mangeministry/mangeministry.component';
-import { AddministryComponent } from './components/addministry/addministry.component';
-import { UpdateministryComponent } from './components/updateministry/updateministry.component';
-import { MangeAssosiationComponent } from './components/mange-assosiation/mange-assosiation.component';
-import { AddAssosiationComponent } from './components/add-assosiation/add-assosiation.component';
-import { EditAssosiationComponent } from './components/edit-assosiation/edit-assosiation.component';
-import { authGuard } from './core/Guard/auth.guard';
+import { HomeComponent } from './components/Admin/home/home.component';
+import { MangeRepresntorComponent } from './components/Admin/mange-represntor/mange-represntor.component';
+import { LoginComponent } from './components/Admin/login/login.component';
+import { AddRepresntorComponent } from './components/Admin/add-represntor/add-represntor.component';
+import { EditRepresntorComponent } from './components/Admin/edit-represntor/edit-represntor.component';
+import { MangeministryComponent } from './components/Admin/mangeministry/mangeministry.component';
+import { AddministryComponent } from './components/Admin/addministry/addministry.component';
+import { UpdateministryComponent } from './components/Admin/updateministry/updateministry.component';
+import { MangeAssosiationComponent } from './components/Admin/mange-assosiation/mange-assosiation.component';
+import { AddAssosiationComponent } from './components/Admin/add-assosiation/add-assosiation.component';
+import { EditAssosiationComponent } from './components/Admin/edit-assosiation/edit-assosiation.component';
+import { RepLayoutComponent } from './layouts/rep-layout/rep-layout.component';
+import { MangePlayerComponent } from './components/RepresntorDashBord/mange-player/mange-player.component';
+import { RepHomeComponent } from './components/RepresntorDashBord/rep-home/rep-home.component';
+import { represntorGuard } from './core/Guard/represntor.guard';
+import { adminGuard } from './core/Guard/admin.guard';
+import { loginGuard } from './core/Guard/login.guard';
+
 
 const routes: Routes = [
   {path:'',component:AuthLayoutComponent,children:[
     {path:'',redirectTo:'login',pathMatch:'full'},
-    {path:'login',component:LoginComponent,title:'login'}
+    {path:'login',canActivate:[loginGuard],component:LoginComponent,title:'login'}
   ]},
 
   {path:'',component:BlankLayoutComponent,children:[
     {path:'',redirectTo:'home',pathMatch:'full'},
-    {path:'home', canActivate:[authGuard],component:HomeComponent,title:'home'},
-    {path:'MangeRepresntor',canActivate:[authGuard],component:MangeRepresntorComponent,title:'MangeRepresntor'},
-    {path:'AddRepresntor',canActivate:[authGuard],component:AddRepresntorComponent,title:'AddRepresntor'},
-    {path:'EditRepresntor/:id',canActivate:[authGuard],component:EditRepresntorComponent,title:'EditRepresntor'},
-    {path:'mangeMinistry',canActivate:[authGuard],component:MangeministryComponent,title:'mangeMinistry'},
-    {path:'addMinistry',canActivate:[authGuard],component:AddministryComponent,title:'addMinistry'},
-    {path:'updataMinistry/:id',canActivate:[authGuard],component:UpdateministryComponent,title:'EditMinistry'},
-    {path:'mangeAssosiation',canActivate:[authGuard],component:MangeAssosiationComponent,title:'mangeAssosiation'},
-    {path:'addAssosiation',canActivate:[authGuard],component:AddAssosiationComponent,title:'addAssosiation'},
-    {path:'updataAssosiation/:id',canActivate:[authGuard],component:EditAssosiationComponent,title:'updataAssosiation'},
+    {path:'Adminhome',canActivate:[adminGuard],component:HomeComponent,title:'home'},
+    {path:'MangeRepresntor',canActivate:[adminGuard],component:MangeRepresntorComponent,title:'MangeRepresntor'},
+    {path:'AddRepresntor',canActivate:[adminGuard],component:AddRepresntorComponent,title:'AddRepresntor'},
+    {path:'EditRepresntor/:id',canActivate:[adminGuard],component:EditRepresntorComponent,title:'EditRepresntor'},
+    {path:'mangeMinistry',canActivate:[adminGuard],component:MangeministryComponent,title:'mangeMinistry'},
+    {path:'addMinistry',canActivate:[adminGuard],component:AddministryComponent,title:'addMinistry'},
+    {path:'updataMinistry/:id',canActivate:[adminGuard],component:UpdateministryComponent,title:'EditMinistry'},
+    {path:'mangeAssosiation',canActivate:[adminGuard],component:MangeAssosiationComponent,title:'mangeAssosiation'},
+    {path:'addAssosiation',canActivate:[adminGuard],component:AddAssosiationComponent,title:'addAssosiation'},
+    {path:'updataAssosiation/:id',canActivate:[adminGuard],component:EditAssosiationComponent,title:'updataAssosiation'},
   ]},
+  {path:'',component:RepLayoutComponent,children:[
+    {path:'',redirectTo:'login',pathMatch:'full'},
+    {path:'rephome',canActivate:[represntorGuard],component:RepHomeComponent,title:'rephome'},
+    {path:'mangePlayer',canActivate:[represntorGuard],component:MangePlayerComponent,title:'mangePlayer'}
+  ]},
+
 ];
 
 @NgModule({
