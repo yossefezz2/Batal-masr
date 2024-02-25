@@ -1,65 +1,53 @@
-<div class="fut-player-card">
-	<div class="player-card-top">
-		<div class="player-master-info">
-			<div class="player-rating">
-				<span>97</span>
-			</div>
-			<div class="player-position">
-				<span>RW</span>
-			</div>
-			<div class="player-nation">
-				<img src="https://selimdoyranli.com/cdn/fut-player-card/img/argentina.svg" alt="Argentina" draggable="false"/>
-			</div>
-			<div class="player-club">
-				<img src="https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg" alt="Barcelona" draggable="false"/>
-			</div>
-		</div>
-		<div class="player-picture">
-			<img src="https://selimdoyranli.com/cdn/fut-player-card/img/messi.png" alt="Messi" draggable="false"/>
-			<div class="player-extra">
-				<span>4*SM</span>
-				<span>4*WF</span>
-			</div>
-		</div>
-	</div>
-	<div class="player-card-bottom">
-		<div class="player-info">
-			<!-- Player Name-->
-			<div class="player-name">
-				<span>MESSI</span>
-			</div>
-			<!-- Player Features-->
-			<div class="player-features">
-				<div class="player-features-col">
-					<span>
-						<div class="player-feature-value">97</div>
-						<div class="player-feature-title">PAC</div>
-					</span>
-					<span>
-						<div class="player-feature-value">95</div>
-						<div class="player-feature-title">SHO</div>
-					</span>
-					<span>
-						<div class="player-feature-value">94</div>
-						<div class="player-feature-title">PAS</div>
-					</span>
+<div class="container mt-5">
+	<div class="row g-4">
+		<div class="col-md-4  align-items-center">
+            <div class="add-user-card  bg-transparent ">
+                <div class="icon mb-5 mt-5"><i class="fa-solid fa-user-plus text-dark"></i></div>
+                <button class="btn btn-dark" routerLink="/addPlayer" >ADD PLAYER</button>
+            </div>
+        </div>
+		<div class="col-4" *ngFor="let player of allPlayers" >
+			<div class="profile-card text-center">
+			
+				<div class="img w-50 m-auto" >
+					<img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle w-100">
+
 				</div>
-				<div class="player-features-col">
-					<span>
-						<div class="player-feature-value">99</div>
-						<div class="player-feature-title">DRI</div>
-					</span>
-					<span>
-						<div class="player-feature-value">35</div>
-						<div class="player-feature-title">DEF</div>
-					</span>
-					<span>
-						<div class="player-feature-value">68</div>
-						<div class="player-feature-title">PHY</div>
-					</span>
+				<h2 class="fs-2">{{player.name}}</h2>
+				<div class="section">
+					<div class="player-data d-flex flex-column-reverse justify-content-between mb-4 ">
+						<div class="part1">
+							<p>
+							    <span>Gender:</span>
+								<small>{{player.gender}}</small> 
+							</p>
+							<p>
+								<span>Height:</span> 
+								<small>{{player.height}}</small>
+							</p>
+							<p>
+								<span>Weight: </span> 
+								<small>{{player.weight}}</small>
+							</p>
+                        </div>
+                        <div class="part1">
+                            <p> <span>Association Name: </span> 
+							<small>{{player.associationName}}</small></p> 
+                            <p><span>Club: </span>  
+							
+							<small>{{player.club}}</small></p> 
+							
+                        </div>
+					</div>
+					<div class="buttons d-flex flex-column ">
+						<button class="btn btn-secondary mb-3" >EDIT </button>
+						<button class="btn btn-danger ">DELETE </button>
+					</div>
 				</div>
-			</div>
+
+			  </div>
 		</div>
+
 	</div>
-</div>
-<div class="a"></div>
+
+  </div>
