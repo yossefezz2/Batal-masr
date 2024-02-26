@@ -12,16 +12,28 @@ constructor(private _RepresntorService:RepresntorService){}
 
 ngOnInit(): void {
   this._RepresntorService.getAllPlayers().subscribe({
-    next:(res)=>{
-      console.log(res);
-      
+    next:(res)=>{      
       this.allPlayers = res.data;
       
     },error:(err)=>{
       console.log(err);
-      
     }
   })
   
 }
+
+deletePlayer(id:string){
+  this._RepresntorService.deletePlayer(id).subscribe({
+    next:(res)=>{
+      console.log(res);
+      this._RepresntorService.getAllPlayers().subscribe({
+        next:(res)=>{
+          this.allPlayers =res.data
+        }
+      })
+  
+    }
+  
+  })
+  }
 }
