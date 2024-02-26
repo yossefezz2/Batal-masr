@@ -20,6 +20,7 @@ import { represntorGuard } from './core/Guard/represntor.guard';
 import { adminGuard } from './core/Guard/admin.guard';
 import { loginGuard } from './core/Guard/login.guard';
 import { AddPlayerComponent } from './components/RepresntorDashBord/add-player/add-player.component';
+import { EditePlayerComponent } from './components/RepresntorDashBord/edite-player/edite-player.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
     {path:'',redirectTo:'login',pathMatch:'full'},
     {path:'rephome',canActivate:[represntorGuard],component:RepHomeComponent,title:'rephome'},
     {path:'mangePlayer',canActivate:[represntorGuard],component:MangePlayerComponent,title:'mangePlayer'},
-    {path:'addPlayer',canActivate:[represntorGuard],component:AddPlayerComponent,title:'Add Player'}
+    {path:'addPlayer',canActivate:[represntorGuard],component:AddPlayerComponent,title:'Add Player'},
+    {path:'editPlayer/:id',canActivate:[represntorGuard],component:EditePlayerComponent,title:'edit Player'}
   ]},
 
 ];

@@ -9,6 +9,7 @@ class mangeAgentsOfMinistry {
         try {
             const { nanoid } = await import('nanoid');
             const nId1 = nanoid(10);
+            console.log(req.file);
             let f = uploadHandler.filehendeler(req.file)
             let data = {
                 id: nId1,

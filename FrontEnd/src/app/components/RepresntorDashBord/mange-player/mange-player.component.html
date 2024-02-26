@@ -1,35 +1,21 @@
 <div class="container mt-5">
 	<div class="row g-4">
-		<div class="col-md-4  align-items-center">
+		<div class="col-md-3  align-items-center">
             <div class="add-user-card  bg-transparent ">
                 <div class="icon mb-5 mt-5"><i class="fa-solid fa-user-plus text-dark"></i></div>
                 <button class="btn btn-dark" routerLink="/addPlayer" >ADD PLAYER</button>
             </div>
         </div>
-		<div class="col-4" *ngFor="let player of allPlayers" >
+		<div class="col-3" *ngFor="let player of allPlayers" >
 			<div class="profile-card text-center">
 			
 				<div class="img w-50 m-auto" >
-					<img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle w-100">
+					<img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle">
 
 				</div>
 				<h2 class="fs-2">{{player.name}}</h2>
 				<div class="section">
 					<div class="player-data d-flex flex-column-reverse justify-content-between mb-4 ">
-						<div class="part1">
-							<p>
-							    <span>Gender:</span>
-								<small>{{player.gender}}</small> 
-							</p>
-							<p>
-								<span>Height:</span> 
-								<small>{{player.height}}</small>
-							</p>
-							<p>
-								<span>Weight: </span> 
-								<small>{{player.weight}}</small>
-							</p>
-                        </div>
                         <div class="part1">
                             <p> <span>Association Name: </span> 
 							<small>{{player.associationName}}</small></p> 
@@ -40,8 +26,8 @@
                         </div>
 					</div>
 					<div class="buttons d-flex flex-column ">
-						<button class="btn btn-secondary mb-3" >EDIT </button>
-						<button class="btn btn-danger ">DELETE </button>
+						<button class="btn btn-secondary mb-3" [routerLink]="['/editPlayer',player.id]">EDIT PLAYER </button>
+						<button class="btn btn-danger "  (click)="deletePlayer(player.id)">DELETE PLAYER</button>
 					</div>
 				</div>
 

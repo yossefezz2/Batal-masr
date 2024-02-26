@@ -15,4 +15,15 @@ export class RepresntorService {
   addPlayer(userData:object):Observable<any>{
     return this._HttpClient.post(this.baseUrl + '/representor/player',userData)
   }
+
+  deletePlayer(id:string):Observable<any>{
+    return this._HttpClient.delete(this.baseUrl + `/representor/player/${id}`)
+   }
+
+   getSinglePlayer(id:string):Observable<any>{
+    return this._HttpClient.get(this.baseUrl +`/representor/player/${id}`)
+  }
+  updatePlayer(id:string,item:any):Observable<any>{
+    return this._HttpClient.put(this.baseUrl+`/representor/player/${id}`,item)
+  }
 }

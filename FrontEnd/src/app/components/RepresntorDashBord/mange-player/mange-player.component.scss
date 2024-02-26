@@ -22,8 +22,6 @@
     font-size: 20px;
     margin-bottom: 10px;
   }
-  .profile-card p {
-  }
   .level-badge {
     background-color: #c0392b;
     color: #fff;
@@ -79,4 +77,13 @@
   .add-user-card {
 	cursor: pointer;
 
+  }
+
+ .profile-card img{
+  width: 243px;
+  height: 224px;
+  }
+
+  .img{
+    display: contents;
   }
