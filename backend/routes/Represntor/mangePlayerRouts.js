@@ -7,6 +7,8 @@ const router =express.Router()
 
 router.get('/',userMiddleware,isRepresntor, mangePlayer.getallPlayers)
 
+router.get("/Details/:id",userMiddleware,isRepresntor, mangePlayer.getPlayerDetails )
+
 router.get("/:id",userMiddleware,isRepresntor, mangePlayer.getSinglePlayer )
 
 router.post("/",userMiddleware,isRepresntor,upload.single('img'), mangePlayer.addPlayer)
@@ -14,7 +16,6 @@ router.post("/",userMiddleware,isRepresntor,upload.single('img'), mangePlayer.ad
 router.put("/:id",userMiddleware,isRepresntor,upload.single('img'), mangePlayer.editPlayer)
 
 router.delete("/:id",userMiddleware,isRepresntor, mangePlayer.deletePlayer)
-
 
 
 module.exports = router

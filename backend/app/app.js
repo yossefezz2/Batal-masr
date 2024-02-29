@@ -10,6 +10,8 @@ const mangeAgentsOfMinistryRoutes = require('../routes/admin/mangeAgentsOfMinist
 const mangeRepresentorOfAssociation = require('../routes/admin/mangeRepresentorOfAssociationRouts')
 const mangeAssociationRoutes = require('../routes/admin/mangeAssociationRouts')
 const mangePlayerRoutes = require('../routes/Represntor/mangePlayerRouts')
+const mangeChampionshipRouts = require('../routes/Represntor/mangeChampionshipRouts')
+const mangeMedalRouts = require('../routes/Represntor/mangeMedalRouts')
 
 
 app.use(express.static(path.join(__dirname,"../public")))
@@ -27,11 +29,13 @@ app.use("/admin/association",mangeAssociationRoutes)
 
 // representor routes
 app.use("/representor/player",mangePlayerRoutes)
+app.use("/representor/championship",mangeChampionshipRouts)
+app.use("/representor/medal",mangeMedalRouts)
 
 
 app.all('*',(req,res)=>{
     res.send({
-        massage:"not found"
+        massage:"not found routes"
     })
 })
 

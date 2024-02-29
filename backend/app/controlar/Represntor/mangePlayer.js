@@ -4,7 +4,7 @@ const sharedService = require("../../../services/shared.js");
 const helpers = require('../../helper.js');
 const uploadHandler = require('../../middelware/upload.middleware.js')
 const fs = require('fs');
-class mangeAgentsOfMinistry {
+class mangePlayer {
     static async addPlayer(req, res) {
         try {
             const { nanoid } = await import('nanoid');
@@ -37,10 +37,10 @@ class mangeAgentsOfMinistry {
             helpers.resGenerator(res, 200, true, data, "all players")
         }
         catch (error) {
-            if (error.message == "not users found") {
-                helpers.resGenerator(res, 404, false, error.message, "not users found")
+            if (error.message == "not player found") {
+                helpers.resGenerator(res, 404, false, error.message, "not players found")
             } else {
-                helpers.resGenerator(res, 500, false, error.message, "can't get all users")
+                helpers.resGenerator(res, 500, false, error.message, "can't get all players")
             }
 
         }
@@ -51,13 +51,13 @@ class mangeAgentsOfMinistry {
             if (data.length <= 0) {
                 throw new Error("not users found");
             }
-            helpers.resGenerator(res, 200, true, data, "singer agent")
+            helpers.resGenerator(res, 200, true, data, "singer players")
         }
         catch (error) {
             if (error.message == "not users found") {
-                helpers.resGenerator(res, 404, false, error.message, "can't get single agent")
+                helpers.resGenerator(res, 404, false, error.message, "can't get single player")
             } else {
-                helpers.resGenerator(res, 500, false, error.message, "can't get single agent")
+                helpers.resGenerator(res, 500, false, error.message, "can't get single player")
             }
         }
     }
@@ -86,13 +86,13 @@ class mangeAgentsOfMinistry {
                 img: imgEdit
             };
             await mangePlayerServices.editPlayer(data, req.params.id,req.user.association);
-            helpers.resGenerator(res, 200, true, data, "edit user")
+            helpers.resGenerator(res, 200, true, data, "edit player")
         }
         catch (error) {
-            if (error.message === "Email already registered") {
-                helpers.resGenerator(res, 400, false, error.message, "Agent can't be edited");
+            if (error.message === "not users found") {
+                helpers.resGenerator(res, 400, false, error.message, "player can't be edited");
             } else {
-                helpers.resGenerator(res, 500, false, error.message, "Agent can't be edited");
+                helpers.resGenerator(res, 500, false, error.message, "player can't be edited");
             }
         }
     }
@@ -105,11 +105,27 @@ class mangeAgentsOfMinistry {
             await mangePlayerServices.deletePlayer(req.params.id, req.user.association);
             let img = singlePlayer[0].img.replace(`http://localhost:3000/`, "")
             fs.unlinkSync("./public/" + img);
-            helpers.resGenerator(res, 200, true, singlePlayer, "player agent")
+            helpers.resGenerator(res, 200, true, singlePlayer, "delete player")
         }
         catch (error) {
             helpers.resGenerator(res, 400, false, error.message, "player can't be deleted")
         }
     }
+    static async getPlayerDetails(req, res){
+        try {
+            const data = await mangePlayerServices.getPlayerDetails(req.params.id, req.user.association);
+            if (data.length <= 0)  {
+                throw new Error("not found");
+            }
+            helpers.resGenerator(res,200, true, data, "singer agent")
+        }
+        catch (error) {
+            if (error.message === "not found") {
+                helpers.resGenerator(res, 404, false, error.message, "not found Details");
+            } else {
+                helpers.resGenerator(res, 500, false, error.message, "player can't be Details");
+            }
+        }
+    }
 }
-module.exports = mangeAgentsOfMinistry;
+module.exports = mangePlayer;

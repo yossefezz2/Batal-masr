@@ -714,11 +714,6 @@
 											"type": "text"
 										},
 										{
-											"key": "associationId",
-											"value": "8",
-											"type": "text"
-										},
-										{
 											"key": "club",
 											"value": "sdasdas",
 											"type": "text"
@@ -773,6 +768,43 @@
 									"path": [
 										"representor",
 										"player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Player Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/player/Details/{{test-Player-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"player",
+										"Details",
+										"{{test-Player-ID}}"
 									]
 								}
 							},
@@ -858,11 +890,6 @@
 											"type": "text"
 										},
 										{
-											"key": "associationId",
-											"value": "8",
-											"type": "text"
-										},
-										{
 											"key": "club",
 											"value": "sdasdas",
 											"type": "text"
@@ -916,6 +943,487 @@
 										"representor",
 										"player",
 										"{{test-Player-ID}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mange Championship",
+					"item": [
+						{
+							"name": "add championship",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "masr2",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "typeOfChampionship",
+											"value": "Local",
+											"type": "text"
+										},
+										{
+											"key": "isYoungs",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "15",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/championship",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"championship"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all championshipin association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/championship",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"championship"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single championshipin association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/championship/{{test-championship-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"championship",
+										"{{test-championship-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit championship",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "masr2",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "female",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "typeOfChampionship",
+											"value": "Local",
+											"type": "text"
+										},
+										{
+											"key": "isYoungs",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/championship/{{test-championship-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"championship",
+										"{{test-championship-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete championship",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/championship/{{test-championship-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"championship",
+										"{{test-championship-ID}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mange Medal",
+					"item": [
+						{
+							"name": "add medal",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "MedalAchievementDate",
+											"value": "1960-02-14",
+											"type": "text"
+										},
+										{
+											"key": "typeOfMedal",
+											"value": "gold",
+											"type": "text"
+										},
+										{
+											"key": "playerId",
+											"value": "fHnvGtf_x2",
+											"type": "text"
+										},
+										{
+											"key": "championshipID",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "year",
+											"value": "1996",
+											"type": "text"
+										},
+										{
+											"key": "isWin",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/medal",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"medal"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all medal in association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/medal",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"medal"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single medal",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/medal/{{test-medal-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"medal",
+										"{{test-medal-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit medal",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "MedalAchievementDate",
+											"value": "1960-02-14",
+											"type": "text"
+										},
+										{
+											"key": "typeOfMedal",
+											"value": "bronze",
+											"type": "text"
+										},
+										{
+											"key": "year",
+											"value": "1996",
+											"type": "text"
+										},
+										{
+											"key": "isWin",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "championshipID",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/medal/{{test-medal-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"medal",
+										"{{test-medal-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete medal",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-representor}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/representor/medal/{{test-medal-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"representor",
+										"medal",
+										"{{test-medal-ID}}"
 									],
 									"query": [
 										{
@@ -1080,7 +1588,17 @@
 		},
 		{
 			"key": "test-Player-ID",
-			"value": "x6NDsis4Gj",
+			"value": "fHnvGtf_x2",
+			"type": "string"
+		},
+		{
+			"key": "test-championship-ID",
+			"value": "10",
+			"type": "string"
+		},
+		{
+			"key": "test-medal-ID",
+			"value": "Es_VzWnmZW",
 			"type": "string"
 		}
 	]
