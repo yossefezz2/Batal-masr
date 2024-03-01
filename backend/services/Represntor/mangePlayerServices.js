@@ -18,9 +18,9 @@ class mangeplayer {
         const queryString = `
             SELECT 
                 players.id AS playerId,
-                players.name,
+                players.name As playerName,
                 players.birthOfDate,
-                players.gender,
+                players.gender As playerGender,
                 players.height,
                 players.img,
                 players.club,
@@ -31,7 +31,7 @@ class mangeplayer {
                 championship.name,
                 championship.weight,
                 championship.age,
-                championship.gender,
+                championship.gender As championshipGender,
                 championship.isYoungs,
                 championship.typeOfChampionship 
             FROM 
