@@ -113,7 +113,12 @@ class mangePlayer {
         }
     }
     static async getPlayerDetails(req, res){
+        let singlePlayer
         try {
+            singlePlayer = await mangePlayerServices.getSinglePlayer(req.params.id, req.user.association);
+            if (singlePlayer.length <= 0) {
+                throw new Error("not users found");
+            }
             const data = await mangePlayerServices.getPlayerDetails(req.params.id, req.user.association);
             if (data.length <= 0)  {
                 throw new Error("not found");
@@ -122,7 +127,7 @@ class mangePlayer {
         }
         catch (error) {
             if (error.message === "not found") {
-                helpers.resGenerator(res, 404, false, error.message, "not found Details");
+                helpers.resGenerator(res, 404, false, singlePlayer, "not found Details");
             } else {
                 helpers.resGenerator(res, 500, false, error.message, "player can't be Details");
             }

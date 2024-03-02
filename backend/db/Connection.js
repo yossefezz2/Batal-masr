@@ -17,6 +17,13 @@ function handleDisconnect() {
       database: 'bfvmzo0vegcvtagpl21e',
       port: '3306',
     });
+    // connection = mysql.createConnection({
+    //   host: 'localhost',
+    //   user: 'root',
+    //   password: '',
+    //   database: 'batal-masr',
+    //   port: '3306',
+    // });
     connection.connect((err) => {
       if (err) throw err;
       console.log("DB CONNECTED");
