@@ -74,7 +74,6 @@ class mangechampionship {
             }
             let data = {
                 name: req.body.name,
-                gender: req.body.gender,
                 weight: (req.body.weight) ? req.body.weight : null,
                 associationId: req.user.association,
                 typeOfChampionship: req.body.typeOfChampionship,
