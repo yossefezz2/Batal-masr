@@ -21,6 +21,9 @@ import { adminGuard } from './core/Guard/admin.guard';
 import { loginGuard } from './core/Guard/login.guard';
 import { AddPlayerComponent } from './components/RepresntorDashBord/add-player/add-player.component';
 import { EditePlayerComponent } from './components/RepresntorDashBord/edite-player/edite-player.component';
+import { MangeChampionComponent } from './components/RepresntorDashBord/mange-champion/mange-champion.component';
+import { EditChampionComponent } from './components/RepresntorDashBord/edit-champion/edit-champion.component';
+import { AddChampionComponent } from './components/RepresntorDashBord/add-champion/add-champion.component';
 
 
 const routes: Routes = [
@@ -47,7 +50,10 @@ const routes: Routes = [
     {path:'rephome',canActivate:[represntorGuard],component:RepHomeComponent,title:'rephome'},
     {path:'mangePlayer',canActivate:[represntorGuard],component:MangePlayerComponent,title:'mangePlayer'},
     {path:'addPlayer',canActivate:[represntorGuard],component:AddPlayerComponent,title:'Add Player'},
-    {path:'editPlayer/:id',canActivate:[represntorGuard],component:EditePlayerComponent,title:'edit Player'}
+    {path:'editPlayer/:id',canActivate:[represntorGuard],component:EditePlayerComponent,title:'edit Player'},
+    {path:'mangeChampion',canActivate:[represntorGuard],component:MangeChampionComponent, title:'mange Champion'},
+    {path:'addChampion',canActivate:[represntorGuard],component:AddChampionComponent, title:'add champion'},
+    {path:'editChampion/:id',canActivate:[represntorGuard],component:EditChampionComponent, title:'edit champion'},
   ]},
 
 ];

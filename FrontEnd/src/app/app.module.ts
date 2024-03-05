@@ -31,6 +31,9 @@ import tr from '@angular/common/locales/tr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { EditePlayerComponent } from './components/RepresntorDashBord/edite-player/edite-player.component';
+import { MangeChampionComponent } from './components/RepresntorDashBord/mange-champion/mange-champion.component';
+import { AddChampionComponent } from './components/RepresntorDashBord/add-champion/add-champion.component';
+import { EditChampionComponent } from './components/RepresntorDashBord/edit-champion/edit-champion.component';
 
 registerLocaleData(tr);
 @NgModule({
@@ -56,6 +59,9 @@ registerLocaleData(tr);
     MangePlayerComponent,
     AddPlayerComponent,
     EditePlayerComponent,
+    MangeChampionComponent,
+    AddChampionComponent,
+    EditChampionComponent,
    
     
   ],
