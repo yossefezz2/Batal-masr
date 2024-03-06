@@ -59,7 +59,7 @@ export class EditePlayerComponent {
               const originalDateString = this.model.birthOfDate;
 const originalDate = new Date(originalDateString);
 
-  const formattedDate = originalDate.toISOString().split('T')[0];
+const formattedDate = originalDate.toISOString().split('T')[0];
  this .model.birthOfDate =formattedDate
             }
           })

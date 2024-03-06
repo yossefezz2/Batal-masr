@@ -13,7 +13,7 @@ class mangeMedal {
             let data = {
                 id: nId1,
                 MedalAchievementDate: req.body.MedalAchievementDate,
-                typeOfMedal : req.body.typeOfMedal,
+                typeOfMedal :(req.body.isWin == "true" || req.body.isWin == "1") ? req.body.typeOfMedal : "didnotWin" ,
                 playerId: req.body.playerId,
                 championshipID: Number(req.body.championshipID),
                 year: req.body.year,
@@ -73,7 +73,7 @@ class mangeMedal {
             }
             let data = {
                 MedalAchievementDate: req.body.MedalAchievementDate,
-                typeOfMedal : req.body.typeOfMedal,
+                typeOfMedal : (req.body.isWin == "true" || req.body.isWin == "1") ? req.body.typeOfMedal : "didnotWin",
                 championshipID: req.body.championshipID,
                 year: req.body.year,
                 isWin:(req.body.isWin == "true" || req.body.isWin == "1") ? "yes" : req.body.playerId,
