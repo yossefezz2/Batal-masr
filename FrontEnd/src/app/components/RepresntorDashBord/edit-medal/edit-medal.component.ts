@@ -93,7 +93,7 @@ export class EditMedalComponent {
     const userData = { playerId: this.playerId, ...this.addMedal.value };
     this.isLoading = true
     if (this.addMedal.valid) {
-      this._RepresntorService.addMedal(userData).subscribe({
+      this._RepresntorService.editMadal(this.medalId,userData).subscribe({
         next: () => {
           this.isLoading = false;
           this._Router.navigate(['/mangePlayer'])
