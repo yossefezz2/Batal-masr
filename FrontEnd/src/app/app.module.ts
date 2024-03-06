@@ -34,6 +34,9 @@ import { EditePlayerComponent } from './components/RepresntorDashBord/edite-play
 import { MangeChampionComponent } from './components/RepresntorDashBord/mange-champion/mange-champion.component';
 import { AddChampionComponent } from './components/RepresntorDashBord/add-champion/add-champion.component';
 import { EditChampionComponent } from './components/RepresntorDashBord/edit-champion/edit-champion.component';
+import { AddMedalComponent } from './components/RepresntorDashBord/add-medal/add-medal.component';
+import { EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
+import { PlayerDetailsComponent } from './components/RepresntorDashBord/player-details/player-details.component';
 
 registerLocaleData(tr);
 @NgModule({
@@ -62,6 +65,9 @@ registerLocaleData(tr);
     MangeChampionComponent,
     AddChampionComponent,
     EditChampionComponent,
+    AddMedalComponent,
+    EditMedalComponent,
+    PlayerDetailsComponent,
    
     
   ],

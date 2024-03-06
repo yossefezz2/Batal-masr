@@ -24,6 +24,9 @@ import { EditePlayerComponent } from './components/RepresntorDashBord/edite-play
 import { MangeChampionComponent } from './components/RepresntorDashBord/mange-champion/mange-champion.component';
 import { EditChampionComponent } from './components/RepresntorDashBord/edit-champion/edit-champion.component';
 import { AddChampionComponent } from './components/RepresntorDashBord/add-champion/add-champion.component';
+import { AddMedalComponent } from './components/RepresntorDashBord/add-medal/add-medal.component';
+import { EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
+import { PlayerDetailsComponent } from './components/RepresntorDashBord/player-details/player-details.component';
 
 
 const routes: Routes = [
@@ -51,9 +54,12 @@ const routes: Routes = [
     {path:'mangePlayer',canActivate:[represntorGuard],component:MangePlayerComponent,title:'mangePlayer'},
     {path:'addPlayer',canActivate:[represntorGuard],component:AddPlayerComponent,title:'Add Player'},
     {path:'editPlayer/:id',canActivate:[represntorGuard],component:EditePlayerComponent,title:'edit Player'},
+    {path:'playerDetails/:id',canActivate:[represntorGuard],component:PlayerDetailsComponent,title:'player details'},
     {path:'mangeChampion',canActivate:[represntorGuard],component:MangeChampionComponent, title:'mange Champion'},
     {path:'addChampion',canActivate:[represntorGuard],component:AddChampionComponent, title:'add champion'},
     {path:'editChampion/:id',canActivate:[represntorGuard],component:EditChampionComponent, title:'edit champion'},
+    {path:'addmedal/:playerId',canActivate:[represntorGuard],component:AddMedalComponent, title:'add medal'},
+    {path:'editmedal/:playerId/:medalId',canActivate:[represntorGuard],component:EditMedalComponent, title:'edit medel'}
   ]},
 
 ];
