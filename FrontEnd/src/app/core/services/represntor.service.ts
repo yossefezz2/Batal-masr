@@ -54,4 +54,7 @@ export class RepresntorService {
   getSingleMedal(id: string): Observable<any> {
     return this._HttpClient.get(this.baseUrl + `/representor/medal/${id}`)
   }
+  editMadal(id: any,item: any): Observable<any> {
+    return this._HttpClient.put(this.baseUrl + `/representor/medal/${id}`, item)
+  }
 }
