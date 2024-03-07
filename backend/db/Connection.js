@@ -1,29 +1,20 @@
 const mysql = require("mysql");
 
-// const db_config = {
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'bus_booking',
-//   port: '3306',
-// };
-
-
 function handleDisconnect() {
-    // connection = mysql.createConnection({
-    //   host: 'bfvmzo0vegcvtagpl21e-mysql.services.clever-cloud.com',
-    //   user: 'uads6v4rtzq4ggvj',
-    //   password: 'GV6o9sY2KKUWdLALhFXX',
-    //   database: 'bfvmzo0vegcvtagpl21e',
-    //   port: '3306',
-    // });
     connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'batal-masr',
+      host: 'bfvmzo0vegcvtagpl21e-mysql.services.clever-cloud.com',
+      user: 'uads6v4rtzq4ggvj',
+      password: 'GV6o9sY2KKUWdLALhFXX',
+      database: 'bfvmzo0vegcvtagpl21e',
       port: '3306',
     });
+    // connection = mysql.createConnection({
+    //   host: 'localhost',
+    //   user: 'root',
+    //   password: '',
+    //   database: 'batal-masr',
+    //   port: '3306',
+    // });
     connection.connect((err) => {
       if (err) throw err;
       console.log("DB CONNECTED");
