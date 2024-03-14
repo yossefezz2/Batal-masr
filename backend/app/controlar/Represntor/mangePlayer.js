@@ -127,7 +127,7 @@ class mangePlayer {
         }
         catch (error) {
             if (error.message === "not found") {
-                helpers.resGenerator(res, 404, false, singlePlayer, "not found Details");
+                helpers.resGenerator(res, 200, false, singlePlayer, "not found Details");
             } else {
                 helpers.resGenerator(res, 500, false, error.message, "player can't be Details");
             }
