@@ -1,1 +1,55 @@
-<p>player-details works!</p>
+<div class="container py-3">
+    <div class="row g-3">
+        <div class="col-lg-3 img">
+        <img class="w-100 rounded-3 shadow" [src]="playerDetails.img" alt="">
+        </div>
+        <div class="col-lg-9 section-1">
+            <h2> {{playerDetails.playerName}}</h2>
+            <div class="row g-3 ">
+                <div class="col-lg-6">
+                    <h5> Personal Info:</h5>
+                    <ul>
+                        <li><span class="span">Gender : </span>  <span>{{playerDetails.playerGender}}</span></li>
+                        <li><span class="span">Club : </span>  <span>{{playerDetails.club}}</span></li>
+                        <li><span class="span">Height : </span>  <span>{{playerDetails.height}} m</span></li>
+                        <li><span class="span">Age : </span>  <span>{{playerAge}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-5 py-5 ">
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3 col-lg-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class=" leftBtn nav-link active" id="v-pills-Local-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Local" type="button" role="tab" aria-controls="v-pills-Local" aria-selected="true">Local</button>
+              <button class=" leftBtn nav-link" id="v-pills-Continental-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Continental" type="button" role="tab" aria-controls="v-pills-Continental" aria-selected="false">Continental</button>
+              <button class=" leftBtn nav-link" id="v-pills-International-tab" data-bs-toggle="pill" data-bs-target="#v-pills-International" type="button" role="tab" aria-controls="v-pills-International" aria-selected="false">International</button>
+           <div class="leftBtn nav-link text-center"  [routerLink]="['/addmedal',playerDetails.playerId]">Add Medal</div> 
+        </div>
+            <div class="tab-content col-lg-9 content mt-3 " id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-Local" role="tabpanel" aria-labelledby="v-pills-Local-tab" tabindex="0">
+                <div class="local " *ngFor="let item of laocalArray">
+                    <h6>Name Of Championship : {{item.name}} </h6>
+                    <p>Type Of Medal : {{item.typeOfMedal}} </p>
+                    <p class="year">  Year Of Championship : {{item.year}} </p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-Continental" role="tabpanel" aria-labelledby="v-pills-Continental-tab" tabindex="0">
+                <div class="local " *ngFor="let item of continentalArray">
+                    <h6>Name Of Championship : {{item.name}} </h6>
+                    <p>Type Of Medal : {{item.typeOfMedal}} </p>
+                    <p class="year">  Year Of Championship : {{item.year}} </p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-International" role="tabpanel" aria-labelledby="v-pills-International-tab" tabindex="0">
+                <div class="local " *ngFor="let item of internationalArray">
+                    <h6>Name Of Championship : {{item.name}} </h6>
+                    <p>Type Of Medal : {{item.typeOfMedal}} </p>
+                    <p class="year">  Year Of Championship : {{item.year}} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
