@@ -23,6 +23,9 @@ export class RepresntorService {
   getSinglePlayer(id: string): Observable<any> {
     return this._HttpClient.get(this.baseUrl + `/representor/player/${id}`)
   }
+  getPlayerDetals(id: string): Observable<any> {
+    return this._HttpClient.get(this.baseUrl + `/representor/player/Details/${id}`)
+  }
 
   updatePlayer(id: string, item: any): Observable<any> {
     return this._HttpClient.put(this.baseUrl + `/representor/player/${id}`, item)

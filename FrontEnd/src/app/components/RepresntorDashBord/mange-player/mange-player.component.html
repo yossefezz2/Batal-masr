@@ -7,7 +7,7 @@
             </div>
         </div>
 		<div class="col-3" *ngFor="let player of allPlayers" >
-			<div class="profile-card text-center">
+			<div class="profile-card text-center" [routerLink]="['/playerDetails' , player.id]">
 			
 				<div class="img w-50 m-auto" >
 					<img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle">
