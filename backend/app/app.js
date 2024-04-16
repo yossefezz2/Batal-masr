@@ -12,8 +12,8 @@ const mangeAssociationRoutes = require('../routes/admin/mangeAssociationRouts')
 const mangePlayerRoutes = require('../routes/Represntor/mangePlayerRouts')
 const mangeChampionshipRouts = require('../routes/Represntor/mangeChampionshipRouts')
 const mangeMedalRouts = require('../routes/Represntor/mangeMedalRouts')
-
-
+const DisplayPlayerInfoRoute = require('../routes/agent/DisplayPlayerInfoRouts')
+const DisplayAssociationInfoRoute = require('../routes/agent/DisplayAssociationInfoRouts')
 app.use(express.static(path.join(__dirname,"../public")))
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
@@ -31,6 +31,10 @@ app.use("/admin/association",mangeAssociationRoutes)
 app.use("/representor/player",mangePlayerRoutes)
 app.use("/representor/championship",mangeChampionshipRouts)
 app.use("/representor/medal",mangeMedalRouts)
+
+// agent routes
+app.use("/agent/playerInfo",DisplayPlayerInfoRoute)
+app.use("/agent/associationInfo",DisplayAssociationInfoRoute)
 
 
 app.all('*',(req,res)=>{
