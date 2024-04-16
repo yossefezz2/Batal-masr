@@ -42,4 +42,15 @@ const isRepresntor= async (req,res,next)=>{
         resGenerator(res, 500, false, error.message , "invalid auth")
     }
 }
-module.exports = {userMiddleware,isAdmin,isRepresntor}
+const isAgent= async (req,res,next)=>{
+    try {
+
+        if (req.user.type != "agentsOfMinistry") throw new Error("not authorized Agent")
+
+        next()
+        
+    } catch (error) {
+        resGenerator(res, 500, false, error.message , "invalid auth")
+    }
+}
+module.exports = {userMiddleware,isAdmin,isRepresntor,isAgent}

@@ -1118,11 +1118,6 @@
 											"type": "text"
 										},
 										{
-											"key": "gender",
-											"value": "female",
-											"type": "text"
-										},
-										{
 											"key": "weight",
 											"value": "",
 											"type": "text"
@@ -1243,7 +1238,7 @@
 										},
 										{
 											"key": "year",
-											"value": "1996",
+											"value": "1999",
 											"type": "text"
 										},
 										{
@@ -1441,6 +1436,169 @@
 			]
 		},
 		{
+			"name": "agent",
+			"item": [
+				{
+					"name": "Display Player Info",
+					"item": [
+						{
+							"name": "get Player Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-agent}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/agent/playerInfo/getAllPlayerDetails/{{test-Player-ID}}/{{test-Association-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"agent",
+										"playerInfo",
+										"getAllPlayerDetails",
+										"{{test-Player-ID}}",
+										"{{test-Association-ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all player in association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-agent}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/agent/playerInfo/getAllPlayersInSingleAssociation/{{test-Association-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"agent",
+										"playerInfo",
+										"getAllPlayersInSingleAssociation",
+										"{{test-Association-ID}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Display Association Info",
+					"item": [
+						{
+							"name": "get all Association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-agent}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/agent/associationInfo/getAllAssociation",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"agent",
+										"associationInfo",
+										"getAllAssociation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all Medal In Association",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-agent}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{localhost}}/agent/associationInfo/getallMedalInAssociation/{{test-Association-ID}}",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"agent",
+										"associationInfo",
+										"getallMedalInAssociation",
+										"{{test-Association-ID}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "login",
 			"request": {
 				"method": "POST",
@@ -1450,7 +1608,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "swiming@gmail.com",
+							"value": "fffg@gmail.com",
 							"type": "text"
 						},
 						{
@@ -1583,7 +1741,7 @@
 		},
 		{
 			"key": "test-Association-ID",
-			"value": "3",
+			"value": "8",
 			"type": "string"
 		},
 		{
@@ -1599,6 +1757,11 @@
 		{
 			"key": "test-medal-ID",
 			"value": "Es_VzWnmZW",
+			"type": "string"
+		},
+		{
+			"key": "token-agent",
+			"value": "eyJhbGciOiJIUzI1NiJ9.V3ktM0ZvWk9faw.fZcPGp-ygiRALsUnHl09KRJbvik4I-UN_8juK4fus5M",
 			"type": "string"
 		}
 	]
