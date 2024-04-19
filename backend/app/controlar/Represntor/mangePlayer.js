@@ -68,6 +68,9 @@ class mangePlayer {
             if (singlePlayer.length <= 0) {
                 throw new Error("not users found");
             }
+            if (singlePlayer[0].gender != req.body.gender){
+                await mangePlayerServices.deletePlayerMedal(req.params.id, req.user.association)
+            }
             let imgEdit = singlePlayer[0].img
             if (req.file) {
                 let img = singlePlayer[0].img.replace(`http://localhost:3000/`, "")

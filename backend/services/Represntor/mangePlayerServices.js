@@ -59,5 +59,9 @@ class mangeplayer {
         const query = util.promisify(connection.query).bind(connection);
         return await query("delete from players where id =? and associationId =?", [id, associationId]);
     };
+    static async deletePlayerMedal(playerId, associationId) {
+        const query = util.promisify(connection.query).bind(connection);
+        return await query("delete from medals where  playerId =? and associationId =?", [playerId, associationId]);
+    }
 }
 module.exports = mangeplayer;
