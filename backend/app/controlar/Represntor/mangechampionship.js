@@ -24,7 +24,10 @@ class mangechampionship {
         catch (error) {
             if (error.message =="championship already registered") {
                 helpers.resGenerator(res, 400, false, error.message, "can't add championship")
-            } else {
+            }else if (error.code === 'ER_DUP_ENTRY') {
+                helpers.resGenerator(res, 400, false, 'Duplicate entry error: The record already exists.',"can't add championship");
+                // Handle the error appropriately, maybe inform the user or log it
+            }else {
                 helpers.resGenerator(res, 500, false, error.message, "can't add championship")
             }
         }
@@ -88,6 +91,9 @@ class mangechampionship {
                 helpers.resGenerator(res, 400, false, error.message, "championship can't be edited");
             }else if (error.message === "championship already registered") {
                 helpers.resGenerator(res, 40, false, error.message, "championship can't be edited");
+            }else if (error.code === 'ER_DUP_ENTRY') {
+                helpers.resGenerator(res, 400, false, 'Duplicate entry error: The record already exists.',"championship can't be edited");
+                // Handle the error appropriately, maybe inform the user or log it
             }else {
                 helpers.resGenerator(res, 500, false, error.message, "championship can't be edited");
             }
