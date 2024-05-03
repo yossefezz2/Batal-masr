@@ -29,7 +29,9 @@ class DisplayPlayerInfoService {
                 championship.age,
                 championship.gender As championshipGender,
                 championship.isYoungs,
-                championship.typeOfChampionship 
+                championship.typeOfChampionship,
+                championship.id As championID,
+                medals.isWin
             FROM 
                 players 
             INNER JOIN 

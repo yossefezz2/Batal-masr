@@ -41,6 +41,7 @@ class mangeMedal {
         }
         catch (error) {
             if (error.message == "medal already registered") {
+                console.log(Medal)
                 // const Medal = await mangeMedalServices.checkIfHeWinInThisChampionship(req.body.playerId,req.user.association);
                 helpers.resGenerator(res, 400, false, Medal, error.message)
             }
