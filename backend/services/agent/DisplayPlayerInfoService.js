@@ -1,6 +1,10 @@
 const util = require("util");
 const { connection } = require("../../db/Connection.js");
 class DisplayPlayerInfoService {
+    static async getallPlayersInAllProject() {
+        const query = util.promisify(connection.query).bind(connection);
+        return await query("select * from players inner join association on association.associationID=players.associationId ");
+    };
     static async getallPlayers(associationId) {
         const query = util.promisify(connection.query).bind(connection);
         return await query("select * from players inner join association on association.associationID=players.associationId where players.associationId =? ", [associationId]);
