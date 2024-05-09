@@ -37,6 +37,11 @@ import { EditChampionComponent } from './components/RepresntorDashBord/edit-cham
 import { AddMedalComponent } from './components/RepresntorDashBord/add-medal/add-medal.component';
 import { EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
 import { PlayerDetailsComponent } from './components/RepresntorDashBord/player-details/player-details.component';
+import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/players-in-assos/players-in-assos.component';
+import { MinNavbarComponent } from './components/AgentOfMinistryDashBoard/min-navbar/min-navbar.component';
+import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
+import { MinistryLayoutComponent } from './layouts/ministry-layout/ministry-layout/ministry-layout.component';
+
 
 registerLocaleData(tr);
 @NgModule({
@@ -68,6 +73,10 @@ registerLocaleData(tr);
     AddMedalComponent,
     EditMedalComponent,
     PlayerDetailsComponent,
+    PlayersInAssosComponent,
+    MinNavbarComponent,
+    AllAssosComponent,
+    MinistryLayoutComponent,
    
     
   ],
@@ -83,8 +92,7 @@ registerLocaleData(tr);
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    BrowserAnimationsModule,
-    
+    BrowserAnimationsModule,    
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true}],
   bootstrap: [AppComponent]
