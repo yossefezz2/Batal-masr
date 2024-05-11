@@ -1,5 +1,7 @@
 const mysql = require("mysql");
 
+let connection;
+
 function handleDisconnect() {
     connection = mysql.createConnection({
       host: 'bfvmzo0vegcvtagpl21e-mysql.services.clever-cloud.com',
@@ -8,27 +10,36 @@ function handleDisconnect() {
       database: 'bfvmzo0vegcvtagpl21e',
       port: '3306',
     });
-    // connection = mysql.createConnection({
-    //   host: 'localhost',
-    //   user: 'root',
-    //   password: '',
-    //   database: 'batal-masr',
-    //   port: '3306',
-    // });
+
     connection.connect((err) => {
-      if (err) throw err;
-      console.log("DB CONNECTED");
+      if (err) {
+        console.error("Error connecting to database:", err);
+        setTimeout(handleDisconnect, 10000); // Attempt to reconnect after 10 seconds
+      } else {
+        console.log("DB CONNECTED");
+      }
     });
-  
+
     connection.on("error", function (err) {
-      console.log("db error", err);
+      console.error("db error", err);
       if (err.code === "PROTOCOL_CONNECTION_LOST") {
-        handleDisconnect();
+        console.log("Reconnecting to the database...");
+        handleDisconnect(); // Reconnect on connection loss
       } else {
         throw err;
       }
     });
-  }
-  
-  handleDisconnect();
-  module.exports = { connection };
+    
+    // Add this event handler to handle "enqueue" event
+    connection.on('enqueue', function (sequence) {
+      if (sequence.constructor.name === 'Query') {
+        sequence.on('error', function (err) {
+          console.error('Query enqueuing failed:', err);
+        });
+      }
+    });
+}
+
+handleDisconnect();
+
+module.exports = { connection };
