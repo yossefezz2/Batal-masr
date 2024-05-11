@@ -27,6 +27,11 @@ import { AddChampionComponent } from './components/RepresntorDashBord/add-champi
 import { AddMedalComponent } from './components/RepresntorDashBord/add-medal/add-medal.component';
 import { EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
 import { PlayerDetailsComponent } from './components/RepresntorDashBord/player-details/player-details.component';
+import { MinistryLayoutComponent } from './layouts/ministry-layout/ministry-layout/ministry-layout.component';
+import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/players-in-assos/players-in-assos.component';
+import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
+import { ministryGuard } from './core/Guard/ministry.guard';
+import { MinplayerDetailsComponent } from './components/AgentOfMinistryDashBoard/minplayer-details/minplayer-details.component';
 
 
 const routes: Routes = [
@@ -49,7 +54,7 @@ const routes: Routes = [
     {path:'updataAssosiation/:id',canActivate:[adminGuard],component:EditAssosiationComponent,title:'updataAssosiation'},
   ]},
   {path:'',component:RepLayoutComponent,children:[
-    {path:'',redirectTo:'login',pathMatch:'full'},
+    {path:'',redirectTo:'rephome',pathMatch:'full'},
     {path:'rephome',canActivate:[represntorGuard],component:RepHomeComponent,title:'rephome'},
     {path:'mangePlayer',canActivate:[represntorGuard],component:MangePlayerComponent,title:'mangePlayer'},
     {path:'addPlayer',canActivate:[represntorGuard],component:AddPlayerComponent,title:'Add Player'},
@@ -60,6 +65,13 @@ const routes: Routes = [
     {path:'editChampion/:id',canActivate:[represntorGuard],component:EditChampionComponent, title:'edit champion'},
     {path:'addmedal/:playerId',canActivate:[represntorGuard],component:AddMedalComponent, title:'add medal'},
     {path:'editmedal/:playerId/:medalId',canActivate:[represntorGuard],component:EditMedalComponent, title:'edit medel'}
+  ]},
+  
+  {path:'',component:MinistryLayoutComponent,children:[
+    {path:'',redirectTo:'playersInAssos',pathMatch:'full'},
+    {path:'playersInAssos',canActivate:[ministryGuard],component:PlayersInAssosComponent,title:'Players In Assos'},
+    {path:'allAssos',canActivate:[ministryGuard],component:AllAssosComponent,title:'allAssos'},
+    {path:'playerDetails/:playerId/:AssosId',canActivate:[ministryGuard],component:MinplayerDetailsComponent,title:'Player Details'},
   ]},
 
 ];

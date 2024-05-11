@@ -26,7 +26,7 @@ import { RepNavbarComponent } from './components/RepresntorDashBord/rep-navbar/r
 import { RepHomeComponent } from './components/RepresntorDashBord/rep-home/rep-home.component';
 import { MangePlayerComponent } from './components/RepresntorDashBord/mange-player/mange-player.component';
 import { AddPlayerComponent } from './components/RepresntorDashBord/add-player/add-player.component';
-import { registerLocaleData } from '@angular/common';
+import {  registerLocaleData } from '@angular/common';
 import tr from '@angular/common/locales/tr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageCropperModule } from 'ngx-image-cropper';
@@ -37,7 +37,11 @@ import { EditChampionComponent } from './components/RepresntorDashBord/edit-cham
 import { AddMedalComponent } from './components/RepresntorDashBord/add-medal/add-medal.component';
 import { EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
 import { PlayerDetailsComponent } from './components/RepresntorDashBord/player-details/player-details.component';
-
+import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/players-in-assos/players-in-assos.component';
+import { MinNavbarComponent } from './components/AgentOfMinistryDashBoard/min-navbar/min-navbar.component';
+import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
+import { MinistryLayoutComponent } from './layouts/ministry-layout/ministry-layout/ministry-layout.component';
+import { DecimalFormatPipe } from './core/pips/decimal-format.pipe';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -68,7 +72,10 @@ registerLocaleData(tr);
     AddMedalComponent,
     EditMedalComponent,
     PlayerDetailsComponent,
-   
+    PlayersInAssosComponent,
+    MinNavbarComponent,
+    AllAssosComponent,
+    MinistryLayoutComponent,
     
   ],
   imports: [

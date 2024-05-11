@@ -1,0 +1,35 @@
+<div class="container mt-5">
+	<div class="row g-4">
+		<div class="col-3" *ngFor="let player of allPlayers"  >
+			<div class="profile-card text-center" [routerLink]="['/playerDetails' , player.id , player.associationID]">
+			
+				<div class="img w-50 m-auto" >
+					<!-- <img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle"> -->
+                    <img src="../../../../assets/football-player.jpg" alt=""  class="profile-img img-fluid rounded-circle">
+
+				</div>
+				<h2 class="fs-2">{{player.name}}</h2>
+				<div class="section">
+					<div class="player-data d-flex flex-column-reverse justify-content-between mb-4 ">
+                        <div class="part1">
+                            <p> <span>Association Name: </span> 
+							<small>{{player.associationName}}</small></p> 
+                            <p><span>Club: </span>  
+							
+							<small>{{player.club}}</small></p> 
+							
+                        </div>
+					</div>
+				</div>
+
+			  </div>
+		</div>
+
+	</div>
+
+
+  </div>
+
+  <div class="chart">
+	<canvas id="myChart" width="100" height="100" ></canvas>
+  </div>

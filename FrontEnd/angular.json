@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "BatalMaser:build:production"
+              "buildTarget": "BatalMaser:build:production"
             },
             "development": {
-              "browserTarget": "BatalMaser:build:development"
+              "buildTarget": "BatalMaser:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BatalMaser:build"
+            "buildTarget": "BatalMaser:build"
           }
         },
         "test": {

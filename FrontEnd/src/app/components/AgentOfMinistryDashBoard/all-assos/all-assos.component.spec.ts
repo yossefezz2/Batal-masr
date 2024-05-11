@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RepNavbarComponent } from './rep-navbar.component';
+import { AllAssosComponent } from './all-assos.component';
 
-describe('RepNavbarComponent', () => {
-  let component: RepNavbarComponent;
-  let fixture: ComponentFixture<RepNavbarComponent>;
+describe('AllAssosComponent', () => {
+  let component: AllAssosComponent;
+  let fixture: ComponentFixture<AllAssosComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RepNavbarComponent]
+      declarations: [AllAssosComponent]
     });
-    fixture = TestBed.createComponent(RepNavbarComponent);
+    fixture = TestBed.createComponent(AllAssosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
