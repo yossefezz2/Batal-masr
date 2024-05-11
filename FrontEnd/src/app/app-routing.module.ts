@@ -31,6 +31,7 @@ import { MinistryLayoutComponent } from './layouts/ministry-layout/ministry-layo
 import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/players-in-assos/players-in-assos.component';
 import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
 import { ministryGuard } from './core/Guard/ministry.guard';
+import { MinplayerDetailsComponent } from './components/AgentOfMinistryDashBoard/minplayer-details/minplayer-details.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,7 @@ const routes: Routes = [
     {path:'',redirectTo:'playersInAssos',pathMatch:'full'},
     {path:'playersInAssos',canActivate:[ministryGuard],component:PlayersInAssosComponent,title:'Players In Assos'},
     {path:'allAssos',canActivate:[ministryGuard],component:AllAssosComponent,title:'allAssos'},
+    {path:'playerDetails/:playerId/:AssosId',canActivate:[ministryGuard],component:MinplayerDetailsComponent,title:'Player Details'},
   ]},
 
 ];
