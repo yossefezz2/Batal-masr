@@ -10,6 +10,13 @@ function handleDisconnect() {
       database: 'bfvmzo0vegcvtagpl21e',
       port: '3306',
     });
+    //     connection = mysql.createConnection({
+    //   host: 'localhost',
+    //   user: 'root',
+    //   password: '',
+    //   database: 'batal-masr',
+    //   port: '3306',
+    // });
 
     connection.connect((err) => {
       if (err) {
@@ -24,7 +31,7 @@ function handleDisconnect() {
       console.error("db error", err);
       if (err.code === "PROTOCOL_CONNECTION_LOST") {
         console.log("Reconnecting to the database...");
-        handleDisconnect(); // Reconnect on connection loss
+        setTimeout(handleDisconnect, 10000); // Attempt to reconnect after 10 seconds
       } else {
         throw err;
       }
