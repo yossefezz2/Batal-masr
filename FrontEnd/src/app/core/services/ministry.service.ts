@@ -15,4 +15,8 @@ export class MinistryService {
   getAllAgentsOfMinistry(): Observable<any> {
     return this._HttpClient.get(this.baseUrl + '/agent/associationInfo/getAllAssociation')
   }
+  getPlayerDetails(playerID:string,AssosID:string): Observable<any> {
+    return this._HttpClient.get(this.baseUrl + `/agent/playerInfo/getAllPlayerDetails/${playerID}/${AssosID}`)
+  }
+  
 }

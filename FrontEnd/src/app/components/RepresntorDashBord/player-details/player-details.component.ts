@@ -44,9 +44,6 @@ export class PlayerDetailsComponent {
       }
     })
 
-
-
-
     this._RepresntorService.getPlayerDetals(this.playerId).subscribe({
       next:(res)=>{
         let data =res.data

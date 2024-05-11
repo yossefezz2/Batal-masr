@@ -26,7 +26,7 @@ import { RepNavbarComponent } from './components/RepresntorDashBord/rep-navbar/r
 import { RepHomeComponent } from './components/RepresntorDashBord/rep-home/rep-home.component';
 import { MangePlayerComponent } from './components/RepresntorDashBord/mange-player/mange-player.component';
 import { AddPlayerComponent } from './components/RepresntorDashBord/add-player/add-player.component';
-import { registerLocaleData } from '@angular/common';
+import {  registerLocaleData } from '@angular/common';
 import tr from '@angular/common/locales/tr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageCropperModule } from 'ngx-image-cropper';
@@ -41,8 +41,7 @@ import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/p
 import { MinNavbarComponent } from './components/AgentOfMinistryDashBoard/min-navbar/min-navbar.component';
 import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
 import { MinistryLayoutComponent } from './layouts/ministry-layout/ministry-layout/ministry-layout.component';
-
-
+import { DecimalFormatPipe } from './core/pips/decimal-format.pipe';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -77,7 +76,6 @@ registerLocaleData(tr);
     MinNavbarComponent,
     AllAssosComponent,
     MinistryLayoutComponent,
-   
     
   ],
   imports: [
@@ -92,7 +90,8 @@ registerLocaleData(tr);
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
+    
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true}],
   bootstrap: [AppComponent]

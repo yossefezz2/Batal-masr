@@ -16,9 +16,10 @@ export class PlayersInAssosComponent {
         console.log(res);    
         }
     })
-  }
 
-  
+
+
+  }
 
 
 }
