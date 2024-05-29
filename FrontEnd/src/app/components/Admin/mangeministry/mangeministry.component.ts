@@ -9,7 +9,9 @@ import { AdminService } from 'src/app/core/services/admin.service';
 export class MangeministryComponent {
   constructor(private _AdminService:AdminService){}
   allAgents:any={}
-
+  p:any
+  total :any
+  term:string=''
 
   ngOnInit(): void {
     this._AdminService.gatAgentsOfMinistry().subscribe({
@@ -20,7 +22,11 @@ export class MangeministryComponent {
     })
       
     }
-    
+    pageChanged(eve: any) {
+      console.log(eve);
+      
+      this.p=eve
+    }
     deleteAgent(id:string){
     this._AdminService.deleteAgentOfMinistry(id).subscribe({
       next:(res)=>{

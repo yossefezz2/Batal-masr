@@ -1,5 +1,7 @@
 <div class="container-fluid user-list-page bg-body-tertiary mt-2">
     <h1 class="text-center text-dark  p-4">Assosiation List</h1>
+    <input type="text" placeholder="Search..." class="form-control w-75 m-auto  mb-5" [(ngModel)]="term">
+
     <div class="row g-5">
         <div class="col-md-3">
             <div class="add-user-card  bg-transparent ">
@@ -7,7 +9,7 @@
                 <button class="btn btn-dark" routerLink="/addAssosiation">ADD ASSOCIATION</button>
             </div>
         </div>
-        <div class="col-md-3 " *ngFor="let agent of allAgents">
+        <div class="col-md-3 " *ngFor="let agent of allAgents|repfilter:term| paginate: { id: 'foo', itemsPerPage: 7, currentPage: p, totalItems: total}">
             <div class="user-card shadow">
                 <div class="icon w-100 m-auto">
                 <img src="../../../assets/assoc.png" alt="User Profile Picture">
@@ -28,4 +30,14 @@
             </div>
         </div>
     </div>
+    <pagination-controls class="pagination-controls text-center" id="foo"
+    (pageChange)="pageChanged($event)"
+    (pageBoundsCorrection)="pageChanged($event)"
+    [maxSize]="9"
+    [directionLinks]="true"
+    [autoHide]="true"
+    [responsive]="true"
+    previousLabel="Previous"
+    nextLabel="Next">
+  </pagination-controls>
 </div>
