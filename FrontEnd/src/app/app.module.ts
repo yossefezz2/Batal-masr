@@ -35,13 +35,17 @@ import { MangeChampionComponent } from './components/RepresntorDashBord/mange-ch
 import { AddChampionComponent } from './components/RepresntorDashBord/add-champion/add-champion.component';
 import { EditChampionComponent } from './components/RepresntorDashBord/edit-champion/edit-champion.component';
 import { AddMedalComponent } from './components/RepresntorDashBord/add-medal/add-medal.component';
-import { EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
+import { 
+EditMedalComponent } from './components/RepresntorDashBord/edit-medal/edit-medal.component';
 import { PlayerDetailsComponent } from './components/RepresntorDashBord/player-details/player-details.component';
 import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/players-in-assos/players-in-assos.component';
 import { MinNavbarComponent } from './components/AgentOfMinistryDashBoard/min-navbar/min-navbar.component';
 import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
 import { MinistryLayoutComponent } from './layouts/ministry-layout/ministry-layout/ministry-layout.component';
 import { DecimalFormatPipe } from './core/pips/decimal-format.pipe';
+import { SearchPipe } from './core/pips/search.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from './layouts/footer/footer.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -63,8 +67,8 @@ registerLocaleData(tr);
     AddAssosiationComponent,
     RepNavbarComponent,
     RepHomeComponent,
-    MangePlayerComponent,
-    AddPlayerComponent,
+    MangePlayerComponent,  
+      AddPlayerComponent,
     EditePlayerComponent,
     MangeChampionComponent,
     AddChampionComponent,
@@ -76,7 +80,8 @@ registerLocaleData(tr);
     MinNavbarComponent,
     AllAssosComponent,
     MinistryLayoutComponent,
-    
+    SearchPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +96,7 @@ registerLocaleData(tr);
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
+    NgxPaginationModule
     
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true}],

@@ -9,7 +9,9 @@ import { RepresntorService } from 'src/app/core/services/represntor.service';
 export class MangeChampionComponent {
   constructor(private _RepresntorService:RepresntorService){}
   allChampionships:any={}
-  
+  p:any
+  total :any
+  term:string=''
   
     ngOnInit(): void {
     this._RepresntorService.getAllChampionships().subscribe({
@@ -19,6 +21,11 @@ export class MangeChampionComponent {
       }
     })
       
+    }
+    pageChanged(eve: any) {
+      console.log(eve);
+      
+      this.p=eve
     }
     
     deletechampion(id:string){

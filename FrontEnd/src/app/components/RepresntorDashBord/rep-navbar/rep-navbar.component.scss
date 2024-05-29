@@ -82,6 +82,11 @@ nav{
   }
   /* button click effect*/
   .Btn:active {
-    transform: translate(2px, 2px);
-  }
+    transform: translate(2px, 2px);}
+.active-link{
+  border-radius: 15px;
+  padding: 10px;
+  background-color:#000000dc ;
+  color: #fff!important;
+}
   
