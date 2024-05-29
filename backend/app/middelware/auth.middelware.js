@@ -53,4 +53,15 @@ const isAgent= async (req,res,next)=>{
         resGenerator(res, 500, false, error.message , "invalid auth")
     }
 }
-module.exports = {userMiddleware,isAdmin,isRepresntor,isAgent}
+const isPlayer= async (req,res,next)=>{
+    try {
+
+        if (req.user.type != "player") throw new Error("not authorized admin")
+
+        next()
+        
+    } catch (error) {
+        resGenerator(res, 500, false, error.message , "invalid auth")
+    }
+}
+module.exports = {userMiddleware,isAdmin,isRepresntor,isAgent,isPlayer}
