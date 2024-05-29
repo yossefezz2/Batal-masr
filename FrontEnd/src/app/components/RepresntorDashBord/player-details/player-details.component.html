@@ -1,17 +1,17 @@
-    <div class="container py-3 shadow">
+    <div class="container py-3 shadow mb-4">
         <div class="row g-3">
             <div class="col-lg-3 img">
             <img class="w-100 rounded-3 shadow" [src]="playerDetails.img" alt="">
             </div>
             <div class="col-lg-9 section-1">
                 <h2 class="playerName"> {{playerDetails.playerName}}</h2>
-                <div class="row   ">
-                    <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
                         <ul>
-                            <li class="w-35 mb-2 d-flex justify-content-between"><span class="span">Gender :</span>  <span>{{playerDetails.playerGender}}</span></li>
-                            <li class="w-35 mb-2 d-flex justify-content-between"><span class="span">Club : </span>  <span>{{playerDetails.club}}</span></li>
-                            <li class="w-35 mb-2 d-flex justify-content-between"><span class="span">Height : </span>  <span>{{playerDetails.height}} m</span></li>
-                            <li class="w-35 mb-2 d-flex justify-content-between"><span class="span">Age : </span>  <span>{{playerAge}}</span></li>
+                            <li class="w-35 mb-2 d-flex justify-content-start"><span class="span">Gender :</span>  <span class="ms-2">{{playerDetails.playerGender}}</span></li>
+                            <li class="w-35 mb-2 d-flex justify-content-start"><span class="span">Club : </span>  <span class="ms-2">{{playerDetails.club}}</span></li>
+                            <li class="w-35 mb-2 d-flex justify-content-start"><span class="span">Height : </span>  <span class="ms-2">{{playerDetails.height}} m</span></li>
+                            <li class="w-35 mb-2 d-flex justify-content-start"><span class="span">Age : </span>  <span class="ms-2">{{playerDetails.age}}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="tab-content col-lg-9 content mt-3 w-100" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-Local" role="tabpanel" aria-labelledby="v-pills-Local-tab" tabindex="0">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 container-table">
                           <table class="table table-striped ">
                             <thead>
                               <tr>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-Continental" role="tabpanel" aria-labelledby="v-pills-Continental-tab" tabindex="0">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 container-table">
                           <table class="table table-striped">
                             <thead>
                               <tr>
@@ -81,7 +81,7 @@
                                 <td>{{item.name}}</td>
                                 <td>{{item.typeOfMedal}} </td>
                                 <td>{{item.year}}</td>
-                                <td><button class="btn btn-info"> <i class="fa-solid fa-pen-to-square"></i></button></td>
+                                <td><button class="btn btn-info" [routerLink]="['/editmedal',item.playerId]"> <i class="fa-solid fa-pen-to-square"></i></button></td>
                                 <td><button class="btn btn-danger" ><i class="fa-solid fa-trash-can"></i> </button></td>
                               </tr>
                             </tbody>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-International" role="tabpanel" aria-labelledby="v-pills-International-tab" tabindex="0">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 container-table">
                           <table class="table table-striped">
                             <thead>
                               <tr>

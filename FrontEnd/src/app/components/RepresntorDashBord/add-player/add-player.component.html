@@ -3,7 +3,7 @@
   <form [formGroup]="addPlayer" (ngSubmit)="handelForm()">
     <div class="row">
     <div class="form-group col-md-4  mb-3">
-            <label for="inputName">Name *</label>
+            <label for="inputName"> Full Name *</label>
             <input type="text" class="form-control" formControlName="name" id="inputName" placeholder="Enter your name">
             <div class="alert alert-danger mt-1" *ngIf="addPlayer.get('name')?.errors && (addPlayer.get('name')?.touched ||addPlayer.get('name')?.value.length>0) ">
                 <p class="m-0 " *ngIf="addPlayer.get('name')?.getError('required')">name is required</p>
@@ -51,6 +51,24 @@
         <input type="text" class="form-control" formControlName="club" id="inputClub" placeholder="Enter your club"> 
         <div class="alert alert-danger mt-1" *ngIf="addPlayer.get('club')?.errors && (addPlayer.get('club')?.touched ||addPlayer.get('club')?.value.length>0) ">
             <p class="m-0 " *ngIf="addPlayer.get('club')?.getError('required')">club is required</p>
+          
+        </div>
+      </div>
+      <div class="form-group col-md-12 mb-3">
+        <label for="inputClub">Email *</label>
+        <input type="text" class="form-control" formControlName="email" id="inputClub" placeholder="Enter your email"> 
+        <div class="alert alert-danger mt-1" *ngIf="addPlayer.get('email')?.errors && (addPlayer.get('email')?.touched ||addPlayer.get('email')?.value.length>0) ">
+            <p class="m-0 " *ngIf="addPlayer.get('email')?.getError('required')">email is required</p>
+            <p class="m-0 " *ngIf="addPlayer.get('email')?.getError('email')">email is not valid</p>
+          
+        </div>
+      </div>
+      <div class="form-group col-md-12 mb-3">
+        <label for="inputClub">Password *</label>
+        <input type="password" class="form-control" formControlName="password" id="inputpassword" placeholder="Enter your password"> 
+        <div class="alert alert-danger mt-1" *ngIf="addPlayer.get('password')?.errors && (addPlayer.get('password')?.touched ||addPlayer.get('password')?.value.length>0) ">
+            <p class="m-0 " *ngIf="addPlayer.get('password')?.getError('required')">password is required</p>
+            <p class="m-0 " *ngIf="addPlayer.get('password')?.getError('pattern')">password is not valid</p>
           
         </div>
       </div>

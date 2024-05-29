@@ -25,6 +25,8 @@ export class AddPlayerComponent {
     height: new FormControl('', [Validators.required]),
     weight: new FormControl('', [Validators.required]),
     club: new FormControl(''),
+    email: new FormControl('', [Validators.required,Validators.email]),
+    password: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z0-9_@]{6,}$/)]),
     img: new FormControl('', [Validators.required]),
   }
  /*  , {validators:[this.validateImageSize] }as FormControlOptions */
