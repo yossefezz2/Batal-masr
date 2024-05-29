@@ -10,7 +10,7 @@
         <button class="btn btn-dark" routerLink="/addPlayer">ADD PLAYER</button>
       </div>
     </div>
-    <div class="col-3" *ngFor="let player of allPlayers | search:term | paginate: { id: 'foo', itemsPerPage: 7, currentPage: p, totalItems: total }">
+    <div class="col-3" *ngFor="let player of allPlayers | search:term | paginate: { id: 'foo', itemsPerPage: 11, currentPage: p, totalItems: total }">
       <div class="profile-card text-center" [routerLink]="['/playerDetails', player.id]">
         <div class="img w-50 m-auto">
           <img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle">

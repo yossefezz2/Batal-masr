@@ -46,6 +46,7 @@ import { DecimalFormatPipe } from './core/pips/decimal-format.pipe';
 import { SearchPipe } from './core/pips/search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './layouts/footer/footer.component';
+import { RepfilterPipe } from './core/pips/repfilter.pipe';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ registerLocaleData(tr);
     AllAssosComponent,
     MinistryLayoutComponent,
     SearchPipe,
+    RepfilterPipe,
     FooterComponent
   ],
   imports: [
