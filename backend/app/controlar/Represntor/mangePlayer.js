@@ -4,9 +4,14 @@ const sharedService = require("../../../services/shared.js");
 const helpers = require('../../helper.js');
 const uploadHandler = require('../../middelware/upload.middleware.js')
 const fs = require('fs');
+const bcrypt = require("bcrypt");
 class mangePlayer {
     static async addPlayer(req, res) {
         try {
+            const mail = await sharedService.getEmail(req.body.email);
+            if (mail.length > 0) {
+                throw new Error("Email already registered");
+            }
             const { nanoid } = await import('nanoid');
             const nId1 = nanoid(10);
             console.log(req.file);
@@ -22,7 +27,18 @@ class mangePlayer {
                 club: req.body.club,
                 img: "http://localhost:3000/" + f.replace(`public\\`, "")
             };
-            await mangePlayerServices.addPlayer(data);
+            let dataEmail = {
+                id: nId1,
+                name: req.body.name,
+                email: req.body.email,
+                password: await bcrypt.hash(req.body.password, 10),
+                type: "player",
+                association: req.user.association,
+                playerId: nId1
+            };
+            
+            await mangePlayerServices.addPlayer(data,dataEmail);
+            // await mangePlayerServices.addPlayerEmail(dataEmail);
             helpers.resGenerator(res, 200, true, data, "add player")
         }
         catch (error) {
@@ -68,7 +84,7 @@ class mangePlayer {
             if (singlePlayer.length <= 0) {
                 throw new Error("not users found");
             }
-            if (singlePlayer[0].gender != req.body.gender){
+            if (singlePlayer[0].gender != req.body.gender) {
                 await mangePlayerServices.deletePlayerMedal(req.params.id, req.user.association)
             }
             let imgEdit = singlePlayer[0].img
@@ -89,7 +105,7 @@ class mangePlayer {
                 club: req.body.club,
                 img: imgEdit
             };
-            await mangePlayerServices.editPlayer(data, req.params.id,req.user.association);
+            await mangePlayerServices.editPlayer(data, req.params.id, req.user.association);
             helpers.resGenerator(res, 200, true, data, "edit player")
         }
         catch (error) {
@@ -115,7 +131,7 @@ class mangePlayer {
             helpers.resGenerator(res, 400, false, error.message, "player can't be deleted")
         }
     }
-    static async getPlayerDetails(req, res){
+    static async getPlayerDetails(req, res) {
         let singlePlayer
         try {
             singlePlayer = await mangePlayerServices.getSinglePlayer(req.params.id, req.user.association);
@@ -123,10 +139,10 @@ class mangePlayer {
                 throw new Error("not users found");
             }
             const data = await mangePlayerServices.getPlayerDetails(req.params.id, req.user.association);
-            if (data.length <= 0)  {
+            if (data.length <= 0) {
                 throw new Error("not found");
             }
-            helpers.resGenerator(res,200, true, data, "singer agent")
+            helpers.resGenerator(res, 200, true, data, "singer agent")
         }
         catch (error) {
             if (error.message === "not found") {
@@ -136,5 +152,25 @@ class mangePlayer {
             }
         }
     }
+    // static async enterEmailForAllPlayers(req, res) {
+    //     try {
+    //         const password = await bcrypt.hash("12345678", 10)
+    //         const data = await mangePlayerServices.getallplayeralltime();
+    //         if (data.length <= 0) {
+    //             console.log("hi");
+    //             throw new Error("not player found");
+    //         }
+    //         let allPlayerEmails =[]
+    //         data.forEach(element => {
+    //             let firstname =element.name.split(" ")[0];
+    //             var email = firstname+element.id+"@gmail.com"
+    //             allPlayerEmails.push([element.id, email,password,element.associationId,element.name])
+    //         });
+    //         await mangePlayerServices.addallemails(allPlayerEmails);
+    //         helpers.resGenerator(res, 200, true, allPlayerEmails, "delete player")
+    //     } catch (error) {
+    //         helpers.resGenerator(res, 500, true, error.message, "delete player")
+    //     }
+    // }
 }
 module.exports = mangePlayer;

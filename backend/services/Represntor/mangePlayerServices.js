@@ -1,13 +1,16 @@
 const util = require("util");
 const { connection } = require("../../db/Connection.js");
 class mangeplayer {
-    static async addPlayer(data) {
+    static async addPlayer(dataPlayer,emailPlayer) {
         const query = util.promisify(connection.query).bind(connection);
-        return await query("INSERT INTO players SET?", [data]);
+        const queryString =
+            `INSERT INTO players SET?
+             INSERT INTO allusers SET?`
+        return await query(queryString, [dataPlayer,emailPlayer]);
     };
     static async getallPlayers(associationId) {
         const query = util.promisify(connection.query).bind(connection);
-        return await query("select * from players inner join association on association.associationID=players.associationId where players.associationId =? ", [associationId]);
+        return await query("select * from players inner join association on association.associationID=players.associationId inner join allusers on allusers.id=players.id where players.associationId =? ", [associationId]);
     };
     static async getSinglePlayer(id, associationId) {
         const query = util.promisify(connection.query).bind(connection);
@@ -26,6 +29,7 @@ class mangeplayer {
                 players.club,
                 association.associationName,
                 medals.MedalAchievementDate,
+                medals.id AS medalID,
                 medals.typeOfMedal,
                 medals.year,
                 championship.name,
@@ -63,5 +67,32 @@ class mangeplayer {
         const query = util.promisify(connection.query).bind(connection);
         return await query("delete from medals where  playerId =? and associationId =?", [playerId, associationId]);
     }
+    // static async addPlayerEmail(data) {
+    //     const query = util.promisify(connection.query).bind(connection);
+    //     return await query("INSERT INTO allusers SET?", [data]);
+    // };
+    // static async getallplayeralltime() {
+    //     const query = util.promisify(connection.query).bind(connection);
+    //     return await query("select name , id, associationId from players ");
+    // };
+
+    // static async addallemails(data) {
+    //     data.forEach(row => {
+    //         const id = row[0];
+    //         const email = row[1];
+    //         const password = row[2];
+    //         const association = row[3];
+    //         const name = row[4];
+    //         const type = "player";
+    //         const sql = "INSERT INTO allusers (id, email, password, type, association, name, playerId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    //         const values = [id, email, password, type, association, name, id];
+
+    //         connection.query(sql, values, function(err, result) {
+    //           if (err) throw err;
+    //           console.log(err)
+    //           console.log(`error start with id: ${id}`);
+    //         });
+    //       });
+    // };
 }
 module.exports = mangeplayer;
