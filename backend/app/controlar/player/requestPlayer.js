@@ -158,5 +158,21 @@ class requestPlayer {
             }
         }
     }
+    static async getSinglePlayer(req, res) {
+        try {
+            const data = await requestPlayerService.getSinglePlayer(req.user.id, req.user.association);
+            if (data.length <= 0) {
+                throw new Error("not users found");
+            }
+            helpers.resGenerator(res, 200, true, data, "singer players")
+        }
+        catch (error) {
+            if (error.message == "not users found") {
+                helpers.resGenerator(res, 404, false, error.message, "can't get single player")
+            } else {
+                helpers.resGenerator(res, 500, false, error.message, "can't get single player")
+            }
+        }
+    }
 }
 module.exports = requestPlayer

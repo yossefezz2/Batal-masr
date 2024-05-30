@@ -60,5 +60,9 @@ class requestPlayerService {
         const query = util.promisify(connection.query).bind(connection);
         return await query("select * from medals inner join association on association.associationID=medals.associationId where medals.associationId =? and medals.id =?", [associationId, id]);
     };
+    static async getSinglePlayer(id, associationId) {
+        const query = util.promisify(connection.query).bind(connection);
+        return await query("select * from players inner join association on association.associationID=players.associationId where players.associationId =? and players.id =?", [associationId, id]);
+    };
 }
 module.exports = requestPlayerService;

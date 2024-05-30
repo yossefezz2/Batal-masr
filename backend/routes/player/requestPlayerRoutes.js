@@ -3,6 +3,8 @@ const {userMiddleware,isPlayer} = require("../../app/middelware/auth.middelware.
 const requestPlayer=require('../../app/controlar/player/requestPlayer.js')
 const router =express.Router()
 
+router.get("/getSinglePlayer",userMiddleware,isPlayer, requestPlayer.getSinglePlayer )
+
 router.get('/getPlayerDetails',userMiddleware,isPlayer, requestPlayer.getPlayerDetails)
 
 router.get("/getSingelMadel/:id",userMiddleware,isPlayer, requestPlayer.getSingleMedal )

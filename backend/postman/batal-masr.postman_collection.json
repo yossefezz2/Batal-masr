@@ -1675,6 +1675,42 @@
 			"name": "player",
 			"item": [
 				{
+					"name": "get single player data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-representor}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{localhost}}/representor/player/{{test-Player-ID}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"representor",
+								"player",
+								"{{test-Player-ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get Player Details",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
