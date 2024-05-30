@@ -48,6 +48,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { RepfilterPipe } from './core/pips/repfilter.pipe';
 import { ShowMemberComponent } from './components/Admin/show-member/show-member.component';
+import { PlayerLayoutComponent } from './layouts/player-layout/player-layout.component';
+import { PlayerHomeComponent } from './components/Player/player-home/player-home.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ registerLocaleData(tr);
     SearchPipe,
     RepfilterPipe,
     FooterComponent,
-    ShowMemberComponent
+    ShowMemberComponent,
+    PlayerLayoutComponent,
+    PlayerHomeComponent
   ],
   imports: [
     BrowserModule,

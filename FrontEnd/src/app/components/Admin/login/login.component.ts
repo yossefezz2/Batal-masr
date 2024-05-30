@@ -33,9 +33,11 @@ constructor(private _AuthService:AuthService,private _Router:Router){}
         if (type == "admin") {
            this._Router.navigate(['/Adminhome']) 
         }else if(type == "representorOfAssociation"){
-          this._Router.navigate(['/rephome']) 
+          this._Router.navigate(['/mangePlayer']) 
         }else if(type == "agentsOfMinistry"){
           this._Router.navigate(['/playersInAssos']) 
+        }else if(type == "player"){
+          this._Router.navigate(['/playerHome']) 
         }
         
       },
