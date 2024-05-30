@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/core/services/admin.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { AdminService } from 'src/app/core/services/admin.service';
   styleUrls: ['./mangeministry.component.scss']
 })
 export class MangeministryComponent {
-  constructor(private _AdminService:AdminService){}
+  constructor(private _AdminService:AdminService,private _ToastrService: ToastrService){}
   allAgents:any={}
   p:any
   total :any
@@ -34,6 +35,8 @@ export class MangeministryComponent {
         this._AdminService.gatAgentsOfMinistry().subscribe({
           next:(res)=>{
             this.allAgents =res.data
+            this._ToastrService.success('The Agent has been deleted successfully');
+
           }
         })
     

@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="col-md-3 " *ngFor="let agent of allAgents|repfilter:term| paginate: { id: 'foo', itemsPerPage: 7, currentPage: p, totalItems: total}">
-            <div class="user-card shadow">
+            <div class="user-card shadow" [routerLink]="['/showMember', agent.associationName]">
                 <div class="icon w-100 m-auto">
                 <img src="../../../assets/assoc.png" alt="User Profile Picture">
                 </div>

@@ -13,7 +13,7 @@
 }
 
 section .container{
-    height: 85vh;
+    min-height: 85vh;
 }
 
  form input:focus,form select:focus {
@@ -28,3 +28,5 @@ section .container{
     background-color:  #0000009e;
     color: #ffffff78;
   }
+
+  
