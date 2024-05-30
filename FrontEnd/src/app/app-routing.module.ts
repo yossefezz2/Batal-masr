@@ -32,6 +32,7 @@ import { PlayersInAssosComponent } from './components/AgentOfMinistryDashBoard/p
 import { AllAssosComponent } from './components/AgentOfMinistryDashBoard/all-assos/all-assos.component';
 import { ministryGuard } from './core/Guard/ministry.guard';
 import { MinplayerDetailsComponent } from './components/AgentOfMinistryDashBoard/minplayer-details/minplayer-details.component';
+import { ShowMemberComponent } from './components/Admin/show-member/show-member.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,7 @@ const routes: Routes = [
     {path:'mangeAssosiation',canActivate:[adminGuard],component:MangeAssosiationComponent,title:'mangeAssosiation'},
     {path:'addAssosiation',canActivate:[adminGuard],component:AddAssosiationComponent,title:'addAssosiation'},
     {path:'updataAssosiation/:id',canActivate:[adminGuard],component:EditAssosiationComponent,title:'updataAssosiation'},
+    {path:'showMember/:id',canActivate:[adminGuard],component:ShowMemberComponent,title:'showMember'},
   ]},
   {path:'',component:RepLayoutComponent,children:[
     {path:'',redirectTo:'rephome',pathMatch:'full'},

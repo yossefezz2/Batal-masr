@@ -1,7 +1,14 @@
+body{
+}
+
 .user-list-page {
   color: #fff; 
   border-radius: 10px;
   overflow: hidden;
+  // background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../../assets/pexels-ollivves-1103833.jpg');
+  background-size: cover;
+
+
 }
 
 .add-user-card {

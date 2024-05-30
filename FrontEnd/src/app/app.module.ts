@@ -47,6 +47,7 @@ import { SearchPipe } from './core/pips/search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { RepfilterPipe } from './core/pips/repfilter.pipe';
+import { ShowMemberComponent } from './components/Admin/show-member/show-member.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ registerLocaleData(tr);
     MinistryLayoutComponent,
     SearchPipe,
     RepfilterPipe,
-    FooterComponent
+    FooterComponent,
+    ShowMemberComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,8 @@ ngOnInit(): void {
   this._RepresntorService.getAllPlayers().subscribe({
     next:(res)=>{      
       this.allPlayers = res.data;
+      console.log(res);
+      
       
     },error:(err)=>{
       console.log(err);

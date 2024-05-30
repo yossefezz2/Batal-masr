@@ -96,8 +96,8 @@ export class EditMedalComponent {
       this._RepresntorService.editMadal(this.medalId,userData).subscribe({
         next: () => {
           this.isLoading = false;
-          this._Router.navigate(['/mangePlayer'])
-          this._ToastrService.success('The Medal has been added successfully');
+          this._Router.navigate([`/playerDetails/${this.playerId}`])
+          this._ToastrService.success('The Medal has been Updated successfully');
           this.errMessage = ''
 
         }, error: (err) => {

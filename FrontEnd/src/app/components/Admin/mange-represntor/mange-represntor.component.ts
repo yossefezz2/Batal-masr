@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/core/services/admin.service';
 @Component({
   selector: 'app-mange-represntor',
@@ -6,7 +7,7 @@ import { AdminService } from 'src/app/core/services/admin.service';
   styleUrls: ['./mange-represntor.component.scss']
 })
 export class MangeRepresntorComponent {
-constructor(private _AdminService:AdminService){}
+constructor(private _AdminService:AdminService,private _ToastrService: ToastrService){}
 allAgents:any={}
 AssosiationArray: any = [];
 term:string=''
@@ -44,6 +45,8 @@ this._AdminService.deleteAgent(id).subscribe({
     this._AdminService.getAllAgents().subscribe({
       next:(res)=>{
         this.allAgents =res.data
+        this._ToastrService.success('The Represntor has been deleted successfully');
+
       }
     })
 

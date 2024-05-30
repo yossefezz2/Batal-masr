@@ -71,6 +71,10 @@ baseUrl:string='http://localhost:3000'
   getSingleAssosiation(id:string):Observable<any>{
     return this._HttpClient.get(this.baseUrl +`/admin/association/${id}`)
   }
+
+  showMember(associationName:string):Observable<any>{
+    return this._HttpClient.get(this.baseUrl +`/admin/representor/associationMember/${associationName}`)
+  }
   updateAgentOfAssosation(id:string,item:any):Observable<any>{
     return this._HttpClient.put(this.baseUrl+`/admin/association/${id}`,item)
   }
