@@ -4,7 +4,7 @@ class AddMedalIssues{
     static async getSingleAddMedelIssue(req, res){
         let Medal
         try {
-            const data = await AddMedalIssuesService.getSingleAddMedelIssue(req.user.association);
+            const data = await AddMedalIssuesService.getSingleAddMedelIssue(req.params.id,req.user.association);
             if (data.length <= 0) {
                 throw new Error("not issue found");
             }
