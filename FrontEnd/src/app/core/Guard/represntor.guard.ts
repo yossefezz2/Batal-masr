@@ -4,7 +4,7 @@ import { CanActivateFn, Router } from '@angular/router';
 export const represntorGuard: CanActivateFn = (route, state) => {
   const router= inject(Router)
   let userType =localStorage.getItem('_type')
-  if (userType!='player') {
+  if (userType!='representorOfAssociation') {
     router.navigateByUrl("/login")
     return false
   }

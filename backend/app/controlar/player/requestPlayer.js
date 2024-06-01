@@ -45,7 +45,12 @@ class requestPlayer {
         }
     }
     static async requestToAddMadel(req, res) {
+        let Medal
         try {
+            Medal = await mangeMedalServices.checkIfHeWinInThisChampionship(req.user.id, req.user.association, req.body.year, Number(req.body.championshipID));
+            if (Medal.length > 0) {
+                throw new Error("medal already registered");
+            }
             const singlePlayer = await mangePlayerServices.getSinglePlayer(req.user.id, req.user.association);
             const singleChampion = await mangechampionshipServices.getSinglechampionship(req.body.championshipID, req.user.association);
             if (singlePlayer[0].gender != singleChampion[0].gender) {
@@ -73,7 +78,12 @@ class requestPlayer {
             await requestPlayerService.requestToAddMadel(data);
             helpers.resGenerator(res, 200, true, data, "add medal")
         } catch (error) {
-            if (error.message === "not found") {
+            if (error.message == "medal already registered") {
+                console.log(Medal)
+                // const Medal = await mangeMedalServices.checkIfHeWinInThisChampionship(req.body.playerId,req.user.association);
+                helpers.resGenerator(res, 400, false, Medal, error.message)
+            }
+            else if (error.message === "not found") {
                 helpers.resGenerator(res, 200, false, singlePlayer, "not found Details");
             }
             else if (error.message == "the player gender must match the chapion gender") {
@@ -172,6 +182,23 @@ class requestPlayer {
             } else {
                 helpers.resGenerator(res, 500, false, error.message, "can't get single player")
             }
+        }
+    }
+    static async getallchampionships(req, res) {
+        try {
+            const data = await mangechampionshipServices.getallchampionships(req.user.association);
+            if (data.length <= 0) {
+                throw new Error("not championship found");
+            }
+            helpers.resGenerator(res, 200, true, data, "all championship")
+        }
+        catch (error) {
+            if (error.message == "not championship found") {
+                helpers.resGenerator(res, 404, false, error.message, "not championship found")
+            } else {
+                helpers.resGenerator(res, 500, false, error.message, "can't get all championship")
+            }
+
         }
     }
 }
