@@ -50,6 +50,9 @@ import { RepfilterPipe } from './core/pips/repfilter.pipe';
 import { ShowMemberComponent } from './components/Admin/show-member/show-member.component';
 import { PlayerLayoutComponent } from './layouts/player-layout/player-layout.component';
 import { PlayerHomeComponent } from './components/Player/player-home/player-home.component';
+import { PlayerNavbarComponent } from './components/Player/player-navbar/player-navbar.component';
+import { ReqToAddMedalComponent } from './components/Player/req-to-add-medal/req-to-add-medal.component';
+import { ReqToEditMedalComponent } from './components/Player/req-to-edit-medal/req-to-edit-medal.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -89,7 +92,10 @@ registerLocaleData(tr);
     FooterComponent,
     ShowMemberComponent,
     PlayerLayoutComponent,
-    PlayerHomeComponent
+    PlayerHomeComponent,
+    PlayerNavbarComponent,
+    ReqToAddMedalComponent,
+    ReqToEditMedalComponent
   ],
   imports: [
     BrowserModule,

@@ -36,6 +36,8 @@ import { ShowMemberComponent } from './components/Admin/show-member/show-member.
 import { PlayerLayoutComponent } from './layouts/player-layout/player-layout.component';
 import { PlayerHomeComponent } from './components/Player/player-home/player-home.component';
 import { playerGuard } from './core/Guard/player.guard';
+import { ReqToAddMedalComponent } from './components/Player/req-to-add-medal/req-to-add-medal.component';
+import { ReqToEditMedalComponent } from './components/Player/req-to-edit-medal/req-to-edit-medal.component';
 
 
 const routes: Routes = [
@@ -81,6 +83,9 @@ const routes: Routes = [
   {path:'',component:PlayerLayoutComponent,children:[
     {path:'',redirectTo:'playerHome',pathMatch:'full'},
     {path:'playerHome',canActivate:[playerGuard],component:PlayerHomeComponent,title:'home'},
+    {path:'ReqToAddMedal',canActivate:[playerGuard],component:ReqToAddMedalComponent,title:'ReqToAddMedal'},
+    {path:'reqToEditMedal/:medalId',canActivate:[playerGuard],component:ReqToEditMedalComponent, title:'reqToEditMedal'}
+
   ]},
 
 ];

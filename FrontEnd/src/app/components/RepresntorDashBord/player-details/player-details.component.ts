@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-player-details',
@@ -8,59 +10,74 @@ import { RepresntorService } from 'src/app/core/services/represntor.service';
   styleUrls: ['./player-details.component.scss']
 })
 export class PlayerDetailsComponent {
-  constructor( private _ActivatedRoute:ActivatedRoute, private _RepresntorService:RepresntorService ){}
-  playerId:any;
-  playerAge: any
-  playerDetails:any={}
-  laocalArray:any=[];
-  continentalArray:any=[];
-  internationalArray:any=[];
-  ngOnInit(): void {  
+  constructor(
+    private _Router: Router,
+    private _ActivatedRoute: ActivatedRoute, 
+    private _RepresntorService: RepresntorService,
+    private _ToastrService: ToastrService
+  ) {}
+
+  playerId: any;
+  playerAge: any;
+  playerDetails: any = {};
+  laocalArray = new BehaviorSubject<any[]>([]);
+  internationalArray = new BehaviorSubject<any[]>([]);
+
+  ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
-      next:(params)=>{
-        this.playerId = params.get('id')
-        
+      next: (params) => {
+        this.playerId = params.get('id');
+        this.loadPlayerDetails();
       }
-    })
+    });
+  }
 
+  loadPlayerDetails(): void {
     this._RepresntorService.getPlayerDetals(this.playerId).subscribe({
-      next:(res)=>{
-       this.playerDetails = res.data[0];
-       console.log(res);
-       this.playerAge = res.data[0].birthOfDate
-       const birthDate = new Date(this.playerAge);
-       const today = new Date();
-   
-       let age = today.getFullYear() - birthDate.getFullYear();
-       const monthDifference = today.getMonth() - birthDate.getMonth();
-   
-       if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-         age--;
-       }
-       this.playerAge =age;
-     
-       
-        
+      next: (res) => {
+        this.playerDetails = res.data[0];
+        this.calculatePlayerAge(res.data[0].birthOfDate);
+        this.updateMedals(res.data);
       }
-    })
+    });
+  }
 
-    this._RepresntorService.getPlayerDetals(this.playerId).subscribe({
-      next:(res)=>{
-        let data =res.data
-        for (let i = 0; i < data.length; i++) {
-          if(data[i].typeOfChampionship=="Local"){
-            this.laocalArray.push(data[i])
-           
-          }
-          else if(data[i].typeOfChampionship=="Continental"){
-            this.continentalArray.push(data[i])
-          }
-          else if(data[i].typeOfChampionship=="International"){
-            this.internationalArray.push(data[i])
-          }
-          
-        }
+  calculatePlayerAge(birthDateString: string): void {
+    const birthDate = new Date(birthDateString);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    this.playerAge = age;
+  }
+
+  updateMedals(data: any[]): void {
+    const localMedals = data.filter(medal => medal.typeOfChampionship === "Local");
+    const internationalMedals = data.filter(medal => medal.typeOfChampionship === "International");
+    
+    this.laocalArray.next(localMedals);
+    this.internationalArray.next(internationalMedals);
+  }
+
+  deleteMedal(id: any): void {
+    this._RepresntorService.deleteMedal(id).subscribe({
+      next: (res) => {
+        this._ToastrService.success('The Medal has been Deleted successfully');
+        this.refreshMedals();
+        this._Router.navigate(['/playerDetails']);
       }
-    })
+    });
+  }
+
+  refreshMedals(): void {
+    this._RepresntorService.getPlayerDetals(this.playerId).subscribe({
+      next: (res) => {
+        this.updateMedals(res.data);
+      }
+    });
   }
 }
