@@ -13,6 +13,14 @@ export const loginGuard: CanActivateFn = (route, state) => {
     router.navigateByUrl("/rephome")
     return false
   }
+  else if (token && userType=='agentsOfMinistry') {
+    router.navigateByUrl("/playersInAssos")
+    return false
+  }
+  else if (token && userType=='player') {
+    router.navigateByUrl("/playerHome")
+    return false
+  }
   return true;
 
 };

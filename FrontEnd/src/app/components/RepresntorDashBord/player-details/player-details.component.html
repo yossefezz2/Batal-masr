@@ -50,12 +50,12 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let item of laocalArray">
+                              <tr *ngFor="let item of laocalArray|async">
                                 <td>{{item.name}}</td>
                                 <td>{{item.typeOfMedal}} </td>
                                 <td>{{item.year}}</td>
                                 <td><button class="btn btn-info" [routerLink]="['/editmedal', item.playerId,item.medalID]"> <i class="fa-solid fa-pen-to-square"></i></button></td>
-                                <td><button class="btn btn-danger" ><i class="fa-solid fa-trash-can"></i> </button></td>
+                                <td><button class="btn btn-danger" (click)="deleteMedal(item.medalID)"><i class="fa-solid fa-trash-can"></i> </button></td>
                               </tr>
                             </tbody>
                           </table>
@@ -77,12 +77,12 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let item of internationalArray">
+                              <tr *ngFor="let item of internationalArray|async">
                                 <td>{{item.name}}</td>
                                 <td>{{item.typeOfMedal}} </td>
                                 <td>{{item.year}}</td>
-                                <td><button class="btn btn-info"> <i class="fa-solid fa-pen-to-square"></i></button></td>
-                                <td><button class="btn btn-danger" ><i class="fa-solid fa-trash-can"></i> </button></td>
+                                <td><button class="btn btn-info " [routerLink]="['/editmedal', item.playerId,item.medalID]"> <i class="fa-solid fa-pen-to-square"></i></button></td>
+                                <td><button class="btn btn-danger" (click)="deleteMedal(item.medalID)"><i class="fa-solid fa-trash-can"></i> </button></td>
                               </tr>
                             </tbody>
                           </table>

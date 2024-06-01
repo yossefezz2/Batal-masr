@@ -3,16 +3,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
+import { PlayerService } from 'src/app/core/services/player.service';
 @Component({
-  selector: 'app-add-medal',
-  templateUrl: './add-medal.component.html',
-  styleUrls: ['./add-medal.component.scss']
+  selector: 'app-req-to-add-medal',
+  templateUrl: './req-to-add-medal.component.html',
+  styleUrl: './req-to-add-medal.component.scss'
 })
-export class AddMedalComponent {
+export class ReqToAddMedalComponent {
   constructor(private _RepresntorService: RepresntorService,
     private _ToastrService: ToastrService,
     private _Router: Router,
-    private _ActivatedRoute:ActivatedRoute) { }
+    private _ActivatedRoute:ActivatedRoute,
+     private _PlayerService:PlayerService) { }
   errMessage: string = '';
   isLoading: boolean = false;
   nameArray: any = [];
@@ -25,9 +27,11 @@ export class AddMedalComponent {
     championshipID:new FormControl('', [Validators.required]),
   })
   ngOnInit(): void {
-    this._RepresntorService.getAllChampionships().subscribe({
+    this._PlayerService.getAllChampionships().subscribe({
       next:(res)=>{
         let data =res.data
+        console.log(res);
+        
         
         for (let i = 0; i < data.length; i++) {
           this.nameArray.push(data[i])
@@ -38,21 +42,18 @@ export class AddMedalComponent {
         
       }
     })
-    this._ActivatedRoute.paramMap.subscribe({
-      next:(params)=>{
-        this.playerId = params.get('playerId');
-      }
-    })
   }
 
   handelForm() {
-    const userData = {playerId:this.playerId,...this.addMedal.value};
     this.isLoading = true
     if (this.addMedal.valid) {
-      this._RepresntorService.addMedal(userData).subscribe({
-        next: () => {
+      this._PlayerService.reqToAddMedal(this.addMedal.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          
           this.isLoading = false;
-          this._ToastrService.success('The Medal has been added successfully');
+          // this._Router.navigate(['/playerHome'])
+          this._ToastrService.success('The request has been sended successfully');
           this.errMessage = ''
 
         }, error: (err) => {
@@ -63,6 +64,4 @@ export class AddMedalComponent {
       })
     }
   }
-  
-  
 }

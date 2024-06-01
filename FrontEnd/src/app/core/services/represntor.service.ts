@@ -60,4 +60,7 @@ export class RepresntorService {
   editMadal(id: any,item: any): Observable<any> {
     return this._HttpClient.put(this.baseUrl + `/representor/medal/${id}`, item)
   }
+  deleteMedal(id: string): Observable<any> {
+    return this._HttpClient.delete(this.baseUrl + `/representor/medal/${id}`)
+  }
 }

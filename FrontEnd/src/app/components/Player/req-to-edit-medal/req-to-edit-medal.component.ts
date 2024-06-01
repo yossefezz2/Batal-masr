@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
-
+import { PlayerService } from 'src/app/core/services/player.service';
 interface Championship {
   id: number;
   name: string;
@@ -11,13 +11,13 @@ interface Championship {
   gender: string;
 }
 @Component({
-  selector: 'app-edit-medal',
-  templateUrl: './edit-medal.component.html',
-  styleUrls: ['./edit-medal.component.scss']
+  selector: 'app-req-to-edit-medal',
+  templateUrl: './req-to-edit-medal.component.html',
+  styleUrl: './req-to-edit-medal.component.scss'
 })
 
-export class EditMedalComponent {
-  constructor(private _RepresntorService: RepresntorService,
+export class ReqToEditMedalComponent {
+  constructor(private _PlayerService: PlayerService,
     private _ToastrService: ToastrService,
     private _Router: Router,
     private _ActivatedRoute: ActivatedRoute) { }
@@ -34,7 +34,7 @@ export class EditMedalComponent {
     year: null,
     championshipID: null,
   }
-  editMedal: FormGroup = new FormGroup({
+  EditMedal: FormGroup = new FormGroup({
     MedalAchievementDate: new FormControl('', [Validators.required]),
     typeOfMedal: new FormControl(''),
     year: new FormControl('', [Validators.required]),
@@ -44,9 +44,9 @@ export class EditMedalComponent {
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
-        this.playerId = params.get('playerId');
+        // this.playerId = params.get('playerId');
         this.medalId = params.get('medalId');
-        this._RepresntorService.getSingleMedal(this.medalId).subscribe({
+        this._PlayerService.getSingleMedal(this.medalId).subscribe({
           next: (res) => {
             this.model.MedalAchievementDate = res.data[0].MedalAchievementDate;
             this.model.typeOfMedal = res.data[0].typeOfMedal;
@@ -62,7 +62,7 @@ export class EditMedalComponent {
         })
       }
     })
-    this._RepresntorService.getAllChampionships().subscribe({
+    this._PlayerService.getAllChampionships().subscribe({
       next: (res) => {
         let data = res.data
 
@@ -90,14 +90,14 @@ export class EditMedalComponent {
 
 
   handelForm() {
-    const userData = { playerId: this.playerId, ...this.editMedal.value };
+    const userData = { playerId: this.playerId, ...this.EditMedal.value };
     this.isLoading = true
-    if (this.editMedal.valid) {
-      this._RepresntorService.editMadal(this.medalId,userData).subscribe({
+    if (this.EditMedal.valid) {
+      this._PlayerService.reqToEditMedal(this.medalId,userData).subscribe({
         next: () => {
           this.isLoading = false;
-          this._Router.navigate([`/playerDetails/${this.playerId}`])
-          this._ToastrService.success('The Medal has been Updated successfully');
+          this._Router.navigate([`/playerHome`])
+          this._ToastrService.success('The request has been sended successfully');
           this.errMessage = ''
 
         }, error: (err) => {

@@ -1,7 +1,7 @@
-<div class=" shadow p-3 rounded-2">
-  <h1 class="text-center text-dark  p-3">All Players</h1>
+<div class="shadow p-3 rounded-2">
+  <h1 class="text-center text-dark p-3">All Players</h1>
 
-  <input type="text" placeholder="Search..." class="form-control w-75 m-auto  mb-5" [(ngModel)]="term">
+  <input type="text" placeholder="Search..." class="form-control w-75 m-auto mb-5" [(ngModel)]="term">
 
   <div class="row g-4">
     <div class="col-md-3 align-items-center">
@@ -12,7 +12,7 @@
     </div>
     <div class="col-3" *ngFor="let player of allPlayers | search:term | paginate: { id: 'foo', itemsPerPage: 11, currentPage: p, totalItems: total }">
       <div class="profile-card text-center" [routerLink]="['/playerDetails', player.id]">
-        <div class="img w-50 m-auto">
+        <div class="img w-75 m-auto">
           <img [src]="player.img" alt="Profile Avatar" class="profile-img img-fluid rounded-circle">
         </div>
         <h2 class="playerName">{{player.name}}</h2>
@@ -22,11 +22,10 @@
               <p><span>Email: </span> <small>{{player.email}}</small></p>
               <p><span>Association Name: </span> <small>{{player.associationName}}</small></p>
               <p><span>Club: </span> <small>{{player.club}}</small></p>
-              
             </div>
           </div>
           <div class="buttons row justify-content-around">
-            <button class="btn btn-secondary col-5" [routerLink]="['/editPlayer',player.id]">EDIT PLAYER</button>
+            <button class="btn btn-secondary col-5" [routerLink]="['/editPlayer', player.id]">EDIT PLAYER</button>
             <button class="btn btn-danger col-5" (click)="deletePlayer(player.id)">DELETE PLAYER</button>
           </div>
         </div>
