@@ -9,6 +9,7 @@ function handleDisconnect() {
       password: 'GV6o9sY2KKUWdLALhFXX',
       database: 'bfvmzo0vegcvtagpl21e',
       port: '3306',
+      multipleStatements: true
     });
     //     connection = mysql.createConnection({
     //   host: 'localhost',

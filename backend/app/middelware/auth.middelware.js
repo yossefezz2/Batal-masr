@@ -56,7 +56,7 @@ const isAgent= async (req,res,next)=>{
 const isPlayer= async (req,res,next)=>{
     try {
 
-        if (req.user.type != "player") throw new Error("not authorized admin")
+        if (req.user.type != "player") throw new Error("not authorized player")
 
         next()
         

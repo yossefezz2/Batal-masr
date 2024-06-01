@@ -1469,6 +1469,51 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "mange player issues",
+					"item": [
+						{
+							"name": "shared issues",
+							"item": [
+								{
+									"name": "get all issues",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerSharedIssues",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerSharedIssues"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -1685,7 +1730,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token-representor}}",
+									"value": "{{token-player}}",
 									"type": "string"
 								}
 							]
@@ -1697,14 +1742,48 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{localhost}}/representor/player/{{test-Player-ID}}",
+							"raw": "{{localhost}}/player/getSinglePlayer",
 							"host": [
 								"{{localhost}}"
 							],
 							"path": [
-								"representor",
 								"player",
-								"{{test-Player-ID}}"
+								"getSinglePlayer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all champion",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-player}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{localhost}}/player/getAllChampion",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"player",
+								"getAllChampion"
 							]
 						}
 					},

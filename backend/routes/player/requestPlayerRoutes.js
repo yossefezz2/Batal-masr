@@ -9,6 +9,8 @@ router.get('/getPlayerDetails',userMiddleware,isPlayer, requestPlayer.getPlayerD
 
 router.get("/getSingelMadel/:id",userMiddleware,isPlayer, requestPlayer.getSingleMedal )
 
+router.get('/getAllChampion',userMiddleware,isPlayer, requestPlayer.getallchampionships)
+
 router.post("/requestToAddMadel",userMiddleware,isPlayer, requestPlayer.requestToAddMadel)
 
 router.post("/reqEdit/:id",userMiddleware,isPlayer, requestPlayer.requestToEditMadel)
