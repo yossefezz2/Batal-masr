@@ -7,7 +7,7 @@
                 <h6 class="card-title name  text-white p-1 ">Request To Change playerInfo</h6>
                 <h5 class="card-title d-flex flex-column">{{item.playerName}}</h5>
                 <p class="card-text">{{item.description}}.</p>
-                <a href="#" class="btn btn-outline-dark button">Mange</a>
+                <a href="#" class="btn btn-outline-dark button" [routerLink]="['/informationRequest',item.requestID]">Mange</a>
               </div>
             </div>
           </div>
@@ -17,19 +17,20 @@
                 <h6 class="card-title name  text-white ">Request To {{item2.typeOfRequest}} Medal</h6>
                 <h5 class="card-title d-flex flex-column">{{item2.typeOfMedal}}</h5>
                 <p class="card-text">{{item2.description}}.</p>
-                <a href="#" class="btn btn-outline-dark button">Mange</a>
+                <a href="#" class="btn btn-outline-dark button" *ngIf="item2.typeOfRequest=='add'" [routerLink]="['/addMedalReq',item2.requestID]">Mange</a>
+                <a href="#" class="btn btn-outline-dark button" *ngIf="item2.typeOfRequest=='edit'" [routerLink]="['/EditMedalReq',item2.requestID]">Mange</a>
               </div>
             </div>
           </div>
     </div>
-    <pagination-controls class="pagination-controls text-center" id="foo"
-    (pageChange)="pageChanged($event)"
-    (pageBoundsCorrection)="pageChanged($event)"
-    [maxSize]="9"
-    [directionLinks]="true"
-    [autoHide]="true"
-    [responsive]="true"
-    previousLabel="Previous"
-    nextLabel="Next">
-  </pagination-controls>
+    <!-- <pagination-controls class="pagination-controls text-center" id="foo" -->
+    <!-- (pageChange)="pageChanged($event)" -->
+    <!-- (pageBoundsCorrection)="pageChanged($event)" -->
+    <!-- [maxSize]="9" -->
+    <!-- [directionLinks]="true" -->
+    <!-- [autoHide]="true" -->
+    <!-- [responsive]="true" -->
+    <!-- previousLabel="Previous" -->
+    <!-- nextLabel="Next"> -->
+  <!-- </pagination-controls> -->
 </section>
