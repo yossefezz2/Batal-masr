@@ -2,9 +2,9 @@ const helpers = require("../../../helper");
 const editMedalIssuesService = require("../../../../services/Represntor/mange-IssuesServices/EditMedalIssuesServices");
 class EditMedalIssues {
     static async getSingleEditMedelIssue(req, res) {
-        let Medal
+        let Medal,data
         try {
-            const data = await editMedalIssuesService.getSingleEditMedelIssue(req.params.id, req.user.association);
+            data = await editMedalIssuesService.getSingleEditMedelIssue(req.params.id, req.user.association);
             if (data.length <= 0) {
                 throw new Error("not issue found");
             }
@@ -22,7 +22,7 @@ class EditMedalIssues {
             if (error.message == "not issue found") {
                 helpers.resGenerator(res, 404, false, error.message, "not issues found")
             }else if (error.message == "medal already registered") {
-                helpers.resGenerator(res, 400, false, Medal[0], "medal already registered")
+                helpers.resGenerator(res, 400, false, {medalAlreadyRejecter:Medal[0],requestedMadel:data}, "medal already registered")
             }else {
                 helpers.resGenerator(res, 500, false, error.message, "can't get all issues")
             }
