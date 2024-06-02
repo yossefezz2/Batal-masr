@@ -13,7 +13,7 @@ export class ReqToEditInfoComponent {
     private _ToastrService: ToastrService,
     private _Router:Router,){}  
     model = {
-      name: '',
+      playerName: '',
       birthOfDate: '',
       height: '',
       weight: '',
@@ -23,7 +23,7 @@ export class ReqToEditInfoComponent {
     isLoading: boolean = false;
 
     editInfo: FormGroup = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),
+      playerName: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),
       birthOfDate: new FormControl('', [Validators.required]),
       height: new FormControl('', [Validators.required]),
       weight: new FormControl('', [Validators.required]),
@@ -34,7 +34,7 @@ export class ReqToEditInfoComponent {
       
           this._PlayerService.getSinglePlayerdata().subscribe({
             next:(res)=>{
-              this.model.name=res.data[0].name;
+            this.model.playerName=res.data[0].name;
               this.model.birthOfDate=res.data[0].birthOfDate;
               this.model.height=res.data[0].height;
               this.model.weight=res.data[0].weight;

@@ -30,4 +30,5 @@ export class PlayerService {
   reqToEditInfo(userData: any): Observable<any> {
     return this._HttpClient.post(this.baseUrl + '/player/requestPlayerInfo', userData)
   }
+
 }

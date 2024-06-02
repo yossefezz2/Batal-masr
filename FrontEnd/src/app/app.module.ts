@@ -55,6 +55,9 @@ import { ReqToAddMedalComponent } from './components/Player/req-to-add-medal/req
 import { ReqToEditMedalComponent } from './components/Player/req-to-edit-medal/req-to-edit-medal.component';
 import { MangeIssuesComponent } from './components/RepresntorDashBord/mange-issues/mange-issues.component';
 import { ReqToEditInfoComponent } from './components/Player/req-to-edit-info/req-to-edit-info.component';
+import { InformationRequestComponent } from './components/RepresntorDashBord/information-request/information-request.component';
+import { AddMedalReqComponent } from './components/RepresntorDashBord/add-medal-req/add-medal-req.component';
+import { EditMedalRequestComponent } from './components/RepresntorDashBord/edit-medal-request/edit-medal-request.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -100,8 +103,12 @@ registerLocaleData(tr);
     ReqToEditMedalComponent,
     MangeIssuesComponent,
     ReqToEditInfoComponent,
+    InformationRequestComponent,
+    AddMedalReqComponent,
+    EditMedalRequestComponent
   ],
   imports: [
+    
     BrowserModule,
     FormsModule,
     AppRoutingModule,
