@@ -25,7 +25,7 @@ class playerInfoIssues {
                 throw new Error("not issue found");
             }
             let dataPlayer = {
-                name: data[0].name,
+                name: data[0].playerName,
                 birthOfDate: data[0].birthOfDate,
                 gender: data[0].gender,
                 height: data[0].height,
