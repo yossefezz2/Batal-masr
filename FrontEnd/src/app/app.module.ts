@@ -54,6 +54,7 @@ import { PlayerNavbarComponent } from './components/Player/player-navbar/player-
 import { ReqToAddMedalComponent } from './components/Player/req-to-add-medal/req-to-add-medal.component';
 import { ReqToEditMedalComponent } from './components/Player/req-to-edit-medal/req-to-edit-medal.component';
 import { MangeIssuesComponent } from './components/RepresntorDashBord/mange-issues/mange-issues.component';
+import { ReqToEditInfoComponent } from './components/Player/req-to-edit-info/req-to-edit-info.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ registerLocaleData(tr);
     ReqToAddMedalComponent,
     ReqToEditMedalComponent,
     MangeIssuesComponent,
+    ReqToEditInfoComponent,
   ],
   imports: [
     BrowserModule,

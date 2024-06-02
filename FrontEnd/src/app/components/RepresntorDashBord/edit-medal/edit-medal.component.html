@@ -14,7 +14,14 @@
                     <label for="championshipID" class="form-label">championship  *</label>
                     <select [(ngModel)]="model.championshipID" (change)="onChampionshipChange()" class="form-control" formControlName="championshipID" id="championshipID" name="championshipID" >
                         <option value="" disabled selected >Select championship</option>
-                    
+                        <option [value]="item.id" *ngFor="let item of nameArray">
+                            <ng-container *ngIf="!item.age; else elseBlock">
+                                {{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender }}
+                              </ng-container>
+                              <ng-template #elseBlock>
+                                {{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender +" Under the age of "+item.age}}
+                              </ng-template>
+                            </option>                    
                     </select>
                     
                     <div class="alert alert-danger mt-1" *ngIf="editMedal.get('championshipID')?.errors && (editMedal.get('championshipID')?.touched ||editMedal.get('championshipID')?.value.length>0) ">

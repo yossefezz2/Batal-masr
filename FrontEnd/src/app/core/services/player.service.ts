@@ -24,4 +24,10 @@ export class PlayerService {
   getSingleMedal(id: string): Observable<any> {
     return this._HttpClient.get(this.baseUrl + `/player/getSingelMadel/${id}`)
   }
+  getSinglePlayerdata(): Observable<any> {
+    return this._HttpClient.get(this.baseUrl + '/player/getSinglePlayer')
+  }
+  reqToEditInfo(userData: any): Observable<any> {
+    return this._HttpClient.post(this.baseUrl + '/player/requestPlayerInfo', userData)
+  }
 }
