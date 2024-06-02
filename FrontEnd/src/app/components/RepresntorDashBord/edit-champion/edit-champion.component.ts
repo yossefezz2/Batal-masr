@@ -25,7 +25,7 @@ export class EditChampionComponent {
   errMessage: string = '';
   agentId: any;
   editChampionship: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z()])?[A-Za-z()]*)*(\d+)?$/)]),
     weight: new FormControl(''),
     typeOfChampionship: new FormControl('', [Validators.required]),
     isYoungs: new FormControl(''),

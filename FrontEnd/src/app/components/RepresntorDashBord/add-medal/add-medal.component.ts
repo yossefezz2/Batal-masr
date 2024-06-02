@@ -52,6 +52,8 @@ export class AddMedalComponent {
       this._RepresntorService.addMedal(userData).subscribe({
         next: () => {
           this.isLoading = false;
+          this._Router.navigate([`/playerDetails/${this.playerId}`])
+
           this._ToastrService.success('The Medal has been added successfully');
           this.errMessage = ''
 

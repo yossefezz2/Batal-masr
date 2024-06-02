@@ -14,10 +14,14 @@
                     <label for="championshipID" class="form-label">championship  *</label>
                     <select [(ngModel)]="model.championshipID" (change)="onChampionshipChange()" class="form-control" formControlName="championshipID" id="championshipID" name="championshipID" >
                         <option value="" disabled selected >Select championship</option>
-                        <option [value]="item.id" *ngFor="let item of nameArray">{{"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender}}</option>
-                        <!-- <option value="Association2">Association 2</option> -->
-                        <!-- <option value="Association3">Association 3</option> -->
-                        <!-- Add more options as needed -->
+                        <option [value]="item.id" *ngFor="let item of nameArray">
+                            <ng-container *ngIf="!item.age; else elseBlock">
+                                {{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender }}
+                              </ng-container>
+                              <ng-template #elseBlock>
+                                {{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender +" Under the age of "+item.age}}
+                              </ng-template>
+                            </option>    
                     </select>
                     
                     <div class="alert alert-danger mt-1" *ngIf="EditMedal.get('championshipID')?.errors && (EditMedal.get('championshipID')?.touched ||EditMedal.get('championshipID')?.value.length>0) ">
@@ -29,6 +33,13 @@
                     <input [(ngModel)]="model.year" type="number" min="1900" max="2100" class="form-control" formControlName="year" id="year">
                     <div class="alert alert-danger mt-1" *ngIf="EditMedal.get('year')?.errors && (EditMedal.get('year')?.touched ||EditMedal.get('year')?.value.length>0) ">
                         <p class="m-0 " *ngIf="EditMedal.get('year')?.getError('required')">height is required</p>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label for="description" class="form-label">Description *</label>
+                    <textarea class="form-control" formControlName="description" id="Description" name="Description" rows="2" cols="100" placeholder="Enter your comments here..."></textarea>
+                    <div class="alert alert-danger mt-1" *ngIf="EditMedal.get('description')?.errors && (EditMedal.get('description')?.touched ||EditMedal.get('description')?.value.length>0) ">
+                        <p class="m-0 " *ngIf="EditMedal.get('description')?.getError('required')">description is required</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -44,6 +55,7 @@
                         <option value="bronze">bronze</option>
                         <!-- Add more options as needed -->
                     </select>
+
                     
                     <div class="alert alert-danger mt-1" *ngIf="EditMedal.get('typeOfMedal')?.errors && (EditMedal.get('typeOfMedal')?.touched ||EditMedal.get('typeOfMedal')?.value.length>0) ">
                         <p class="m-0 " *ngIf="EditMedal.get('typeOfMedal')?.getError('required')">type of championship is required</p>

@@ -16,7 +16,7 @@ export class AddChampionComponent {
   isLoading: boolean = false;
   nameArray: any = [];
   addChampion: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z()])?[A-Za-z()]*)*(\d+)?$/)]),
     gender: new FormControl('', [Validators.required]),
     weight: new FormControl(''),
     typeOfChampionship: new FormControl('', [Validators.required]),

@@ -21,7 +21,7 @@ export class EditAssosiationComponent {
   agentId:any;
   isLoading:boolean=false;
   editAssociation:FormGroup = new FormGroup({
-    associationName:new FormControl('',[Validators.required ,Validators.minLength(4)]),  })
+    associationName:new FormControl('',[Validators.required ,Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),  })
     ngOnInit(): void {
       this._ActivatedRoute.paramMap.subscribe({
         next:(params)=>{

@@ -25,6 +25,7 @@ export class ReqToAddMedalComponent {
     year: new FormControl('', [Validators.required]),
     isWin: new FormControl(''),
     championshipID:new FormControl('', [Validators.required]),
+    description:new FormControl('', [Validators.required]),
   })
   ngOnInit(): void {
     this._PlayerService.getAllChampionships().subscribe({
@@ -52,7 +53,7 @@ export class ReqToAddMedalComponent {
           console.log(res);
           
           this.isLoading = false;
-          // this._Router.navigate(['/playerHome'])
+          this._Router.navigate(['/playerHome'])
           this._ToastrService.success('The request has been sended successfully');
           this.errMessage = ''
 

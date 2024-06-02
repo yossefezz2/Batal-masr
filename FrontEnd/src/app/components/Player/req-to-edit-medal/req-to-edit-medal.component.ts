@@ -4,12 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
 import { PlayerService } from 'src/app/core/services/player.service';
-interface Championship {
-  id: number;
-  name: string;
-  typeOfChampionship: string;
-  gender: string;
-}
 @Component({
   selector: 'app-req-to-edit-medal',
   templateUrl: './req-to-edit-medal.component.html',
@@ -24,7 +18,7 @@ export class ReqToEditMedalComponent {
   selectedChampionshipInfo: string = "";
   errMessage: string = '';
   isLoading: boolean = false;
-  nameArray: Championship[] = [];
+  nameArray: any[] = [];
   playerId: any;
   medalId: any;
   model: any = {
@@ -40,12 +34,15 @@ export class ReqToEditMedalComponent {
     year: new FormControl('', [Validators.required]),
     isWin: new FormControl(''),
     championshipID: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
   })
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
         // this.playerId = params.get('playerId');
         this.medalId = params.get('medalId');
+        console.log(this.medalId);
+        
         this._PlayerService.getSingleMedal(this.medalId).subscribe({
           next: (res) => {
             this.model.MedalAchievementDate = res.data[0].MedalAchievementDate;
@@ -90,10 +87,9 @@ export class ReqToEditMedalComponent {
 
 
   handelForm() {
-    const userData = { playerId: this.playerId, ...this.EditMedal.value };
     this.isLoading = true
     if (this.EditMedal.valid) {
-      this._PlayerService.reqToEditMedal(this.medalId,userData).subscribe({
+      this._PlayerService.reqToEditMedal(this.EditMedal.value,this.medalId).subscribe({
         next: () => {
           this.isLoading = false;
           this._Router.navigate([`/playerHome`])
@@ -101,6 +97,8 @@ export class ReqToEditMedalComponent {
           this.errMessage = ''
 
         }, error: (err) => {
+          console.log(err);
+          
           this.isLoading = false;
           this.errMessage = err.error.data
 

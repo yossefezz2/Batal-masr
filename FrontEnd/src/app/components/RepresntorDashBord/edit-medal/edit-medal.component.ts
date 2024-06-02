@@ -4,12 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
 
-interface Championship {
-  id: number;
-  name: string;
-  typeOfChampionship: string;
-  gender: string;
-}
 @Component({
   selector: 'app-edit-medal',
   templateUrl: './edit-medal.component.html',
@@ -24,7 +18,7 @@ export class EditMedalComponent {
   selectedChampionshipInfo: string = "";
   errMessage: string = '';
   isLoading: boolean = false;
-  nameArray: Championship[] = [];
+  nameArray:any[] = [];
   playerId: any;
   medalId: any;
   model: any = {

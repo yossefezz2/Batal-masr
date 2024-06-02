@@ -7,7 +7,7 @@
               <input type="text" [(ngModel)]="model.name" class="form-control" formControlName="name" id="inputName" placeholder="Enter your name">
               <div class="alert alert-danger mt-1" *ngIf="editPlayer.get('name')?.errors && (editPlayer.get('name')?.touched ||editPlayer.get('name')?.value.length>0) ">
                   <p class="m-0 " *ngIf="editPlayer.get('name')?.getError('required')">name is required</p>
-                  <p class="m-0 " *ngIf="editPlayer.get('name')?.getError('minlength')">name minLength 4</p>
+                  <p class="m-0 " *ngIf="editPlayer.get('name')?.getError('pattern')">name is not valid</p>
               </div>
       </div>
       <div class="form-group col-md-4 mb-3">

@@ -38,6 +38,7 @@ import { PlayerHomeComponent } from './components/Player/player-home/player-home
 import { playerGuard } from './core/Guard/player.guard';
 import { ReqToAddMedalComponent } from './components/Player/req-to-add-medal/req-to-add-medal.component';
 import { ReqToEditMedalComponent } from './components/Player/req-to-edit-medal/req-to-edit-medal.component';
+import { MangeIssuesComponent } from './components/RepresntorDashBord/mange-issues/mange-issues.component';
 
 
 const routes: Routes = [
@@ -47,7 +48,7 @@ const routes: Routes = [
   ]},
 
   {path:'',component:BlankLayoutComponent,children:[
-    {path:'',redirectTo:'home',pathMatch:'full'},
+    {path:'',redirectTo:'Adminhome',pathMatch:'full'},
     {path:'Adminhome',canActivate:[adminGuard],component:HomeComponent,title:'home'},
     {path:'MangeRepresntor',canActivate:[adminGuard],component:MangeRepresntorComponent,title:'MangeRepresntor'},
     {path:'AddRepresntor',canActivate:[adminGuard],component:AddRepresntorComponent,title:'AddRepresntor'},
@@ -71,7 +72,8 @@ const routes: Routes = [
     {path:'addChampion',canActivate:[represntorGuard],component:AddChampionComponent, title:'add champion'},
     {path:'editChampion/:id',canActivate:[represntorGuard],component:EditChampionComponent, title:'edit champion'},
     {path:'addmedal/:playerId',canActivate:[represntorGuard],component:AddMedalComponent, title:'add medal'},
-    {path:'editmedal/:playerId/:medalId',canActivate:[represntorGuard],component:EditMedalComponent, title:'edit medel'}
+    {path:'editmedal/:playerId/:medalId',canActivate:[represntorGuard],component:EditMedalComponent, title:'edit medel'},
+    {path:'MangeIssues',canActivate:[represntorGuard],component:MangeIssuesComponent, title:'MangeIssues'}
   ]},
   
   {path:'',component:MinistryLayoutComponent,children:[

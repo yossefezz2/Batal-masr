@@ -22,7 +22,7 @@ export class EditRepresntorComponent {
   errMessage:string='';
   agentId:any;
   editRepresntor:FormGroup = new FormGroup({
-    name:new FormControl('',[Validators.required ,Validators.minLength(4)]),
+    name:new FormControl('',[Validators.required ,Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),
     email:new FormControl('',[Validators.required ,Validators.email]),
   })
   ngOnInit(): void {
