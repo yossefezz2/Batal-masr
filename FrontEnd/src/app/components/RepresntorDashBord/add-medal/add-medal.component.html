@@ -12,11 +12,14 @@
                 </div>
                 <div class="form-group">
                     <label for="championshipID" class="form-label">championship  *</label>
-                    <select class="form-control" formControlName="championshipID" id="championshipID" name="championshipID" >
-                        <option value="" disabled selected >Select championship</option>
-                        <option [value]="item.id" *ngFor="let item of nameArray" >{{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender}}</option>
-                    </select>
-                    
+                    <option [value]="item.id" *ngFor="let item of nameArray">
+                            <ng-container *ngIf="!item.age; else elseBlock">
+                                {{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender }}
+                              </ng-container>
+                              <ng-template #elseBlock>
+                                {{"ID : "+item.id +"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender +" Under the age of "+item.age}}
+                              </ng-template>
+                            </option>
                     <div class="alert alert-danger mt-1" *ngIf="addMedal.get('championshipID')?.errors && (addMedal.get('championshipID')?.touched ||addMedal.get('championshipID')?.value.length>0) ">
                         <p class="m-0 " *ngIf="addMedal.get('championshipID')?.getError('required')">championship is required</p>
                     </div>

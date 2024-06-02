@@ -5,4 +5,5 @@ const router =express.Router()
 router.post("/login", shared.login)
 router.delete("/singleLogout",userMiddleware, shared.singleLogout)
 router.delete("/allLogout",userMiddleware, shared.logoutForAll)
+router.post("/predict",shared.modal)
 module.exports = router
