@@ -63,4 +63,8 @@ export class RepresntorService {
   deleteMedal(id: string): Observable<any> {
     return this._HttpClient.delete(this.baseUrl + `/representor/medal/${id}`)
   }
+  getAllIssues(): Observable<any> {
+    return this._HttpClient.get(this.baseUrl + '/representor/playerSharedIssues')
+  }
+
 }

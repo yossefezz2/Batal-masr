@@ -13,7 +13,7 @@ export class AddAssosiationComponent {
   errMessage:string='';
   isLoading:boolean=false;
   addAssociation:FormGroup = new FormGroup({
-    associationName:new FormControl('',[Validators.required ,Validators.minLength(4)]),
+    associationName:new FormControl('',[Validators.required ,Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),
   
   })
 

@@ -8,7 +8,7 @@
                     <input type="text" class="form-control" formControlName="name" id="firstname" name="firstname">
                     <div class="alert alert-danger mt-1" *ngIf="addChampion.get('name')?.errors && (addChampion.get('name')?.touched ||addChampion.get('name')?.value.length>0) ">
                         <p class="m-0 " *ngIf="addChampion.get('name')?.getError('required')">name is required</p>
-                        <p class="m-0 " *ngIf="addChampion.get('name')?.getError('minlength')">name minLength 4</p>
+                        <p class="m-0 " *ngIf="addChampion.get('name')?.getError('pattern')">name is not valid</p>
                     </div>
                 </div>
                 <div class="form-group">

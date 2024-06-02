@@ -19,7 +19,7 @@ export class AddPlayerComponent {
   isLoading: boolean = false;
   nameArray: any[] = [];
   addPlayer: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    name: new FormControl('', [Validators.required,Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),
     birthOfDate: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
     height: new FormControl('', [Validators.required]),

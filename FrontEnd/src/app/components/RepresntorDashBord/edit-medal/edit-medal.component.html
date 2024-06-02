@@ -14,10 +14,7 @@
                     <label for="championshipID" class="form-label">championship  *</label>
                     <select [(ngModel)]="model.championshipID" (change)="onChampionshipChange()" class="form-control" formControlName="championshipID" id="championshipID" name="championshipID" >
                         <option value="" disabled selected >Select championship</option>
-                        <option [value]="item.id" *ngFor="let item of nameArray">{{"Name : "+item.name +" Type of championship: "+item.typeOfChampionship + " Gender: "+ item.gender}}</option>
-                        <!-- <option value="Association2">Association 2</option> -->
-                        <!-- <option value="Association3">Association 3</option> -->
-                        <!-- Add more options as needed -->
+                    
                     </select>
                     
                     <div class="alert alert-danger mt-1" *ngIf="editMedal.get('championshipID')?.errors && (editMedal.get('championshipID')?.touched ||editMedal.get('championshipID')?.value.length>0) ">

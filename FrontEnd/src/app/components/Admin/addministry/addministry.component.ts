@@ -14,7 +14,7 @@ export class AddministryComponent {
   isLoading:boolean=false;
   errMessage:string=''
   addAgentOfMinisetry:FormGroup = new FormGroup({
-    name:new FormControl('',[Validators.required ,Validators.minLength(4)]),
+    name:new FormControl('',[Validators.required ,Validators.pattern(/^[A-Za-z]+(([' -][A-Za-z])?[A-Za-z]*)*$/)]),
     email:new FormControl('',[Validators.required ,Validators.email]),
     password:new FormControl('',[Validators.required ,Validators.pattern(/^[a-zA-Z0-9_@]{6,}$/)]),
   
