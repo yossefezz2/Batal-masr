@@ -15,7 +15,8 @@ class requestPlayer {
                 associationId: req.user.association,
                 club: req.body.club,
                 description: req.body.description,
-                playerId: req.user.id
+                playerId: req.user.id,
+                Status:"inProcess"
             };
             await requestPlayerService.requestToAddInfo(data);
             helpers.resGenerator(res, 200, true, data, "add request")
