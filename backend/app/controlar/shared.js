@@ -1,5 +1,6 @@
 const sharedService = require("../../services/shared.js");
 const helpers = require('../helper.js');
+const modal = require('../../modal-ml/modal.js')
 const bcrypt = require("bcrypt");
 class shared {
     static async login(req, res) {
@@ -39,6 +40,15 @@ class shared {
         } catch (error) {
             console.log(error);
             helpers.resGenerator(res, 500, false, error.message, "can't log out")
+        }
+    }
+    static async modal(req, res) {
+        try {
+            let a= await modal.modalfun(req.body)
+            res.status(200).send({a  })
+        } catch (error) {
+            console.log(error);
+            helpers.resGenerator(res, 500, false, error.message, "can't modal")
         }
     }
 

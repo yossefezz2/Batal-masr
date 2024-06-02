@@ -4,9 +4,9 @@ class SharedIssuesService{
     static async getAllIssues(associationId) {
         const query = util.promisify(connection.query).bind(connection);
         const queryCode =`
-        SELECT * FROM requestPlayerInfo where associationId=?;
-        SELECT * FROM requestMedal where associationId=? `
-        return await query(queryCode, [associationId,associationId]);
+        SELECT * FROM requestPlayerInfo where associationId=? and Status=?;
+        SELECT * FROM requestMedal where associationId=? and Status=?;`
+        return await query(queryCode, [associationId,"inProcess",associationId,"inProcess"]);
     };
 }
 module.exports = SharedIssuesService;

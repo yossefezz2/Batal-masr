@@ -1512,6 +1512,330 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "add issues",
+							"item": [
+								{
+									"name": "get single issue",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerAddIssues/12",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerAddIssues",
+												"12"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept medal request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerAddIssues/accept/3",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerAddIssues",
+												"accept",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "reject medal request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerAddIssues/5",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerAddIssues",
+												"5"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "edit issues",
+							"item": [
+								{
+									"name": "get single issue",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerEditIssues/4",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerEditIssues",
+												"4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept medal request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerEditIssues/accept/3",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerEditIssues",
+												"accept",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "reject medal request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/playerEditIssues/5",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"playerEditIssues",
+												"5"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "player info issues",
+							"item": [
+								{
+									"name": "get single issue",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/PlayerInfoIssues/1",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"PlayerInfoIssues",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept medal request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/PlayerInfoIssues/accept/1",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"PlayerInfoIssues",
+												"accept",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "reject medal request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token-representor}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "{{localhost}}/representor/PlayerInfoIssues/1",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"representor",
+												"PlayerInfoIssues",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
@@ -1890,17 +2214,17 @@
 								},
 								{
 									"key": "championshipID",
-									"value": "1123",
+									"value": "1209",
 									"type": "text"
 								},
 								{
 									"key": "year",
-									"value": "2019",
+									"value": "2024",
 									"type": "text"
 								},
 								{
 									"key": "isWin",
-									"value": "yes",
+									"value": "true",
 									"type": "text"
 								},
 								{
@@ -2145,6 +2469,32 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ml",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"features\": [\r\n    [1, 2],\r\n    [4, 5],\r\n    [7, 8]\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/predict",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -2216,7 +2566,7 @@
 		},
 		{
 			"key": "test-medal-ID",
-			"value": "Es_VzWnmZW",
+			"value": "1po58b_pK6",
 			"type": "string"
 		},
 		{
@@ -2226,7 +2576,7 @@
 		},
 		{
 			"key": "test-madel-player-das",
-			"value": "1po58b_pK6",
+			"value": "D6ENfZnQ8h",
 			"type": "string"
 		}
 	]
