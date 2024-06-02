@@ -74,6 +74,7 @@ class requestPlayer {
                 associationId: req.user.association,
                 description: req.body.description,
                 typeOfRequest: "add",
+                Status:"inProcess"
             };
             await requestPlayerService.requestToAddMadel(data);
             helpers.resGenerator(res, 200, true, data, "add medal")
@@ -118,6 +119,7 @@ class requestPlayer {
     }
     static async requestToEditMadel(req, res) {
         try {
+            console.log(req.params.id);
             const singleMadel = await mangeMedalServices.getSingleMedal(req.params.id, req.user.association);
             if (singleMadel.length <= 0) {
                 throw new Error("not Madal found");
@@ -147,6 +149,7 @@ class requestPlayer {
                 description: req.body.description,
                 IdmedalIfEdit:  req.params.id,
                 typeOfRequest: "edit",
+                Status:"inProcess"
             };
             await requestPlayerService.requestToeditMadel(data);
             helpers.resGenerator(res, 200, true, data, "add medal")

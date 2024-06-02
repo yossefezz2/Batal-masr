@@ -35,6 +35,7 @@ class mangeplayer {
                 championship.name,
                 championship.weight,
                 championship.age,
+                championship.id AS championID,
                 championship.gender As championshipGender,
                 championship.isYoungs,
                 championship.typeOfChampionship 
