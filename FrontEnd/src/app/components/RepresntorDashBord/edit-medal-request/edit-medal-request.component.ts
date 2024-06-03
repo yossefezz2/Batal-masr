@@ -40,10 +40,8 @@ ngOnInit(): void {
   this._ActivatedRoute.paramMap.subscribe({
     next: (params) => {
       this.reqId = params.get('id');
-      console.log(this.reqId);
       this._RepresntorService.getSingleMedalToAccept(this.reqId).subscribe({
         next:(res)=>{
-          console.log(res.data.requestmadelToCompare[0].description);
           
         this.model.MedalAchievementDate=res.data.requestmadelToCompare[0].MedalAchievementDate;
           this.model.typeOfMedal=res.data.requestmadelToCompare[0].typeOfMedal;
@@ -71,7 +69,39 @@ ngOnInit(): void {
     const formattedDate2 = originalDate2.toISOString().split('T')[0];
     this .model2.MedalAchievementDate =formattedDate2
         },error:(err)=>{
-          this.errMessage=err.data
+          console.log(err.error.data.medalAlreadyRejecter.MedalAchievementDate);
+          
+          this.model2.MedalAchievementDate=err.error.data.medalAlreadyRejecter.MedalAchievementDate;
+          this.model2.typeOfMedal=err.error.data.medalAlreadyRejecter.typeOfMedal;
+          this.model2.isWin=err.error.data.medalAlreadyRejecter.isWin;
+          this.model2.year=err.error.data.medalAlreadyRejecter.year;
+          this.model2.championshipID=err.error.data.medalAlreadyRejecter.championshipID;
+          const originalDateString2 = this.model2.MedalAchievementDate;
+    const originalDate2 = new Date(originalDateString2);
+    
+    const formattedDate2 = originalDate2.toISOString().split('T')[0];
+    this .model2.MedalAchievementDate =formattedDate2
+
+          //////////////////////////////////////////////////////////////////////
+          
+          this.errMessage=err.error.message
+
+          this.model.MedalAchievementDate=err.error.data.requestedMadel[0].MedalAchievementDate;
+          this.model.typeOfMedal=err.error.data.requestedMadel[0].typeOfMedal;
+          this.model.isWin=err.error.data.requestedMadel[0].isWin;
+          this.model.year=err.error.data.requestedMadel[0].year;
+          this.model.championshipID=err.error.data.requestedMadel[0].championshipID;
+          this.model.description=err.error.data.requestedMadel[0].description;
+
+          this.model.playerId=err.error.data.medalAlreadyRejecter.playerId;
+          this.model.id=err.error.data.medalAlreadyRejecter.id;
+
+          const originalDateString = this.model.MedalAchievementDate;
+    const originalDate = new Date(originalDateString);
+    
+    const formattedDate = originalDate.toISOString().split('T')[0];
+    this .model.MedalAchievementDate =formattedDate
+          
         }
       })
       
@@ -97,28 +127,22 @@ ngOnInit(): void {
 acceptReq(){
   this._RepresntorService.acceptEditMedal(this.reqId).subscribe({
     next:(res)=>{
-      console.log(res);
       this._Router.navigate(['/MangeIssues'])
 
       this._ToastrService.success('The Request has been Accepted ');
 
 
     },
-    error:(err)=>{
-      console.log(err);
-      
+    error:(err)=>{      
       this.errMessage = err.error.data
     }
   })
 
 }
 rejectReq(){
-  let x = typeof this.reqId
-  console.log(x);
   
   this._RepresntorService.rejectEditMedal(this.reqId).subscribe({
     next:(res)=>{
-      console.log(res);
       this._Router.navigate(['/MangeIssues'])
 
       this._ToastrService.success('The Request has been rejected ');
@@ -126,7 +150,6 @@ rejectReq(){
 
     },
     error:(err)=>{
-      console.log(err);
       
       this.errMessage = err.error.data
     }
@@ -141,6 +164,5 @@ onChampionshipChange() {
   } else {
     this.selectedChampionshipInfo = ""; // Clear the selected championship info if no championship is selected
   }
-  console.log(selectedChampionship);
 }
 }
