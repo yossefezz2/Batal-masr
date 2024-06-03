@@ -106,10 +106,10 @@ body {
     .part1{
       border-right: 2px solid #0000001a;
     }
-    .part1 input{
+    .part1 input , .part1 select{
       border: 1px solid rgba(0, 128, 0, 0.688);
     }
-    .part2 input, .part2 textarea{
+    .part2 input, .part2 textarea , .part2 select{
       border: 1px solid #f5ca1db4;
     }
     .buttons button{

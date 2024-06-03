@@ -1,5 +1,5 @@
 <div class="container mb-5 w-75">
-    <h1 class="text-center mb-5"> Edit Player Information</h1>
+    <h1 class="text-center mb-5"> Edit Player Medal</h1>
   
     <div class="row mt-5 section">
   
@@ -44,7 +44,6 @@
                         <option value="gold">gold</option>
                         <option value="Silver">Silver</option>
                         <option value="bronze">bronze</option>
-                        <!-- Add more options as needed -->
                     </select>
                 </div>
             </div>
@@ -92,7 +91,7 @@
           <div *ngIf="model.typeOfMedal">
               <div class=" col-md-12 mb-3" *ngIf="model.typeOfMedal !='didnotWin'">
                   <label for="typeOfMedal" class="form-label">type Of Medal *</label>
-                  <select [(ngModel)]="model.typeOfMedal" class="form-control" id="typeOfMedal" name="typeOfMedal" >
+                  <select disabled [(ngModel)]="model.typeOfMedal" class="form-control" id="typeOfMedal" name="typeOfMedal" >
                       <option value="" disabled selected >Select type of medal</option>
                       <option value="gold">gold</option>
                       <option value="Silver">Silver</option>

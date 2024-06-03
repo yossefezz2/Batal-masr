@@ -84,7 +84,16 @@ export class RepresntorService {
     return this._HttpClient.post(this.baseUrl + `/representor/playerEditIssues/accept/${id}`,{})
   }
   rejectEditMedal(id:any): Observable<any> {
-    return this._HttpClient.put(this.baseUrl + `/representor/PlayerInfoIssues/${id}`,{})
+    return this._HttpClient.put(this.baseUrl + `/representor/playerEditIssues/${id}`,{})
   }
-
+  //request to add medal
+  getSingleMedalToAddAccept(id:any): Observable<any> {
+    return this._HttpClient.get(this.baseUrl + `/representor/playerAddIssues/${id}`)
+  }
+  acceptAddMedal(id:any): Observable<any> {
+    return this._HttpClient.post(this.baseUrl + `/representor/playerAddIssues/accept/${id}`,{})
+  }
+  rejectAddMedal(id:any): Observable<any> {
+    return this._HttpClient.put(this.baseUrl + `/representor/playerAddIssues/${id}`,{})
+  }
 }

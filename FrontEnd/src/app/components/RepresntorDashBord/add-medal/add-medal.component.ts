@@ -14,6 +14,8 @@ export class AddMedalComponent {
     private _Router: Router,
     private _ActivatedRoute:ActivatedRoute) { }
   errMessage: string = '';
+  selectedChampionshipInfo: string = "";
+
   isLoading: boolean = false;
   nameArray: any = [];
   playerId:any
@@ -44,7 +46,15 @@ export class AddMedalComponent {
       }
     })
   }
-
+  // onChampionshipChange() {
+  //   const selectedChampionship = this.nameArray.find(item => item.id === this.model.championshipID);
+  //   if (selectedChampionship) {
+  //     this.selectedChampionshipInfo = "Name: " + selectedChampionship.name + " Type of championship: " + selectedChampionship.typeOfChampionship + " Gender: " + selectedChampionship.gender;
+  //   } else {
+  //     this.selectedChampionshipInfo = ""; // Clear the selected championship info if no championship is selected
+  //   }
+  //   console.log(selectedChampionship);
+  // }
   handelForm() {
     const userData = {playerId:this.playerId,...this.addMedal.value};
     this.isLoading = true
