@@ -106,11 +106,14 @@
           </div>
 
           <div class="buttons d-flex justify-content-around">
-            <button type="submit" class="btn btn-outline-success " (click)="acceptReq()">Accept <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+            <button  type="submit" class="btn btn-outline-success " (click)="acceptReq()" *ngIf="errMessage==''">Accept <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
             <button type="submit" class="btn btn-outline-danger " (click)="rejectReq()">Reject<i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
           </div>
-          <p class="alert alert-danger p-1 ms-0 mt-2 w-50" *ngIf="errMessage">{{errMessage}}</p>
-        </form>
+          <div class=" d-flex justify-content-center mt-3">
+            <p class="alert alert-danger p-1 ms-0 mt-2 w-75 text-center" *ngIf="errMessage">{{errMessage}} To Another Player to edit it <a [routerLink]="['/editmedal', model.playerId,model.id]" class="text-dark">click here</a></p>
+    
+          </div>
+                </form>
       </div>
     </div>
   
