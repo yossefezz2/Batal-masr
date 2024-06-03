@@ -4,8 +4,8 @@ class mangeplayer {
     static async addPlayer(dataPlayer,emailPlayer) {
         const query = util.promisify(connection.query).bind(connection);
         const queryString =
-            `INSERT INTO players SET?
-             INSERT INTO allusers SET?`
+            `INSERT INTO players SET ?;
+             INSERT INTO allusers SET ?`
         return await query(queryString, [dataPlayer,emailPlayer]);
     };
     static async getallPlayers(associationId) {
@@ -38,7 +38,8 @@ class mangeplayer {
                 championship.id AS championID,
                 championship.gender As championshipGender,
                 championship.isYoungs,
-                championship.typeOfChampionship 
+                championship.typeOfChampionship,
+                allusers.email AS email 
             FROM 
                 players 
             INNER JOIN 
@@ -46,7 +47,9 @@ class mangeplayer {
             INNER JOIN 
                 medals ON medals.playerId = players.id 
             INNER JOIN 
-                championship ON medals.championshipID = championship.id 
+                championship ON medals.championshipID = championship.id
+            INNER JOIN 
+            allusers ON players.id = allusers.playerId     
             WHERE 
                 players.associationId = ? 
                 AND 
@@ -62,7 +65,10 @@ class mangeplayer {
     };
     static async deletePlayer(id, associationId) {
         const query = util.promisify(connection.query).bind(connection);
-        return await query("delete from players where id =? and associationId =?", [id, associationId]);
+        const quarybox = 
+        `delete from players where id =? and associationId =?;
+        DELETE FROM allusers WHERE id=?`
+        return await query(quarybox, [id, associationId, id]);
     };
     static async deletePlayerMedal(playerId, associationId) {
         const query = util.promisify(connection.query).bind(connection);
