@@ -2,12 +2,20 @@
     <h2 class="mt-5 text-center">Mange All Issues</h2>
     <div class="row mt-3 mb-3 g-5">
         <div class="col-sm-3 text-center  mb-3 mb-sm-0" *ngFor="let item of playerInfoIssues">
-            <div class="card">
+            <!-- <div class="card"> -->
+              <!-- <div class="card-body"> -->
+                <!-- <h6 class="card-title name  text-white p-1 ">Request To Change playerInfo</h6> -->
+                <!-- <h5 class="card-title d-flex flex-column">{{item.playerName}}</h5> -->
+                <!-- <p class="card-text">{{item.description}}.</p> -->
+                <!-- <a href="#" class="btn btn-outline-dark button" [routerLink]="['/informationRequest',item.requestID]">Mange</a> -->
+              <!-- </div> -->
+            <!-- </div> -->
+            <div class="card" >
+              <img src="../../../../assets/issues.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h6 class="card-title name  text-white p-1 ">Request To Change playerInfo</h6>
-                <h5 class="card-title d-flex flex-column">{{item.playerName}}</h5>
-                <p class="card-text">{{item.description}}.</p>
-                <a href="#" class="btn btn-outline-dark button" [routerLink]="['/informationRequest',item.requestID]">Mange</a>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
