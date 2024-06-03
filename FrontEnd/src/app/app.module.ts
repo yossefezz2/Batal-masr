@@ -105,7 +105,7 @@ registerLocaleData(tr);
     ReqToEditInfoComponent,
     InformationRequestComponent,
     AddMedalReqComponent,
-    EditMedalRequestComponent
+    EditMedalRequestComponent,
   ],
   imports: [
     

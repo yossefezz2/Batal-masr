@@ -35,6 +35,7 @@ export class AddPlayerComponent {
 
   handelForm() {
     const userData = this.addPlayer.value;
+    
     this.isLoading = true;
     if (this.addPlayer.valid) {
       const formData = new FormData();
@@ -44,6 +45,8 @@ export class AddPlayerComponent {
       formData.append('height', userData.height);
       formData.append('weight', userData.weight);
       formData.append('club', userData.club);
+      formData.append('email', userData.email);
+      formData.append('password', userData.password);
 
       // Check if img control exists before setting its value
       const imgControl = this.addPlayer.get('img');
@@ -59,6 +62,8 @@ export class AddPlayerComponent {
             this.errMessage = '';
           },
           error: (err) => {
+            console.log(err);
+            
             this.isLoading = false;
             this.errMessage = err.error.data;
           },

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { PlayerService } from 'src/app/core/services/player.service';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
 @Component({
   selector: 'app-edit-medal-request',
@@ -71,10 +70,15 @@ ngOnInit(): void {
     
     const formattedDate2 = originalDate2.toISOString().split('T')[0];
     this .model2.MedalAchievementDate =formattedDate2
+        },error:(err)=>{
+          this.errMessage=err.data
         }
       })
+      
     }
   });
+
+
   this._RepresntorService.getAllChampionships().subscribe({
     next: (res) => {
       let data = res.data
@@ -84,7 +88,6 @@ ngOnInit(): void {
         // this.nameArray.push(data[i].id+"-"+data[i].name +"-"+ data[i].typeOfChampionship +"-"+data[i].gender)
 
       }
-      console.log(this.nameArray);
 
     }
   })
@@ -95,7 +98,7 @@ acceptReq(){
   this._RepresntorService.acceptEditMedal(this.reqId).subscribe({
     next:(res)=>{
       console.log(res);
-      // this._Router.navigate(['/MangeIssues'])
+      this._Router.navigate(['/MangeIssues'])
 
       this._ToastrService.success('The Request has been Accepted ');
 
@@ -110,10 +113,13 @@ acceptReq(){
 
 }
 rejectReq(){
+  let x = typeof this.reqId
+  console.log(x);
+  
   this._RepresntorService.rejectEditMedal(this.reqId).subscribe({
     next:(res)=>{
       console.log(res);
-      // this._Router.navigate(['/MangeIssues'])
+      this._Router.navigate(['/MangeIssues'])
 
       this._ToastrService.success('The Request has been rejected ');
 
