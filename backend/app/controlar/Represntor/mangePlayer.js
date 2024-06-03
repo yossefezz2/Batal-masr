@@ -27,11 +27,12 @@ class mangePlayer {
                 club: req.body.club,
                 img: "http://localhost:3000/" + f.replace(`public\\`, "")
             };
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
             let dataEmail = {
                 id: nId1,
                 name: req.body.name,
                 email: req.body.email,
-                password: await bcrypt.hash(req.body.password, 10),
+                password: hashedPassword,
                 type: "player",
                 association: req.user.association,
                 playerId: nId1
@@ -42,6 +43,7 @@ class mangePlayer {
             helpers.resGenerator(res, 200, true, data, "add player")
         }
         catch (error) {
+            console.log(error);
             helpers.resGenerator(res, 500, false, error.message, "can't add player")
         }
     }
