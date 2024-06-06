@@ -102,7 +102,7 @@ export class AddMedalReqComponent {
     this._RepresntorService.acceptAddMedal(this.reqId).subscribe({
       next:(res)=>{
         console.log(res);
-        // this._Router.navigate(['/MangeIssues'])
+        this._Router.navigate(['/MangeIssues'])
   
         this._ToastrService.success('The Request has been Accepted ');
   

@@ -27,14 +27,13 @@ class playerInfoIssues {
             let dataPlayer = {
                 name: data[0].playerName,
                 birthOfDate: data[0].birthOfDate,
-                gender: data[0].gender,
                 height: data[0].height,
                 weight: data[0].weight,
                 associationId: req.user.association,
                 club: data[0].club,
             };
             await playerInfoIssuesService.acceptPlayerInfo(dataPlayer,req.params.id,data[0].playerId)
-            helpers.resGenerator(res, 200, true, dataMadel, "Accept request")
+            helpers.resGenerator(res, 200, true, dataPlayer, "Accept request")
         }
         catch (error) {
             if (error.message == "not issue found") {
