@@ -69,7 +69,8 @@ export class AddMedalComponent {
 
         }, error: (err) => {
           this.isLoading = false;
-          this.errMessage = err.error.data
+          
+          this.errMessage = err.error.message
 
         }
       })

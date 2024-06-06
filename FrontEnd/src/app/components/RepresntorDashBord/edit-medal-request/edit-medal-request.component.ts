@@ -16,8 +16,6 @@ export class EditMedalRequestComponent {
     year: null,
     championshipID: null,
     description:'',
-    playerId:'',
-    id:''
   }
   model2: any = {
     MedalAchievementDate: null,
@@ -153,7 +151,7 @@ rejectReq(){
     },
     error:(err)=>{
       
-      this.errMessage = err.error.data
+      this.errMessage = err.error.message
     }
     
   })

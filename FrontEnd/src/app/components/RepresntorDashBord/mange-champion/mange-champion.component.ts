@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { RepresntorService } from 'src/app/core/services/represntor.service';
   styleUrls: ['./mange-champion.component.scss']
 })
 export class MangeChampionComponent {
-  constructor(private _RepresntorService:RepresntorService){}
+  constructor(private _RepresntorService:RepresntorService,private _ToastrService:ToastrService){}
   allChampionships:any={}
   p:any
   total :any
@@ -35,6 +36,8 @@ export class MangeChampionComponent {
         this._RepresntorService.getAllChampionships().subscribe({
           next:(res)=>{
             this.allChampionships =res.data
+            this._ToastrService.success('The Champion has been Deleted successfully');
+
           }
         })
     

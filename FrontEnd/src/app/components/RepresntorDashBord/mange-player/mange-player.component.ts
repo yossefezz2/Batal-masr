@@ -39,7 +39,7 @@ deletePlayer(id:string){
   this._RepresntorService.deletePlayer(id).subscribe({
     next:(res)=>{
       console.log(res);
-      this._ToastrService.success('The account has been Deleted successfully');
+      this._ToastrService.success('The player has been Deleted successfully');
       this._RepresntorService.getAllPlayers().subscribe({
         next:(res)=>{
           this.allPlayers =res.data
