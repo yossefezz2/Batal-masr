@@ -31,7 +31,7 @@ constructor(private _AuthService:AuthService,private _Router:Router){}
         localStorage.setItem('_token' ,res.data.token)
         localStorage.setItem('_type',type)
         if (type == "admin") {
-           this._Router.navigate(['/Adminhome']) 
+           this._Router.navigate(['/MangeRepresntor']) 
         }else if(type == "representorOfAssociation"){
           this._Router.navigate(['/mangePlayer']) 
         }else if(type == "agentsOfMinistry"){

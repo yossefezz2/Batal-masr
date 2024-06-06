@@ -65,7 +65,7 @@ export class AddPlayerComponent {
             console.log(err);
             
             this.isLoading = false;
-            this.errMessage = err.error.data;
+            this.errMessage = err.error.message;
           },
         });
       }
@@ -78,19 +78,4 @@ export class AddPlayerComponent {
       this.addPlayer.get('img')?.setValue(file);
     }
   }
- /*  validateImageSize(group:FormGroup) :void{
-    const img = group.get('img');
-
-    if (img?.value === '') {
-      img.setErrors({required:true})
-      
-    }
-    else if (img && img.value && img.value.size) {
-      const fileSize = img.value.size;
-      const validSize = 400 * 600;
-      if (fileSize > validSize) {
-        img.setErrors({ImgSize:true})
-      }
-    }
-  } */
 }

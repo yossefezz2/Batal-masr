@@ -4,7 +4,7 @@
             <h1 class="text-center mb-5">Add Medal</h1>
             <form [formGroup]="addMedal" (ngSubmit)="handelForm()">
                 <div class="form-group">
-                    <label for="MedalAchievementDate" class="form-label">data of championship *</label>
+                    <label for="MedalAchievementDate" class="form-label">date of championship *</label>
                     <input type="date" class="form-control" formControlName="MedalAchievementDate" id="MedalAchievementDate">
                     <div class="alert alert-danger mt-1" *ngIf="addMedal.get('MedalAchievementDate')?.errors && (addMedal.get('MedalAchievementDate')?.touched ||addMedal.get('MedalAchievementDate')?.value.length>0) ">
                         <p class="m-0 " *ngIf="addMedal.get('MedalAchievementDate')?.getError('required')">birthOfDate is required</p>
