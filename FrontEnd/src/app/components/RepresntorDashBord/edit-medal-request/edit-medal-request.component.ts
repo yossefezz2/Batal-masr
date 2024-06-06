@@ -15,7 +15,9 @@ export class EditMedalRequestComponent {
     isWin: true,
     year: null,
     championshipID: null,
-    description:''
+    description:'',
+    playerId:'',
+    id:''
   }
   model2: any = {
     MedalAchievementDate: null,

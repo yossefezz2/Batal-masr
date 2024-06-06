@@ -27,7 +27,7 @@ export class ReqToEditInfoComponent {
       birthOfDate: new FormControl('', [Validators.required]),
       height: new FormControl('', [Validators.required]),
       weight: new FormControl('', [Validators.required]),
-      club: new FormControl('', [Validators.required]),
+      club: new FormControl('', ),
       description: new FormControl('', [Validators.required]),
     });
     ngOnInit(): void {
