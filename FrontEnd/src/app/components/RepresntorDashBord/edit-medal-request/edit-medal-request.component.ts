@@ -151,7 +151,7 @@ rejectReq(){
     },
     error:(err)=>{
       
-      this.errMessage = err.error.data
+      this.errMessage = err.error.message
     }
     
   })
