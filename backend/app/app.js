@@ -19,6 +19,7 @@ const SharedIssuesRoutes=require('../routes/Represntor/mange-IssuesRoutes/Shared
 const AddMedalIssuesRoutes=require('../routes/Represntor/mange-IssuesRoutes/AddMedalIssuesRoutes')
 const EditMedalIssuesRoutes=require('../routes/Represntor/mange-IssuesRoutes/EditMedalIssuesRoutes')
 const PlayerInfoIssuesRoutes=require('../routes/Represntor/mange-IssuesRoutes/PlayerInfoIssuesRoutes')
+const useModelRoutes=require('../routes/agent/useModelRoutes')
 app.use(express.static(path.join(__dirname,"../public")))
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
@@ -44,6 +45,7 @@ app.use("/representor/PlayerInfoIssues",PlayerInfoIssuesRoutes)
 // agent routes
 app.use("/agent/playerInfo",DisplayPlayerInfoRoute)
 app.use("/agent/associationInfo",DisplayAssociationInfoRoute)
+app.use("/agent/useModal",useModelRoutes)
 
 // player routes
 app.use("/player",RequestPlayerRoutes)
