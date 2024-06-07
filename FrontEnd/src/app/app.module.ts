@@ -58,6 +58,10 @@ import { ReqToEditInfoComponent } from './components/Player/req-to-edit-info/req
 import { InformationRequestComponent } from './components/RepresntorDashBord/information-request/information-request.component';
 import { AddMedalReqComponent } from './components/RepresntorDashBord/add-medal-req/add-medal-req.component';
 import { EditMedalRequestComponent } from './components/RepresntorDashBord/edit-medal-request/edit-medal-request.component';
+import { PredictedPlayersComponent } from './components/AgentOfMinistryDashBoard/predicted-players/predicted-players.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
+import { AuthNotFoundComponent } from './components/Admin/auth-not-found/auth-not-found.component';
 registerLocaleData(tr);
 @NgModule({
   declarations: [
@@ -106,6 +110,9 @@ registerLocaleData(tr);
     InformationRequestComponent,
     AddMedalReqComponent,
     EditMedalRequestComponent,
+    PredictedPlayersComponent,
+
+    AuthNotFoundComponent,
   ],
   imports: [
     
@@ -121,10 +128,16 @@ registerLocaleData(tr);
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule
     
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true}],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
+
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

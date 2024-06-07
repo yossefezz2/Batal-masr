@@ -90,6 +90,10 @@
     margin-top: 30px;
     color: #000;
     }
+    .ngx-pagination a, .ngx-pagination button {
+      cursor: pointer;
+      text-decoration: none!important;
+  }
     ::ng-deep .ngx-pagination .current {
       padding: .1875rem .625rem!important;
       background: #000!important;

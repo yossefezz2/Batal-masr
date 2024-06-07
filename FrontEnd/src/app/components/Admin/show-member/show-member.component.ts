@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/core/services/admin.service';
@@ -9,11 +9,15 @@ import { AdminService } from 'src/app/core/services/admin.service';
   styleUrl: './show-member.component.scss'
 })
 export class ShowMemberComponent {
+  @ViewChild('top') topElement!: ElementRef;
+
   assosiationName:any=''
   Allmembers:any={}
   p:any
 total :any
 term:string=''
+notFound:string=''
+
 constructor(private _AdminService:AdminService,private _ActivatedRoute:ActivatedRoute ,private _ToastrService:ToastrService){}
 
 ngOnInit(): void {
@@ -30,6 +34,8 @@ ngOnInit(): void {
       console.log(this.Allmembers);
       
 
+    },error:()=>{
+      this.notFound='notfounded'
     }
   })
 
@@ -37,7 +43,8 @@ ngOnInit(): void {
 }
 pageChanged(eve: any) {
   console.log(eve);
-  
+  this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
+
   this.p=eve
 }
 deleteAgent(id:string){

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
 
@@ -8,6 +8,7 @@ import { RepresntorService } from 'src/app/core/services/represntor.service';
   styleUrls: ['./mange-champion.component.scss']
 })
 export class MangeChampionComponent {
+  @ViewChild('top') topElement!: ElementRef;
   constructor(private _RepresntorService:RepresntorService,private _ToastrService:ToastrService){}
   allChampionships:any={}
   p:any
@@ -25,7 +26,7 @@ export class MangeChampionComponent {
     }
     pageChanged(eve: any) {
       console.log(eve);
-      
+      this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
       this.p=eve
     }
     

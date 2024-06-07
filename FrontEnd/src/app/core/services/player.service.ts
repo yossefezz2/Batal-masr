@@ -31,4 +31,5 @@ export class PlayerService {
     return this._HttpClient.post(this.baseUrl + '/player/requestPlayerInfo', userData)
   }
 
+
 }

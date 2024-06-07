@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { RepresntorService } from 'src/app/core/services/represntor.service';
   styleUrl: './mange-issues.component.scss'
 })
 export class MangeIssuesComponent {
-
+  @ViewChild('top') topElement!: ElementRef;
 constructor(private _RepresntorService:RepresntorService){}
 playerInfoIssues:any={}
 requestMedal:any={}
@@ -28,7 +28,7 @@ ngOnInit(): void {
 }
 pageChanged(eve: any) {
   console.log(eve);
-  
+  this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
   this.p=eve
 }
 
