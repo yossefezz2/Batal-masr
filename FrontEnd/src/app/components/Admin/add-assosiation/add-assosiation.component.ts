@@ -29,6 +29,8 @@ export class AddAssosiationComponent {
           this.errMessage=''
           
         },error:(err)=>{
+          console.log(err);
+          
           this.isLoading=false; 
           this.errMessage=err.error.data
           

@@ -1,4 +1,4 @@
-<div class="container-fluid user-list-page bg-body-tertiary mt-2">
+<div class="container-fluid user-list-page bg-body-tertiary mt-2" #top *ngIf="notFound==''">
     <h1 class="text-center text-dark  p-4"> Members In Assosiation</h1>
     <input type="text" placeholder="Search..." class="form-control w-75 m-auto  mb-5" [(ngModel)]="term">
 
@@ -36,3 +36,11 @@
     nextLabel="Next">
   </pagination-controls>
 </div>
+
+<section class="notfound-container d-flex justify-content-center align-items-center" *ngIf="notFound!=''">
+	<div class="notfound-content shadow p-4 text-center">
+	  <i class="fas fa-exclamation-circle notfound-icon"></i>
+	  <h2 class="notfound-title"> Not Found Members in this Association </h2>
+	  <!-- <p class="notfound-message">We couldn't find the player you were looking for. Please check the name and try again.</p> -->
+	</div>
+  </section>

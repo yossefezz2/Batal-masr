@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/core/services/admin.service';
 @Component({
@@ -7,7 +7,9 @@ import { AdminService } from 'src/app/core/services/admin.service';
   styleUrls: ['./mange-represntor.component.scss']
 })
 export class MangeRepresntorComponent {
-constructor(private _AdminService:AdminService,private _ToastrService: ToastrService){}
+  @ViewChild('top') topElement!: ElementRef;
+
+  constructor(private _AdminService:AdminService,private _ToastrService: ToastrService){}
 allAgents:any={}
 AssosiationArray: any = [];
 term:string=''
@@ -35,6 +37,7 @@ this._AdminService.getAllAgents().subscribe({
 }
 pageChanged(eve: any) {
   console.log(eve);
+  this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
   
   this.p=eve
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RepresntorService } from 'src/app/core/services/represntor.service';
@@ -10,6 +10,7 @@ import { RepresntorService } from 'src/app/core/services/represntor.service';
   styleUrls: ['./mange-player.component.scss']
 })
 export class MangePlayerComponent {
+  @ViewChild('top') topElement!: ElementRef;
   allPlayers:any={}
   term:string=''
   p:any
@@ -31,7 +32,7 @@ ngOnInit(): void {
 }
 pageChanged(eve: any) {
   console.log(eve);
-  
+  this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
   this.p=eve
 }
 

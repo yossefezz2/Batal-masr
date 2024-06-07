@@ -43,6 +43,8 @@ import { ReqToEditInfoComponent } from './components/Player/req-to-edit-info/req
 import { InformationRequestComponent } from './components/RepresntorDashBord/information-request/information-request.component';
 import { AddMedalReqComponent } from './components/RepresntorDashBord/add-medal-req/add-medal-req.component';
 import { EditMedalRequestComponent } from './components/RepresntorDashBord/edit-medal-request/edit-medal-request.component';
+import { PredictedPlayersComponent } from './components/AgentOfMinistryDashBoard/predicted-players/predicted-players.component';
+import { AuthNotFoundComponent } from './components/Admin/auth-not-found/auth-not-found.component';
 
 
 const routes: Routes = [
@@ -64,6 +66,7 @@ const routes: Routes = [
     {path:'addAssosiation',canActivate:[adminGuard],component:AddAssosiationComponent,title:'addAssosiation'},
     {path:'updataAssosiation/:id',canActivate:[adminGuard],component:EditAssosiationComponent,title:'updataAssosiation'},
     {path:'showMember/:id',canActivate:[adminGuard],component:ShowMemberComponent,title:'showMember'},
+    
   ]},
   {path:'',component:RepLayoutComponent,children:[
     {path:'',redirectTo:'rephome',pathMatch:'full'},
@@ -85,9 +88,10 @@ const routes: Routes = [
   
   {path:'',component:MinistryLayoutComponent,children:[
     {path:'',redirectTo:'playersInAssos',pathMatch:'full'},
-    {path:'playersInAssos',canActivate:[ministryGuard],component:PlayersInAssosComponent,title:'Players In Assos'},
+    {path:'playersInAssos/:id',canActivate:[ministryGuard],component:PlayersInAssosComponent,title:'Players In Assos'},
     {path:'allAssos',canActivate:[ministryGuard],component:AllAssosComponent,title:'allAssos'},
     {path:'playerDetails/:playerId/:AssosId',canActivate:[ministryGuard],component:MinplayerDetailsComponent,title:'Player Details'},
+    {path:'predictedPlayers',canActivate:[ministryGuard],component:PredictedPlayersComponent,title:'predictedPlayers'},
   ]},
   {path:'',component:PlayerLayoutComponent,children:[
     {path:'',redirectTo:'playerHome',pathMatch:'full'},
@@ -97,6 +101,7 @@ const routes: Routes = [
     {path:'ReqToEditInfo',canActivate:[playerGuard],component:ReqToEditInfoComponent,title:'ReqToEditInfo'},
 
   ]},
+  {path:'**', component:AuthNotFoundComponent , title:'NotFound'}
 
 ];
 

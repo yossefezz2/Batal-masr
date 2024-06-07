@@ -65,7 +65,7 @@ export class AddPlayerComponent {
             console.log(err);
             
             this.isLoading = false;
-            this.errMessage = err.error.message;
+            this.errMessage = err.error.data;
           },
         });
       }

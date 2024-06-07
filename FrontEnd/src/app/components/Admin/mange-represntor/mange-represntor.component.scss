@@ -1,4 +1,6 @@
-
+body{
+  text-decoration: none!important;
+}
 
 .user-list-page {
   color: #fff; 
@@ -97,6 +99,8 @@ select:focus {
 ::ng-deep .ngx-pagination{
   margin-top: 30px;
   color: #000;
+  text-decoration: none!important;
+
   }
   ::ng-deep .ngx-pagination .current {
     padding: .1875rem .625rem!important;
@@ -104,7 +108,11 @@ select:focus {
     color: #fefefe!important;
     cursor: default!important;
     border-radius: 30px!important;
+  text-decoration: none!important;
+
 }
 ::ng-deep .ngx-pagination a:hover{
   border-radius: 30px!important;
+  text-decoration: none!important;
+
 }
