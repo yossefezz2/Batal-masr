@@ -23,7 +23,6 @@ import { AddAssosiationComponent } from './components/Admin/add-assosiation/add-
 import { EditAssosiationComponent } from './components/Admin/edit-assosiation/edit-assosiation.component';
 import { RepLayoutComponent } from './layouts/rep-layout/rep-layout.component';
 import { RepNavbarComponent } from './components/RepresntorDashBord/rep-navbar/rep-navbar.component';
-import { RepHomeComponent } from './components/RepresntorDashBord/rep-home/rep-home.component';
 import { MangePlayerComponent } from './components/RepresntorDashBord/mange-player/mange-player.component';
 import { AddPlayerComponent } from './components/RepresntorDashBord/add-player/add-player.component';
 import {  registerLocaleData } from '@angular/common';
@@ -82,7 +81,6 @@ registerLocaleData(tr);
     RepLayoutComponent,
     AddAssosiationComponent,
     RepNavbarComponent,
-    RepHomeComponent,
     MangePlayerComponent,  
       AddPlayerComponent,
     EditePlayerComponent,
@@ -111,7 +109,6 @@ registerLocaleData(tr);
     AddMedalReqComponent,
     EditMedalRequestComponent,
     PredictedPlayersComponent,
-
     AuthNotFoundComponent,
   ],
   imports: [

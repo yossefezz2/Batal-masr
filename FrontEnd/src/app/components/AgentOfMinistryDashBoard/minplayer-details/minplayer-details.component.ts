@@ -46,8 +46,6 @@ export class MinplayerDetailsComponent  {
   silver_W_International:number=0
   bronze_W_International:number=0
 
-
-
   ratioOfGold:number=0
   ratioOfBronze:number=0
   ratioOfSliver:number=0
@@ -64,11 +62,6 @@ export class MinplayerDetailsComponent  {
      this.playerDetails =res.data[0];
      this.allmedels =res.data;
      console.log(this.allmedels);
-     
-   
-     
-  
-    
      /*⁡⁣⁢⁣**************************𝗘𝘅𝘁𝗿𝗮𝗰𝘁 𝗻𝘂𝗺𝗯𝗲𝗿 𝗼𝗳 𝗠𝗲𝗱𝗮𝗹********************************************⁡ */
     
      for (let i = 0; i < this.allmedels.length; i++) {
@@ -199,7 +192,7 @@ export class MinplayerDetailsComponent  {
         }
       });
       /******************************************************************** */
-      const ctxP2 = document.getElementById('pieChart-2') as HTMLCanvasElement;
+    const ctxP2 = document.getElementById('pieChart-2') as HTMLCanvasElement;
      new Chart(ctxP2, {
         type: 'pie',
         data: {
@@ -248,29 +241,27 @@ export class MinplayerDetailsComponent  {
     
      /*⁡⁢⁢⁡⁢⁣⁣*************************𝗘𝘅𝘁𝗿𝗮𝗰𝘁 𝗹𝗼𝗰𝗮𝗹 𝗼𝗿 𝗜𝗻𝘁𝗲𝗿𝗻𝗮𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗿 𝗰𝗼𝗻𝘁𝗶𝗻𝗲𝗻𝘁𝗮𝗹****************************** ⁡*/
 
-         /* ⁡⁢⁢⁣*************************𝗘𝘅𝘁𝗿𝗮𝗰𝘁 𝗔𝗹𝗹 𝗬𝗲𝗮𝗿𝘀 𝗢𝗳 𝗰𝗵𝗮𝗺𝗽𝗶𝗼𝗻𝗲𝘀*****************************⁡⁡ ⁡*/
+    /* ⁡⁢⁢⁣*************************𝗘𝘅𝘁𝗿𝗮𝗰𝘁 𝗔𝗹𝗹 𝗬𝗲𝗮𝗿𝘀 𝗢𝗳 𝗰𝗵𝗮𝗺𝗽𝗶𝗼𝗻𝗲𝘀*****************************⁡⁡ ⁡*/
          interface Championship {
           year: number;
-          isWin: string; // Assuming isWin can only be "yes" or "no"
+          isWin: string; 
       }
       
       function getChampionshipData(data: Championship[]): number[][] {
-          const yearsMap: { [year: number]: number } = {}; // Object to store years and count of champions
+          const yearsMap: { [year: number]: number } = {};
       
           data.forEach(championship => {
               const year = championship.year;
               if (year in yearsMap) {
-                  // Increment count of champions for existing year
+                 
                   if (championship.isWin === "yes") {
                       yearsMap[year]++;
                   }
               } else {
-                  // Add new year and initialize count of champions
                   yearsMap[year] = championship.isWin === "yes" ? 1 : 0;
               }
           });
       
-          // Convert yearsMap object to a 2D array
           const championships: number[][] = [];
           for (const year in yearsMap) {
               championships.push([parseInt(year), yearsMap[parseInt(year)]]);
@@ -280,7 +271,7 @@ export class MinplayerDetailsComponent  {
       }
       let championshipData = getChampionshipData(this.allmedels);
 
-  this.allYears = championshipData.map(row => row[0]); // Extract first element from each row
+  this.allYears = championshipData.map(row => row[0]); 
 this.numberOfYears = championshipData.map(row => row[1]); 
 this.allYears = this.allYears.map((num: number) => String(num));
 

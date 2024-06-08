@@ -32,13 +32,10 @@ export class AddMedalComponent {
         let data =res.data
         
         for (let i = 0; i < data.length; i++) {
-          this.nameArray.push(data[i])
-          // this.nameArray.push(data[i].id+"-"+data[i].name +"-"+ data[i].typeOfChampionship +"-"+data[i].gender)
-          
+          this.nameArray.push(data[i])   
         }
         console.log( this.nameArray);
-        
-      }
+       }
     })
     this._ActivatedRoute.paramMap.subscribe({
       next:(params)=>{
@@ -46,15 +43,6 @@ export class AddMedalComponent {
       }
     })
   }
-  // onChampionshipChange() {
-  //   const selectedChampionship = this.nameArray.find(item => item.id === this.model.championshipID);
-  //   if (selectedChampionship) {
-  //     this.selectedChampionshipInfo = "Name: " + selectedChampionship.name + " Type of championship: " + selectedChampionship.typeOfChampionship + " Gender: " + selectedChampionship.gender;
-  //   } else {
-  //     this.selectedChampionshipInfo = ""; // Clear the selected championship info if no championship is selected
-  //   }
-  //   console.log(selectedChampionship);
-  // }
   handelForm() {
     const userData = {playerId:this.playerId,...this.addMedal.value};
     this.isLoading = true

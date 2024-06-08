@@ -15,7 +15,6 @@ import { AddAssosiationComponent } from './components/Admin/add-assosiation/add-
 import { EditAssosiationComponent } from './components/Admin/edit-assosiation/edit-assosiation.component';
 import { RepLayoutComponent } from './layouts/rep-layout/rep-layout.component';
 import { MangePlayerComponent } from './components/RepresntorDashBord/mange-player/mange-player.component';
-import { RepHomeComponent } from './components/RepresntorDashBord/rep-home/rep-home.component';
 import { represntorGuard } from './core/Guard/represntor.guard';
 import { adminGuard } from './core/Guard/admin.guard';
 import { loginGuard } from './core/Guard/login.guard';
@@ -69,8 +68,7 @@ const routes: Routes = [
     
   ]},
   {path:'',component:RepLayoutComponent,children:[
-    {path:'',redirectTo:'rephome',pathMatch:'full'},
-    {path:'rephome',canActivate:[represntorGuard],component:RepHomeComponent,title:'rephome'},
+    {path:'',redirectTo:'mangePlayer',pathMatch:'full'},
     {path:'mangePlayer',canActivate:[represntorGuard],component:MangePlayerComponent,title:'mangePlayer'},
     {path:'addPlayer',canActivate:[represntorGuard],component:AddPlayerComponent,title:'Add Player'},
     {path:'editPlayer/:id',canActivate:[represntorGuard],component:EditePlayerComponent,title:'edit Player'},
