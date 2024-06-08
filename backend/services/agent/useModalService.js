@@ -6,7 +6,18 @@ class useModalService {
         const lastFiveYears = new Date().getFullYear()-5;
         console.log(playerIds);
         const query = util.promisify(connection.query).bind(connection);
-        const queryBox = `SELECT * FROM medals WHERE associationId = ? AND year >= ? AND playerId IN (${placeholders});
+        const queryBox = `SELECT 
+        players.name As playerName,
+        medals.id, medals.MedalAchievementDate,
+        medals.typeOfMedal,
+        medals.playerId,
+        medals.championshipID,
+        medals.associationId,
+        medals.year,
+        medals.isWin FROM medals
+        INNER JOIN 
+            players ON players.id = medals.playerId
+        WHERE medals.associationId = ? AND medals.year >= ? AND medals.playerId IN (${placeholders});
             SELECT 
                 players.id AS playerId,
                 players.name As playerName,
