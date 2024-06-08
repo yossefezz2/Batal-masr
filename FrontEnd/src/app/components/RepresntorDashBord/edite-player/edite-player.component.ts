@@ -34,7 +34,7 @@ export class EditePlayerComponent {
       gender: new FormControl('', [Validators.required]),
       height: new FormControl('', [Validators.required]),
       weight: new FormControl('', [Validators.required]),
-      club: new FormControl('', [Validators.required]),
+      club: new FormControl(''),
       img: new FormControl('', [Validators.required]),
     }
    /*  , {validators:[this.validateImageSize] }as FormControlOptions */
