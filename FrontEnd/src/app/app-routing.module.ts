@@ -85,9 +85,9 @@ const routes: Routes = [
   ]},
   
   {path:'',component:MinistryLayoutComponent,children:[
-    {path:'',redirectTo:'playersInAssos',pathMatch:'full'},
-    {path:'playersInAssos/:id',canActivate:[ministryGuard],component:PlayersInAssosComponent,title:'Players In Assos'},
+    {path:'',redirectTo:'allAssos',pathMatch:'full'},
     {path:'allAssos',canActivate:[ministryGuard],component:AllAssosComponent,title:'allAssos'},
+    {path:'playersInAssos/:id',canActivate:[ministryGuard],component:PlayersInAssosComponent,title:'Players In Assos'},
     {path:'playerDetails/:playerId/:AssosId',canActivate:[ministryGuard],component:MinplayerDetailsComponent,title:'Player Details'},
     {path:'predictedPlayers',canActivate:[ministryGuard],component:PredictedPlayersComponent,title:'predictedPlayers'},
   ]},

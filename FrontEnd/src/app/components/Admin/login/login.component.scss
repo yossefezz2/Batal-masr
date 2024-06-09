@@ -70,7 +70,20 @@ h1 {
 .input-field {
     margin-bottom: 30px;
 }
+.icon {
+    color: #000;
+    position: absolute;
+    top: 55%;
+    right: 13px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    z-index: 10000;
 
+  }
 label {
     display: block;
     margin-bottom: 5px;

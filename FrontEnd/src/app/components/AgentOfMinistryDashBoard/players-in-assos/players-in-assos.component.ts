@@ -70,8 +70,8 @@ export class PlayersInAssosComponent {
           console.log(res);
           this._MinistryService.setPerdiction(res.data.perdiction)
           this._MinistryService.setPlayers(res.data.players)
-          this._MinistryService.setSendallPlayersInfo(res.data.allPlayersInfo)
-          this._MinistryService.setLastFiveYearsPlayerInfo(res.data.lastFiveYearsPlayerInfo)
+          this._MinistryService.setSendallPlayersInfo(res.data.allPlayersMadalforever)
+          this._MinistryService.setLastFiveYearsPlayerInfo(res.data.allPlayersMadalLast5Years)
         this._Router.navigate([`/predictedPlayers`])
 
 

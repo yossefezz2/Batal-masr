@@ -70,6 +70,33 @@ class mangeplayer {
         DELETE FROM allusers WHERE id=?`
         return await query(quarybox, [id, associationId, id]);
     };
+    static async getSinglePlayer3(id, associationId) {
+        const query = util.promisify(connection.query).bind(connection);
+                const queryString = `
+            SELECT 
+                players.id AS playerId,
+                players.name As playerName,
+                players.birthOfDate,
+                players.gender As playerGender,
+                players.height,
+                players.img,
+                players.club,
+                association.associationName,
+                allusers.email AS email 
+            FROM 
+                players 
+            INNER JOIN 
+                association ON association.associationID = players.associationId 
+            INNER JOIN 
+            allusers ON players.id = allusers.playerId     
+            WHERE 
+                players.associationId = ? 
+                AND 
+                players.id = ?
+        `;
+
+        return await query(queryString, [associationId, id]);
+    };
     static async deletePlayerMedal(playerId, associationId) {
         const query = util.promisify(connection.query).bind(connection);
         return await query("delete from medals where  playerId =? and associationId =?", [playerId, associationId]);

@@ -136,7 +136,7 @@ class mangePlayer {
     static async getPlayerDetails(req, res) {
         let singlePlayer
         try {
-            singlePlayer = await mangePlayerServices.getSinglePlayer(req.params.id, req.user.association);
+            singlePlayer = await mangePlayerServices.getSinglePlayer3(req.params.id, req.user.association);
             if (singlePlayer.length <= 0) {
                 throw new Error("not users found");
             }

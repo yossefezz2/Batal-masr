@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, viewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Chart from 'chart.js/auto';
 import { DecimalFormatPipe } from 'src/app/core/pips/decimal-format.pipe';
