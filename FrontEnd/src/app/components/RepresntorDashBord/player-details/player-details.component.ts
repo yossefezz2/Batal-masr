@@ -36,6 +36,8 @@ export class PlayerDetailsComponent {
     this._RepresntorService.getPlayerDetals(this.playerId).subscribe({
       next: (res) => {
         this.playerDetails = res.data[0];
+        console.log(res.data);
+        
         this.calculatePlayerAge(res.data[0].birthOfDate);
         this.updateMedals(res.data);
       }

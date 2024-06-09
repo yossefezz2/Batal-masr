@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="col-md-3 " *ngFor="let agent of allAgents|repfilter:term| paginate: { id: 'foo', itemsPerPage: 7, currentPage: p, totalItems: total}">
-            <div class="user-card shadow" [routerLink]="['/showMember', agent.associationName]">
+            <div class="user-card shadow" >
                 <div class="icon w-100 m-auto">
                 <img src="../../../assets/assoc.png" alt="User Profile Picture">
                 </div>
@@ -21,7 +21,7 @@
                     <br>
                     <div class="buttons d-flex flex-column">
                         <button class="btn btn-secondary mb-3"  [routerLink]="['/updataAssosiation',agent.associationID]">EDIT REPRESNTOR</button>
-                        <button class="btn showMember mb-3" >SHOW MEMBER</button>
+                        <button class="btn showMember mb-3" [routerLink]="['/showMember', agent.associationName]">SHOW MEMBER</button>
                         <button class="btn btn-danger" (click)="deleteAgent(agent.associationID)">DELETE REPRESNTOR</button>
                     </div>
 

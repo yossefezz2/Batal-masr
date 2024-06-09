@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LoginComponent {
 errMessage:string='';
 isLoading:boolean=false;
+visible:boolean=false;
+changeType:boolean=false;
 constructor(private _AuthService:AuthService,private _Router:Router){}
   login:FormGroup=new FormGroup({
     email:new FormControl('',Validators.required),
@@ -35,7 +37,7 @@ constructor(private _AuthService:AuthService,private _Router:Router){}
         }else if(type == "representorOfAssociation"){
           this._Router.navigate(['/mangePlayer']) 
         }else if(type == "agentsOfMinistry"){
-          this._Router.navigate(['/allAssos']) 
+          this._Router.navigate(['/allAssos'])
         }else if(type == "player"){
           this._Router.navigate(['/playerHome']) 
         }
@@ -48,5 +50,9 @@ constructor(private _AuthService:AuthService,private _Router:Router){}
     })
    }
     
+  }
+  viewPass():void{
+    this.visible=!this.visible
+    this.changeType=!this.changeType
   }
 }
